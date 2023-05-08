@@ -1,0 +1,138 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Scantron_HeaderFooter.master" AutoEventWireup="true" CodeFile="Scantron_BannerNav.master.cs" 
+    Inherits="Scantron_BannerNav" %>
+<%@ MasterType VirtualPath="~/Scantron_HeaderFooter.master" %>
+<%--  --%>
+<asp:Content ID="Content1" ContentPlaceHolderID="For_HtmlHead" Runat="Server">
+        <asp:ContentPlaceHolder id="For_HtmlHead" runat="server">
+        </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="For_Title_A" Runat="Server">
+    <!-- NAVIGATION: STATIC BAR
+                    href="javascript:" 
+         -->
+                
+    <div id="dvChild_StaticNav_Region"> 
+        <div id="dvChild_StaticNav_ContentStyling"> 
+        <a id="HOME" 
+            href="/default.aspx" 
+            >HOME</a>
+        <a id="_Solutions" 
+            onmouseover="javascript:showNav('_Solutions');" 
+            onmouseout="javascript:hideNav('_Solutions');" 
+            >SOLUTIONS</a>
+        <a id="_Company" 
+            href="/public/company.aspx" 
+            onmouseover="javascript:showNav('_Company');" 
+            onmouseout="javascript:hideNav('_Company');" 
+            >COMPANY</a>
+        <a id="_Resources" 
+            href="/public/resources.aspx" 
+            onmouseover="javascript:showNav('_Resources');" 
+            onmouseout="javascript:hideNav('_Resources');" 
+            >RESOURCES</a>
+        <a id="_ServiceCommand" 
+            href="/private/shared/menu.aspx" 
+            >ServiceCOMMAND<span style="font-size: 11px; vertical-align: top; position: relative; top: -3px;">&#174;</span></a>
+        <a id="_Careers" 
+            href="http://www.scantron.com/about-us/company/careers" 
+            >CAREERS</a>
+        <a id="_ContactUs" 
+            href="/public/contact.aspx" 
+            >CONTACT US</a>
+    </div><!-- end nav -->
+</div><!-- end nav wrap -->
+
+<!-- These pop up divs are "absolute" positioned, so they take up no space on the main page -->
+        <div id="dvChild_StaticNav_Solutions" 
+        onmouseover="return showNav('_Solutions')" 
+        onmouseout="return hideNav('_Solutions')">
+        <div class="navLevelTwo"><a href="/public/ManagedServices.aspx">Managed IT Services</a></div>
+            <div class="navLevelThree"><a href="/public/AffianceSuite.aspx">affianceSUITE Support for SMB</a></div>
+            <div class="navLevelThree"><a href="/public/Authos.aspx">Authos Enterprise IT Support and Project Delivery</a></div>
+        <div class="navLevelTwo"><a href="/public/MpsBenefits.aspx">Managed Print Services</a></div>
+            <div class="navLevelThree"><a href="/public/ManagedPrint.aspx">MPowerPrint Managed Print Services</a></div>
+            <div class="navLevelThree"><a href="/public/MpsDeviceMonitoring.aspx">Monitoring Your Devices</a></div>
+        <div class="navLevelTwo"><a href="/public/HardwareMaintenance.aspx">Hardware Services</a></div>
+            <div class="navLevelThree"><a href="/public/Onsite.aspx">Onsite Maintenance</a></div>
+            <div class="navLevelThree"><a href="/public/ScantronProducts.aspx">Scantron Scanner Services</a></div>
+            <div class="navLevelThree"><a href="/public/Depot.aspx">Depot Repair Services</a></div>
+            <div class="navLevelThree"><a href="/public/SelfService.aspx">Cooperative Self Service</a></div>
+        <div class="navLevelTwo"><a href="/public/Implementation.aspx">Implementation Services</a></div>
+        <div class="navLevelTwo"><a href="/public/Supplies.aspx">Order Consumable Products</a></div>
+    </div>
+
+    <div id="dvChild_StaticNav_Company" 
+        onmouseover="return showNav('_Company')" 
+        onmouseout="return hideNav('_Company')">
+        <div class="navLevelTwo"><a href="/public/WhySTS.aspx">Why Scantron Technology Solutions</a></div>
+        <div class="navLevelTwo"><a href="/public/Mission.aspx">Mission</a></div>
+        <div class="navLevelTwo"><a href="/public/Locations.aspx">Locations</a></div>
+        <div class="navLevelTwo"><a href="/public/Technologies.aspx">Technologies</a></div>
+        <div class="navLevelTwo"><a href="/public/Certifications.aspx">Certifications</a></div>
+        <div class="navLevelTwo"><a href="/public/PressReleases.aspx">Press Releases</a></div>
+        <div class="navLevelTwo"><a href="/public/Industries.aspx">Industries</a></div>
+        <div class="navLevelTwo"><a href="http://www.scantron.com/career" target="scantron">Scantron Assessment Solutions</a></div>
+        <div class="navLevelTwo"><a href="/public/TechnologyPartnerships.aspx">Technology Partnerships</a></div>
+        <div class="navLevelTwo"><a href="/public/Partnerships.aspx">Business Partnerships and Alliances</a></div>
+        <div class="navLevelThree"><a href="/public/PartnershipBenefits.aspx">Partnership and Alliance Benefits</a></div>
+    </div>
+                    
+    <div id="dvChild_StaticNav_Resources" 
+        onmouseover="return showNav('_Resources')" 
+        onmouseout="return hideNav('_Resources')">
+        <div class="navLevelTwo"><a href="/public/Library.aspx">Library</a></div>
+        <div class="navLevelTwo"><a href="/public/Security.aspx">Security and Compliance</a></div>
+        <div class="navLevelTwo"><a href="/public/Testimonials.aspx">Testimonials</a></div>                       
+    </div>
+                    
+                    
+    <asp:Panel ID="pnChild_Banner_Region" runat="server"> <%-- 274 here is max, but images can be smaller at times --%>
+        <asp:Panel ID="pnChild_Banner_ContentStyling" runat="server" Height="274" CssClass="pnChild_Banner_ContentStyling">
+            <div id="dvChild_Banner_ContentStyling">
+                <asp:ContentPlaceHolder ID="For_Title_A" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </asp:Panel><!-- end banner content styling -->
+    </asp:Panel><!-- end banner region -->
+                    
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="For_Title_B" Runat="Server">
+    <asp:ContentPlaceHolder id="For_Title_B" runat="server" Visible="false">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="For_Body_A" Runat="Server">
+    <asp:ContentPlaceHolder id="For_Body_A" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="For_Body_B" Runat="Server" Visible="false">
+    <asp:ContentPlaceHolder id="For_Body_B" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="For_Body_C" Runat="Server" Visible="true">
+    <asp:ContentPlaceHolder id="For_Body_C" runat="server">
+<%-- 
+    <asp:Label ID="lbMove" runat="server" Text="Our Website Is Moving!" />
+    <asp:Panel ID="pnMove" runat="server" Visible="false">
+        
+        <span style="padding-left: 15px; padding-right: 15px; padding-top: 5px; padding-bottom: 9px; background-color: #FFFFFF; border: 1px solid #aaaaaa">
+            
+        </span>
+    </asp:Panel>
+
+    <span style="padding-left: 15px; padding-right: 15px; padding-top: 5px; padding-bottom: 5px; background-color: #FFFFFF;"><asp:Label ID="lbMove" runat="server" /></span>
+<!-- This was the window to Scantron's javascript engine they controlled from their side -->
+        <script type="text/javascript">
+            (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+            t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+            })(window, document, '_gscq','script','//widgets.getsitecontrol.com/141392/script.js');
+        </script>
+
+    --%>
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<%-- --%>
+

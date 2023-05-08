@@ -1,0 +1,38 @@
+﻿<serviceDocument timestamp="2016-04-29T09:20:55" transactionId="321" version="2.1">
+  <header>
+    <docType>ESR Client</docType>
+    <sender type="CUSTSYSID">KEY</sender>
+    <receiver type="CUSTSYSID">HTS</receiver>
+    <requestSyncType>asynchronous</requestSyncType>
+  </header>
+  <request deploymentMode="test">
+    <serviceRequest action="new">
+      <ticketInfo>
+        <refTicketNumber>HTS_101</refTicketNumber>
+        <openedDateStamp>2016-04-29T13:20:55</openedDateStamp>
+        <sentDateStamp>2016-04-29T13:20:55</sentDateStamp>
+        <transDateStamp>2016-04-29T13:20:55</transDateStamp>
+        <problemDescription>Why did this not send the tech name update?</problemDescription>
+        <status code="open"/>
+        <severity code="3"/>
+      </ticketInfo>
+      <contact type="primary">
+        <company>CO649</company>
+        <firstName>DAVID</firstName>
+        <lastName>MOSKO</lastName>
+        <phone countryCode="1">216-813-3727</phone>
+      </contact>
+      <serviceAddress site="CO649">
+        <street>829 16TH ST DENVER</street>
+        <city>KEY-CHAMPA</city>
+        <state>CO</state>
+        <zip>80202</zip>
+      </serviceAddress>
+      <equipment>
+        <serial>J4PF000568</serial>
+        <deviceName/>
+        <deviceStatus/>
+      </equipment>
+    </serviceRequest>
+  </request>
+</serviceDocument>

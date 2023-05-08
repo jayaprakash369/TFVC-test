@@ -1,0 +1,81 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+<asp:GridView runat="server" BackColor="White" BorderStyle="Solid" BorderWidth="1px" >
+   <AlternatingRowStyle BackColor="#EEEEEE" />
+</asp:GridView>
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+green: #3a7728
+--%>
+
+<%-- Default Skins --%>
+
+<asp:Button       runat="server" CssClass="buttonDefault" />
+
+<asp:DropDownList       runat="server" CssClass="dropDownListDefault" />
+
+<asp:RadioButton        runat="server" CssClass="radioButtonDefault" />
+
+<asp:RadioButtonList    runat="server" CssClass="radioButtonListDefault" />
+
+<asp:CheckBoxList       runat="server" CssClass="checkBoxListDefault" />
+
+<asp:HyperLink          runat="server" CssClass="hyperLinkDefault" />
+
+<asp:LinkButton          runat="server" CssClass="linkButtonDefault" />
+
+
+<%-- Named Skins 
+
+<asp:LinkButton                                 runat="server"  ForeColor="#0000CD" />
+--%>
+<asp:Button         SkinId="buttonPrimary" runat="server" CssClass="myBtn myBtn-primary" />
+<asp:Button         SkinId="buttonSecondary" runat="server" CssClass="myBtn myBtn-secondary" />
+
+<asp:HyperLink      SkinId="hyperlinkLarge"      runat="server"  Font-Size="16"  ForeColor="#009688" />
+
+<asp:Label          SkinId="labelError"         runat="server"  Font-Size="13"  ForeColor="#94002c" />
+<asp:Label          SkinId="labelOnDark"         runat="server"  Font-Size="13"  ForeColor="#FFFFCC" />
+
+<asp:Label          SkinId="labelMessage"         runat="server"  Font-Size="12"  ForeColor="#1E90FF" />
+
+<asp:RadioButton   SkinId="RadioButton1"   runat="server" CssClass="radioButton1" />
+
+<asp:RadioButtonList   SkinId="RadioButtonList1"   runat="server" CssClass="radioButtonListDefault" />
+
+<asp:Calendar       SkinId="calendarBlue"      runat="server" 
+                    BackColor="White" 
+                    BorderColor="#999999" 
+                    Font-Names="'sans-serif', Verdana, Arial" 
+                    Font-Size="8pt" 
+                    Height="61px" 
+                    Width="150" 
+                    CellPadding="0" 
+                    DayNameFormat="Shortest" >
+                    <DayHeaderStyle 
+                    Font-Bold="True" 
+                    Font-Size="7pt" 
+                    BackColor="#006FA1" ForeColor="White" />
+                    <NextPrevStyle />
+                    <OtherMonthDayStyle ForeColor="#BBBBBB" />
+                    <SelectedDayStyle BackColor="#007A40" ForeColor="White" Font-Bold="True" />
+                    <SelectorStyle BackColor="#AD0034" />
+                    <TitleStyle BackColor="#CCCCCC" Font-Bold="True" BorderColor="Black" ForeColor="#333333" />
+                    <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                    <WeekendDayStyle BackColor="#EEEEEE" /></asp:Calendar>
+
+<asp:CheckBox       SkinId="checkBox1"          runat="server" CssClass="checkBox1" />
+<asp:CheckBox       SkinId="checkBox2"          runat="server" CssClass="checkBox2" />
+<asp:CheckBox       SkinId="checkBox3"          runat="server" CssClass="checkBox3" />
+<asp:CheckBox       SkinId="checkBoxHidingText" runat="server" CssClass="checkBoxHidingText" />
+

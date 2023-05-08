@@ -1,0 +1,29 @@
+﻿<%@LANGUAGE="VBScript"%>
+<%
+'<body onload="return setup();">
+' To CALL THIS PAGE
+' http://localhost:81/public/android/testEmail.asp
+%>
+<html>
+<head>
+</head>
+<body style="margin: 20px;">
+
+<form name="form1" method="post" action="email/AddDeleteList.aspx?tech=1814">
+<!-- 
+<input type="hidden" name="user" value="1862" />
+<input type="hidden" name="job" value="Send_Movestamp" />
+<input type="hidden" name="ctr" value="400" />
+<input type="hidden" name="tck" value="3731" />
+<input type="hidden" name="emp" value="2070" />
+<input type="hidden" name="dat" value="2014-11-03 15:29:01.000" />
+Ticket 900-32060 WORKED for Bed Bath and Beyond
+<input type="hidden" name="tech" value="1814" />
+-->
+
+
+
+<input type="submit" name="submit1" value="Emulate Email Call" />
+</form>
+</body>
+</html>

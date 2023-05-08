@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<serviceDocument version="2.1" transactionId="0000000001607091" timestamp="2016-05-19T20:56:56">
+  <header>
+    <docType>Service Request</docType>
+    <sender type="CUSTSYSID">HTS</sender>
+    <receiver type="CUSTSYSID">KEY</receiver>
+    <requestSyncType>synchronous</requestSyncType>
+  </header>
+  <request deploymentMode="test">
+    <serviceRequest action="update">
+      <ticketInfo ticketNumber="210-11146">
+        <refTicketNumber>IM1479135</refTicketNumber>
+        <openedDateStamp>2016-05-19T20:49:48</openedDateStamp>
+        <sentDateStamp>2016-05-19T20:49:48</sentDateStamp>
+        <transDateStamp>2016-05-19T20:49:48</transDateStamp>
+        <problemDescription>TEST #4</problemDescription>
+        <status code="open"/>
+        <priority code="3"/>
+        <technician>
+          <firstName> STEVE E</firstName>
+          <lastName>CARLSON</lastName>
+        </technician>
+      </ticketInfo>
+      <contact type="primary">
+        <company>KCWA0105</company>
+        <firstName>SUSAN</firstName>
+        <lastName>MEYERDIERK</lastName>
+        <phone countryCode="1">2532746676</phone>
+      </contact>
+      <serviceAddress site="KCWA0105">
+        <street>10439 Gravelly Lake Drive Sw</street>
+        <city>Tacoma</city>
+        <state>WA</state>
+        <zip>98405</zip>
+      </serviceAddress>
+      <equipment>
+        <serial>2UA2010MHB</serial>
+        <model>HP 6200</model>
+      </equipment>
+    </serviceRequest>
+  </request>
+</serviceDocument>

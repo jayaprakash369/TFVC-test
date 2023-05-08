@@ -1,0 +1,905 @@
+﻿/* --------------------------------------------------- */
+/* GLOBAL STYLES */
+/* --------------------------------------------------- */
+* {
+    margin:0;
+    padding:0;
+    border:0; 
+} 
+body {
+    /* background: url(/media/scantron/art/???.jpg) right top repeat-x #DDDDDD; */
+    font-family: Arial, Verdana, sans-serif;
+    background-color: #eeeeee;
+    background-attachment: fixed;
+    font-size: 12px; /* 12 13 */
+	color: #303030;
+	line-height: 18px;
+    /*font-family: sans-serif, Arial;*/
+}
+html, body, form, #wrap {
+	height: 100%;
+}
+form {
+     margin-bottom: 0; 
+}
+
+p {
+    padding-bottom: 7px;
+}
+
+h1 {
+    
+    font-size: 24px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-weight: normal;
+    /*font-family: sans-serif, Arial;*/
+
+}
+h2 {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 3px;
+    font-weight: normal;
+    /*font-family: sans-serif, Arial;*/
+
+}
+h3 {
+    font-size: 16px;
+    padding-top: 8px;
+    padding-bottom: 3px;
+    font-weight: normal;
+/*font-family: sans-serif, Arial;*/
+}
+h4 {
+    font-size: 13px;
+    padding-top: 7px;
+    padding-bottom: 3px;
+/*font-family: sans-serif, Arial;*/    
+    /* font-weight: bold; font-weight: bold;    padding-top: 10px; padding-bottom: 5px; */
+   
+}
+h5 {
+    font-size: 12px;
+    padding-top: 7px;
+    padding-bottom: 3px;
+/*font-family: sans-serif, Arial;*/
+}
+
+
+/* --------------------------------------------------- */
+/*  Sticky Footer Styles */
+/* --------------------------------------------------- */
+#dvParent_Wrapper_Region {
+    /* background-color: #ffffcc; */ 
+    min-height: 100%; 
+     /* z-index: 1; */
+}
+
+#dvParent_AllButFooter_Region {
+     /* background-color: lightblue; */
+    padding-bottom: 200px;  /* 4) Must equal "Footer margin bottom" (but positive) */
+	/* z-index: 2; */
+}
+#dvParent_Footer_Region {
+    height: 170px;  /* 1) Set desired footer height  */
+	padding-top: 30px; /* 2) Set desired padding over footer content */
+    margin-top:-200px; /* 3) "Footer Height" + "Footing top&bottom padding" = "margin top" (but must be expressed as negative) */
+    width: 100%; /* width: 960px; */
+    text-align:left;
+    background: #333;
+    color:#dddddd;
+}
+#dvParent_Footer_BoundaryControls {
+    width: 960px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+#dvParent_Footer_ContentStyling {
+}
+/* ---------- */
+
+#dvParent_Header_Region {
+    width: 100%;
+	margin: 0px auto;
+	height: 70px;
+    padding-top: 5px;
+    background: #333333;
+    color: #dddddd;
+    /* background-color:#ad0034; */ 
+    /*width: 960px; */
+}
+#dvParent_Header_BoundaryControls {
+    width: 960px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+#dvParent_Header_ContentStyling {
+}
+
+#dvParent_Divider_Region {
+    background-color:#CCCCCC;
+    width: 100%;
+	margin: 0px auto;
+}
+#dvParent_Divider_BoundaryControls {
+    width: 920px; 
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+}
+#dvParent_Divider_ContentStyling {
+    font-size: 28px;
+    /* padding-left: 12px;  */
+    line-height: 42px; /* +2 over font size seems to show full letters, but you can use line height to position the text */
+    padding-top: 10px;
+}
+/* ---------- */
+#dvParent_Body_Region {
+    width: 100%;
+	margin: 0px auto;
+}
+#dvParent_Body_BoundaryControls {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#dvParent_Body_ContentStyling {
+}
+
+/* --------------------------------------------------- */
+/* CHILD STATIC MASTER PAGE  */
+/* --------------------------------------------------- */
+#pnChild_Banner_Region {
+    width: 100%;
+	margin: 0px auto;
+}
+/* NOT SEEN IN CHILD IN IE */
+#pnChild_Banner_ContentStyling { 
+    width: 960px; 
+    margin-left: auto;
+    margin-right: auto;
+    height: 273px;
+}
+
+.pnChild_Banner_ContentStyling {
+    width: 960px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dvChild_Banner_ContentStyling {
+    font-size: 30px;
+    line-height: 35px; /* line height in the banner text seems to have fixed the green line on bottom of image in IE*/
+    font-weight: bold;
+    color: #eeeeee;
+    padding-top: 60px;
+    padding-left: 50px;
+    text-transform: uppercase;
+    /*font-family: sans-serif, Arial;*/
+}
+
+#dvChild_Banner_ContentStyling p {
+    font-size: 16px;
+    font-weight: normal;
+    padding-top: 1px;
+    text-transform:none;
+/*font-family: sans-serif, Arial;*/
+}
+
+#dvChild_Divider_ContentStyling {
+    width: 960px; 
+    margin: 0px auto; 
+    padding: 0px;
+}
+
+/* ---------------- */
+/* CHILD NAVIGATION */
+/* -----------------*/
+
+#dvChild_StaticNav_Region {
+    width: 100%;
+    background-color:#FFFFFF;
+	margin: 0px auto;
+    padding-top: 0px;
+}
+
+#dvChild_StaticNav_ContentStyling {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+	height: 50px;
+}
+
+#dvChild_StaticNav_ContentStyling a {
+	display: block;
+	float: left;
+	font-size: 14px; 
+    font-weight: bold;
+	color: #333333;
+	text-align: center;
+	text-decoration: none;
+	height: 35px; /* height + font size = 50 */
+    /*width: 90px;*/
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /*font-family: sans-serif, Arial;*/
+    
+	/* text-transform:uppercase;
+        border-right: 1px solid #DDDDDD; */
+}
+#dvChild_StaticNav_ContentStyling a:hover {
+    color: #AD0034;
+}
+
+/* ----------------- */
+.navLevelTwo
+{
+    /* border: 1px solid #3A7728;
+        background-color: #F2FAEF;
+    */
+    display: block;
+    text-indent: 5px;
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.navLevelTwo a
+{
+    /* text-transform: uppercase; */
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 2px;
+    padding-right: 10px;
+    text-decoration: none;
+    /*font-family: sans-serif, Arial;*/
+}
+.navLevelTwo a:hover
+{
+    /*color: #FFFFFF;*/
+    /*font-weight:bold;*/
+    text-decoration: underline;
+}
+
+.navLevelThree
+{
+    display: block;
+    text-indent: 25px;
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+.navLevelThree a
+{
+    font-size: 14px;
+    color: #EEEEEE; 
+    text-decoration: none;
+    padding-right: 10px;
+    /*font-family: sans-serif, Arial;*/
+}
+.navLevelThree a:hover
+{
+    /* font-weight: bold; */
+    text-decoration: underline;
+}
+
+/* NAVIGATION POP UP BOXES  */
+
+#dvChild_StaticNav_Solutions {
+    position: absolute;
+    z-index: 50;
+    top: -10000px;
+    left: -10000px;
+    visibility: visible;
+    background-color: #888888;
+    border: 1px solid #666666;
+    padding: 10px;
+    width: 390px;
+}
+/* ----------------- */
+#dvChild_StaticNav_Company {
+    position: absolute;
+    z-index: 50;
+    top: -1000px;
+    left: -1000px;
+    visibility: hidden;
+    background-color: #888888;
+    border: 1px solid #666666;
+    padding: 10px;
+    width: 290px;
+
+}
+/* ----------------- */
+#dvChild_StaticNav_Resources {
+    position: absolute;
+    z-index: 50;
+    top: -1000px;
+    left: -1000px;
+    visibility: hidden;
+
+    background-color: #888888;
+    border: 1px solid #666666;
+    padding: 10px;
+    width: 250px;
+
+}
+
+/* --------------------------------------------------- */
+/* MASTER STYLING  */
+/* --------------------------------------------------- */
+.masterArea_BodyFill {
+    width:960px; 
+    background:#FFF;
+    padding-top:10px;
+    padding-bottom:15px;
+    display:inline-block;
+}
+.masterArea_BodyPrimary {
+    float: left;
+    width: 660px;
+    vertical-align: top;
+    background: #fff;
+    padding-top:10px;
+    min-height: 200px;
+    display:inline-block;
+}
+.masterArea_BodySecondary {
+    float: left;
+    vertical-align: top;
+    padding-top:10px;
+    display:inline-block;
+}
+.masterArea_Padding {
+    padding-top:0px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:10px;
+}
+
+.masterColorBar {
+    min-height: 6px;
+    border-bottom: 1px solid #555555;
+}
+.masterColorBarContent  {
+    width: 960px; 
+    margin: 0px auto; 
+    color: #eeeeee;
+    font-size: 13px;
+    padding-top: 3px; 
+    padding-bottom: 1px;
+}
+
+/* --------------------------------------------------- */
+/*  SKIN SUPPORT CSS */
+/* --------------------------------------------------- */
+/*  SKIN CONTROLS: DEFAULTS */
+/* --------------------------------------------------- */
+
+.buttonDefault {
+    background-color: #DDDDDD;
+    font-size: 12px;
+    color: #333333;
+    border: 1px solid #333333;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    /*font-family: sans-serif, Arial;*/
+}
+.buttonDefault:hover {
+    background-color: #999999;
+    color: #FFFFFF;
+}
+
+.checkBoxDefault {
+}
+.checkBoxDefault input {
+    font-size: 8px;
+    margin-right: 7px;
+    position: relative; 
+    top: 1px; 
+}
+.checkBoxDefault label {
+}
+
+.checkBoxListDefault {}
+
+.checkBoxListDefault input { 
+    font-size: 9px; 
+    position: relative; 
+    top: 1px; 
+}
+.checkBoxListDefault label {
+    padding-left: 5px;
+    /*font-size: 12px;*/
+}
+
+.dropDownListDefault {
+    border: 1px solid #bbbbbb;
+}
+
+.linkButtonDefault 
+{
+    color: #006fa1; /* #006fa1; */
+    font-size: 12px;
+    font-weight: normal;
+}
+.linkButtonDefault a
+{
+    text-decoration: none;    
+}
+.linkButtonDefault a:hover
+{
+    text-decoration: underline;
+}
+
+.listBoxDefault 
+{
+    border: 1px solid #555555;
+    padding-right: 15px;
+}
+
+.radioButtonListDefault input {
+    font-size: 9pt;
+    padding-right: 7px;
+    vertical-align: middle;
+}
+.radioButtonListDefault label {
+    padding-left: 5px;
+    padding-right: 10px;
+    font-size: 9pt;
+    vertical-align: middle;
+}
+.radioButtonDefault input {
+    font-size: 9pt;
+    vertical-align: middle;
+}
+.radioButtonDefault label {
+    font-size: 9pt;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.textBoxDefault {
+    border-top: 1px solid #888888;
+    border-left: 1px solid #888888;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    padding: 2px;
+}
+
+/* --------------------------------------------------- */
+/*  SKIN CONTROLS: WHEN CALLED BY NAME */
+/* --------------------------------------------------- */
+.checkBoxHidingText {
+}
+.checkBoxHidingText input {
+    font-size: 9pt;
+}
+.checkBoxHidingText label {
+    display: none;
+}
+
+.labelError {
+    color: #AD0034; /* Crimson, Red 1 #AD0034; Red 2 #94002C */
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: block;
+}
+.labelComment {
+    font-style: italic;
+}
+
+.labelInstructions {
+    color: #406080; /*00A0DF*/
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+
+.labelSteps {
+    font-size: 15px;
+    font-weight: bold;
+    color: #4863A0; /*  #406080 00A0DF*/
+}
+
+.labelTitleColor1_Large {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: bold;
+    padding-top: 7px;
+    padding-bottom: 3px;
+    color: #4863A0; /* scantron blue 006FA1 */
+    
+}
+
+.labelTitleColor1_Medium {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555555;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    color: #4863A0;
+}
+
+.labelTitleColor1_Small {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: normal;
+    padding-top: 4px;
+    padding-bottom: 3px;
+    color: #4863A0;
+}
+
+.labelTitleColor2_Large {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: bold;
+    padding-top: 7px;
+    padding-bottom: 3px;
+    color: #347235; /* Scantron Green 007A40, #3A7728 */
+}
+
+.labelTitleColor2_Medium {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555555;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    color: #347235;
+}
+
+.labelTitleColor2_Small {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: normal;
+    padding-top: 4px;
+    padding-bottom: 3px;
+    color: #347235;
+}
+
+.labelUserQuote {
+    display: block;
+    color: #777777;
+    font-style:italic;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    border: 1px solid #bbbbbb;
+}
+
+.linkButtonDark_LightText 
+{
+    color: #dddddd;
+    /* font-size: 10px; */
+}
+.linkButtonDark_LightText a
+{
+    text-decoration: none;    
+}
+.linkButtonDark_LightText a:hover
+{
+    text-decoration: underline;
+}
+
+.linkButtonHeader 
+{
+    color: #006fa1; /* #006fa1; */
+    font-size: 13px;
+    font-weight: bold;
+}
+.linkButtonHeader a
+{
+    text-decoration: none; 
+}
+.linkButtonHeader a:hover
+{
+    text-decoration: underline;
+}
+
+
+/* --------------------------------------------------- */
+/* CHILD PAGE DIVIDER TABS (tab position is absolute due to IE putting it up in the banner, 459 is due to the 274 banner size in the child master ) */
+/* --------------------------------------------------- */
+
+.tabs { list-style: none; display: block; height: 40px; padding: 0; margin-bottom: 20px; margin-top: -40px; background: #CCC; position: absolute; top: 459px; padding-left: 30px;}
+.tabs.contained { margin-bottom: 0; margin-left: 0; }
+.tabs dt, .tabs li.section-title { color: #b3b3b3; cursor: default; display: block; float: left; font-size: 11px; height: 40px; line-height: 40px; padding: 0; padding-right: 9px; padding-left: 20px; font-weight: normal; width: auto; text-transform: uppercase; }
+.tabs dt:first-child, .tabs li.section-title:first-child { padding: 0; padding-right: 9px; }
+.tabs dd, .tabs li { display: block; float: left; padding: 0; margin: 0 22px 0 0; }
+.tabs dd a, .tabs li a { color: #6f6f6f; display: block; font-size: 11px; height: 40px; line-height: 40px; padding: 0px 10px; text-transform: uppercase;}
+.tabs dd a:focus, .tabs li a:focus { font-weight: bold;}
+.tabs dd.active a, .tabs li.active a, .tabs dd:hover a, .tabs li:hover a { cursor: pointer; color: #333333; background: #fff; border-left: 1px solid #e6e6e6; border-right: 1px solid #e6e6e6; font-weight: bold;
+text-transform: uppercase;
+-webkit-border-top-left-radius: 3px;
+-webkit-border-top-right-radius: 3px;
+-moz-border-radius-topleft: 3px;
+-moz-border-radius-topright: 3px;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+behavior: url(www.scantron.com/assets/Scantron/css/PIE.htc);}
+.tabs dd:hover a, .tabs li:hover a {font-weight: normal; border: none;}
+.tabs a:hover {text-decoration: none !important;  -moz-text-decoration-line: none !important;}
+.tabs dd:first-child, .tabs li:first-child { margin-left: 0; }
+.tabs.vertical { height: auto; border-bottom: 1px solid #e6e6e6; }
+.tabs.vertical dt, .tabs.vertical dd, .tabs.vertical li { float: none; height: auto; }
+.tabs.vertical dd, .tabs.vertical li { border-left: 3px solid #cccccc; }
+.tabs.vertical dd a, .tabs.vertical li a { background: #f2f2f2; border: none; border: 1px solid #e6e6e6; border-width: 1px 1px 0 0; color: #555; display: block; font-size: 14px; height: auto; line-height: 1; padding: 15px 20px; -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
+.tabs.vertical dd.active, .tabs.vertical li.active { margin-top: 0; border-top: 1px solid #4d4d4d; border-left: 4px solid #1a1a1a; }
+.tabs.vertical dd.active a, .tabs.vertical li.active a { background: #4d4d4d; border: none; color: #fff; height: auto; margin: 0; position: static; top: 0; -webkit-box-shadow: 0 0 0; -moz-box-shadow: 0 0 0; box-shadow: 0 0 0; }
+.tabs.vertical dd:first-child a.active, .tabs.vertical li:first-child a.active { margin: 0; }
+.tabs.pill { border-bottom: none; margin-bottom: 10px; }
+.tabs.pill dd, .tabs.pill li { margin-right: 10px; }
+.tabs.pill dd:last-child, .tabs.pill li:last-child { margin-right: 0; }
+/*.tabs.pill dd a, .tabs.pill li a { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; background: #e6e6e6; height: 26px; line-height: 26px; color: #666; }*/
+.tabs.pill dd a, .tabs.pill li a { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; border-radius: 1000px; background: #e6e6e6; height: 26px; line-height: 26px; color: #666; }
+.tabs.pill dd.active, .tabs.pill li.active { border: none; margin-top: 0; }
+.tabs.pill dd.active a, .tabs.pill li.active a { background-color: #2ba6cb; border: none; color: #fff; }
+.tabs.pill.contained { border-bottom: solid 1px #eee; margin-bottom: 0; }
+.tabs.pill.two-up dd, .tabs.pill.two-up li, .tabs.pill.three-up dd, .tabs.pill.three-up li, .tabs.pill.four-up dd, .tabs.pill.four-up li, .tabs.pill.five-up dd, .tabs.pill.five-up li { margin-right: 0; }
+.tabs.two-up dt a, .tabs.two-up dd a, .tabs.two-up li a, .tabs.three-up dt a, .tabs.three-up dd a, .tabs.three-up li a, .tabs.four-up dt a, .tabs.four-up dd a, .tabs.four-up li a, .tabs.five-up dt a, .tabs.five-up dd a, .tabs.five-up li a { padding: 0 17px; text-align: center; overflow: hidden; }
+.tabs.two-up dt, .tabs.two-up dd, .tabs.two-up li { width: 50%; }
+.tabs.three-up dt, .tabs.three-up dd, .tabs.two-up li { width: 33.33%; }
+.tabs.four-up dt, .tabs.four-up dd, .tabs.two-up li { width: 25%; }
+.tabs.five-up dt, .tabs.five-up dd, .tabs.two-up li { width: 20%; }
+
+ul.tabs-content { display: block; margin: -20px 0 0 -30px; padding: 30px;}
+.content-cont section.content-cont-main:first-child ul.tabs-content {width: 650px;}
+.content-cont section.content-cont-main:last-child ul.tabs-content {width: 960px;}
+ul.tabs-content li { display: none; font-size: 14px;}
+ul.tabs-content li ul li { display: block; font-size: 14px;}
+ul.tabs-content li ul {list-style: url(www.scantron.com/App_Themes/Scantron/Images/bullet.png) !important; list-style-position: outside !important;}
+ul.tabs-content li ul li {list-style: url(www.scantron.com/App_Themes/Scantron/Images/bullet.png) !important; list-style-position: outside !important; display: list-item;}
+ul.tabs-content > li.active { display: block; }
+ul.tabs-content.contained { padding: 0; }
+ul.tabs-content.contained > li { border: solid 0 #e6e6e6; border-width: 0 1px 1px 1px; padding: 20px; }
+ul.tabs-content.contained.vertical > li { border-width: 1px 1px 1px 1px; }
+
+.tabs dd.active:hover a {font-weight: bold; border-left: 1px solid #e6e6e6; border-right: 1px solid #e6e6e6;}
+
+
+/* --------------------------------------------------- */
+/* SPECIAL CONDITION STYLES */
+/* --------------------------------------------------- */
+
+.trColorReg {
+    background-color: #FFFFFF;
+}
+.trColorAlt {
+    background-color: #EEEEEE;
+}
+
+/* TABLE: WITHOUT LINES */
+.tableWithoutLines {
+}
+.tableWithoutLines tr {
+    vertical-align: top;
+}
+.tableWithoutLines th {
+    color: #333333;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-align: left;
+}
+.tableWithoutLines td {
+    color: #333333;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    /* border: 1px solid #333333; */
+}
+.tableWithoutLines a {
+    display: block;
+    height:100%;
+    text-decoration: none;
+}
+.tableWithoutLines a:hover {
+    text-decoration: underline;
+}
+
+.tableBorder { border: 1px solid #cccccc; padding: 5px; }
+
+/* TABLE: WITH LINES  */
+.tableWithLines {
+    border-collapse: collapse; 
+    width: 98%;
+    float: left;
+}
+.tableWithLines th {
+    border: 1px solid #333333;
+    color: #FFFFFF;
+    background-color: #999999; /*3A7728*/
+    font-weight: normal;
+    padding: 3px;
+}
+.tableWithLines td {
+    color: #333333;
+    border: 1px solid #999999;
+    text-align: left;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 3px;
+}
+.tableWithLines td:hover {
+}
+.tableWithLines th > a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+.tableWithLines th > a:hover {
+    color: #FFFFFF; /* Yellow FFFF99 */
+    text-decoration: none;
+}
+.tableWithLines a {
+    color: #003893; /*  */
+    text-decoration: none;
+    display: block;   
+}
+.tableWithLines a:hover {
+    text-decoration: underline;
+}
+
+.ulDefault {
+    padding-left: 30px;    
+    padding-bottom: 10px;
+    padding-right: 15px;
+}
+.ulDefault li {
+    font-size: 12px;
+    color: #333333;
+    list-style-type: square;
+    margin-bottom: 6px;
+}
+.ulDefault li > ul > li {
+    font-size: 13px;
+    color: #3A7728; 
+    list-style-type: disc;
+    margin-left: 25px;    
+    margin-top: 3px;
+    margin-bottom: 5px;
+    line-height: 18px;
+    
+}
+.ulDefault li > ul > li > ul > li {
+    font-size: 13px;
+    color: #333333;
+    list-style-type: disc;
+    margin-left: 25px;    
+    margin-top: 3px;
+    margin-bottom: 5px;
+    line-height: 18px;
+}
+
+
+.ulPL {
+    padding-left: 30px;    
+    padding-bottom: 10px;
+    padding-right: 15px;
+}
+.ulPL li {
+    font-size: 13px;
+    color: #333333;
+    list-style-type: disc;
+    margin-bottom: 5px;
+    line-height: 18px;
+}
+.ulPL li > ul > li {
+    font-size: 13px;
+    color: #006FA1; /* #008000 Harland Green 3a7728 GreyGreen  */
+    list-style-type: circle;
+    margin-left: 25px;    
+    margin-top: 3px;
+    margin-bottom: 5px;
+    line-height: 18px;
+    
+}
+.ulPL li > ul > li > ul > li {
+    font-size: 13px;
+    color: #002db3;
+    list-style-type: square;
+    margin-left: 25px;    
+    margin-top: 3px;
+    margin-bottom: 5px;
+    line-height: 18px;
+}
+
+.StaticLinks a
+{
+}
+
+/* used on two column pages as right nav*/
+.staticTree {
+    padding-top: 10px;
+    text-align: left;
+}
+.staticTree a {
+    font-size: 12px;
+    width: 225px;
+    max-width: 225px;
+    display: block;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 4px;
+
+}
+.staticTree a:hover {
+    color: #333333;
+}
+
+.spacer0 { clear: both; height: 0px; }
+.spacer1 { clear: both; height: 1px; }
+.spacer2 { clear: both; height: 2px; }
+.spacer3 { clear: both; height: 3px; }
+.spacer5 { clear: both; height: 5px; }
+.spacer7 { clear: both; height: 7px; }
+.spacer8 { clear: both; height: 8px; }
+.spacer10 { clear: both; height: 10px; }
+.spacer15 { clear: both; height: 15px; }
+.spacer20 { clear: both; height: 20px; }
+
+.bannerTitleMedium {
+    color: #BBBBBB;
+}
+.bannerTitleDark {
+    color: #999999;
+}
+.bannerTitleBlack {
+    color: #555555;
+}
+/* used on home page to create outline around bottom pictures*/
+.image_support {
+    border: 1px solid #999999;
+}
+/* used by service request to stop double submit*/
+.hideButton
+{
+    position: absolute;
+    height: 45px;
+    width: 400px;
+    top: -1000px; 
+    left: -1000px;
+    background-color: #ffffcc; /* ffffcc*/
+    border: 2px solid #555555;    
+    text-align: center;
+}
+/* used on service command menus */
+.menuImage
+{
+    float: right; 
+    padding-top: 0px;
+    padding-right: 1px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+}
+
+.width100 { width:100%; }
+
+.styleTitle
+{
+    float: left;
+    padding-right: 20px;
+}
+.styleBox
+{
+    float: left;
+    border: 10px dashed #DDDDDD; /* tan version ECE5B6 */
+}
+
+.siteEnding {
+    line-height: 40px;
+    padding-right: 20px;
+}
+.siteEndingBox {
+    padding: 15px;
+}
+
+

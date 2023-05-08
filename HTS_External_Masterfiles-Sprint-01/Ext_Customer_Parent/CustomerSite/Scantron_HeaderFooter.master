@@ -1,0 +1,186 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Scantron_HeaderFooter.master.cs" 
+    Inherits="Scantron_HeaderFooter" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <%--  --%>
+    <%-- 
+<!-- WHAT BELONGS WHERE? 
+    1) Masterpage: (Set content Areas) Use this ONLY for Content, give names for content (not for style i.e. size, color etc) 
+     2) Themes: (Set object look and feel) -- skins and style sheets, this is where you change position, size, color, font
+        and swap in web.config to change site theme
+-->   
+   --%>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Master Page Title</title>
+
+        <%-- 
+            <!--
+<script type="text/javascript">
+    function test() { alert('Hi from the script'); }
+</script>
+-->
+         --%>
+    <link rel="sts icon" href="/media/scantron/images/logos/company/favicon.ico" type="image/x-icon" />
+    <!-- Use IE7 mode <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> -->
+    <!--[if !IE 7]> 	<style type="text/css"> #wrap {display:table;height:100%} </style> <![endif]-->
+
+<asp:ContentPlaceHolder id="For_HtmlHead" runat="server">
+</asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" />
+
+         <!-- WRAP -->
+         <div id="dvParent_Wrapper_Region">
+
+            <!-- All But Footer -->
+            <div id="dvParent_AllButFooter_Region"> 
+
+                <!-- HEADER -->
+                <div id="dvParent_Header_Region">
+                    <div id="dvParent_Header_BoundaryControls"> 
+                        <div id="dvParent_Header_ContentStyling"> 
+                    
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="padding-top: 15px;">
+                                    <!-- OLD STS IMAGE
+                                        ImageUrl="~/media/scantron/images/logos/company/ScantronTechnologySolutions_Reverse_250.png"
+                                        ~/Default.aspx
+                                        
+                                         -->
+                                    <asp:ImageButton ID="imMainStsLogo" runat="server"
+                                        PostBackUrl="https://www.scantron.com"
+                                        ImageUrl="~/media/scantron/images/logos/company/ScantronReverse400.png" Width="200" />&nbsp;&nbsp;&nbsp;
+                                </td>
+                                <td style="width: 720px; vertical-align: top; text-align: right;">
+
+                                    <!-- MENU: DYNAMIC -->
+                                    <div id="dvParent_DynamicNav_ContentStyling" style="float: right; padding-left: 10px;">
+                                        <asp:LoginView ID="LoginView1" runat="server">
+                                            <AnonymousTemplate>
+                                                <asp:Menu ID="mnAnon" runat="server" DataSourceID="SiteMapDataSourceAnon" 
+                                                    SkinID="menuDark_LightText">
+                                                </asp:Menu>
+                                                <asp:SiteMapDataSource ID="SiteMapDataSourceAnon" runat="server" ShowStartingNode="false" SiteMapProvider="SitemapAnon" />
+                                            </AnonymousTemplate>
+
+                                            <RoleGroups>
+                                                 <asp:RoleGroup Roles="Administrator">
+                                                     <ContentTemplate>
+                                                        <asp:Menu ID="mnAdmin" runat="server" DataSourceID="SiteMapDataSourceAdmin" 
+                                                            SkinID="menuDark_LightText">
+                                                        </asp:Menu>
+                                                        <asp:SiteMapDataSource ID="SiteMapDataSourceAdmin" runat="server" ShowStartingNode="false" SiteMapProvider="SitemapAdmin" />
+                                                     </ContentTemplate>
+                                                 </asp:RoleGroup>
+                                                 <asp:RoleGroup Roles="Editor">
+                                                     <ContentTemplate>
+                                                        <asp:Menu ID="mnEditor" runat="server" DataSourceID="SiteMapDataSourceEditor" 
+                                                            SkinID="menuDark_LightText">
+                                                        </asp:Menu>
+                                                        <asp:SiteMapDataSource ID="SiteMapDataSourceEditor" runat="server" ShowStartingNode="false" SiteMapProvider="SitemapEditor" />
+                                                     </ContentTemplate>
+                                                 </asp:RoleGroup>
+                                                 <asp:RoleGroup Roles="EditorCustomer">
+                                                     <ContentTemplate>
+                                                        <asp:Menu ID="mnEditorCust" runat="server" DataSourceID="SiteMapDataSourceEditorCust" 
+                                                            SkinID="menuDark_LightText">
+                                                        </asp:Menu>
+                                                        <asp:SiteMapDataSource ID="SiteMapDataSourceEditorCust" runat="server" ShowStartingNode="false" SiteMapProvider="SitemapEditorCust" />
+                                                     </ContentTemplate>
+                                                 </asp:RoleGroup>
+                                            </RoleGroups>
+
+                                            <LoggedInTemplate>
+                                                <!-- -->
+                                                <asp:Menu ID="mnLogged" runat="server" DataSourceID="SiteMapDataSourceLogged" 
+                                                    SkinID="menuDark_LightText">
+                                                </asp:Menu>
+                                                <asp:SiteMapDataSource ID="SiteMapDataSourceLogged" runat="server" ShowStartingNode="false" SiteMapProvider="SitemapLogged" />
+                                            </LoggedInTemplate>
+                                        </asp:LoginView>
+
+                                    </div> <!--  end dvParentMenuBoundary -->
+                                    
+                                    <div style="float: right; padding-left: 10px; padding-top: 2px;">
+                                        <asp:LoginName ID="lgUsername" runat="server" 
+                                            FormatString="Welcome {0}" 
+                                            Font-Size="8" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div><!-- end header content styling -->
+                </div><!-- end header boundary controls -->
+             </div><!-- end header region -->
+
+                <!-- <asp:ContentPlaceHolder id="For_ColorBar" runat="server"></asp:ContentPlaceHolder>   -->
+
+                <asp:ContentPlaceHolder id="For_Title_A" runat="server"></asp:ContentPlaceHolder>                            
+
+                <div id="dvParent_Divider_Region"> 
+                    <div id="dvParent_Divider_BoundaryControls"> 
+                        <div id="dvParent_Divider_ContentStyling"> 
+                            <asp:ContentPlaceHolder id="For_Title_B" runat="server"></asp:ContentPlaceHolder> 
+                        </div><!-- end divider content styling -->
+                    </div><!-- end divider boundary controls -->
+                </div><!-- end divider -->
+
+                <div id="dvParent_Body_Region"> <!--  class="contentBlock" content block needs to be replaced with #dv -->
+                    <div id="dvParent_Body_BoundaryControls">
+                        <div id="dvParent_Body_ContentStyling">
+                            <asp:ContentPlaceHolder id="For_Body_A" runat="server"></asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder id="For_Body_B" runat="server"></asp:ContentPlaceHolder>
+                            <asp:ContentPlaceHolder id="For_Body_C" runat="server"></asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 
+                    -->
+                    
+            </div><!-- end dvParent_AllButFooter_Region -->
+        </div><!-- end dvParent_Wrapper_Region -->
+
+        <!-- FOOTER  -->
+
+        <div id="dvParent_Footer_Region"> 
+            <div id="dvParent_Footer_BoundaryControls"> 
+                <div id="dvParent_Footer_ContentStyling"> 
+                    <table style="width: 100%; margin: 0px; padding: 0px;">
+                        <tr style="vertical-align: top;">
+                            <td style="width: 650px; padding-top: 0px;">
+                                <span class="linkButtonDark_LightText">
+                                    <asp:LinkButton ID="lkTerms" runat="server" PostBackUrl="https://www.scantron.com/legal" SkinID="linkButtonDark_LightText" Font-Bold="true">TERMS OF USE &nbsp; • &nbsp; PRIVACY POLICY</asp:LinkButton>
+                                </span>
+                                <div class="spacer15"></div>
+                                2020 South 156th Circle 
+                                <div class="spacer5"></div>
+                                Omaha, NE 68130 
+                                <div class="spacer5"></div>
+                                US & Canada: 1.800.228.3628
+                                <div class="spacer15"></div>
+                                <i>©<asp:Label ID="lbFooterYear" runat="server" /> Scantron. All Rights Reserved</i>
+                            </td>
+                            <td style="width: 310px; padding-top: 15px;">
+                                <asp:Image ID="imStsLogoFooter" runat="server"
+                                    ImageUrl="~/media/scantron/images/logos/company/ScantronReverse400.png" Width="200" />
+                            </td>
+                        </tr>
+                    </table>
+                </div><!-- end footer content styling -->      
+            </div><!-- end footer boundary controls -->      
+        </div><!-- end footer region -->      
+    
+        <%-- 
+ --%>
+
+    </form>
+
+</body>
+</html>

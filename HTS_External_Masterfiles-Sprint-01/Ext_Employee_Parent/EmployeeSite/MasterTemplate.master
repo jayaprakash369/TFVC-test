@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterTemplate.master.cs" Inherits="MasterParent" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Parent Master Page Title </title>
+
+    <style type="text/css">
+        /* This Master Page: Unique Styles */
+        .wrap {
+   	        background-color: #f5f5dc; 
+        }
+        .box {
+	        width: 1000px;
+	        margin-left: auto;
+	        margin-right: auto;
+	        background-color: #F5DEB3;
+        }
+        .header {
+            background-color: #B0E0E6;
+        }
+        .title {
+            background-color: #E6E6FA;
+        }
+        .content {
+            background-color: #008B8B;
+        }
+        .footer {
+            background-color: #406080;
+        }
+    </style>
+    <!--[if !IE 7]><style type="text/css">.wrap {display:table;height:100%}</style><![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrap">
+            <div class="box">
+
+                <div class="header">
+                    Masterpage Header Text
+                </div>
+
+                <div class="title">
+                    <asp:ContentPlaceHolder id="BodyTitle" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div class="content">
+                    <asp:ContentPlaceHolder id="BodyContent" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="footerPush"></div>
+            </div>
+        </div>
+
+    <div class="footer"> 
+        Footer Text
+    </div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://InternalWebService/ManagedPrint" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://InternalWebService/ManagedPrint" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Managed Print Data Access</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://InternalWebService/ManagedPrint">
+      <s:element name="helloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="helloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="helloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCloseCategoryForAllRequests">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCloseCategoryForAllRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCloseCategoryForAllRequestsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCountReportingForAllDevices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCountReportingForAllDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCountReportingForAllDevicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailForAllDevices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sortBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailForAllDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDetailForAllDevicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailForOneCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailForOneCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDetailForOneCustomerResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getLifeCountForOneDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fxa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLifeCountForOneDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getLifeCountForOneDeviceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getManufacturerForAllDevices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getManufacturerForAllDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getManufacturerForAllDevicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getModelForAllDevices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getModelForAllDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getModelForAllDevicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNameNumAgrForAllCustomers">
+        <s:complexType />
+      </s:element>
+      <s:element name="getNameNumAgrForAllCustomersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNameNumAgrForAllCustomersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNameNumForAllCustomers">
+        <s:complexType />
+      </s:element>
+      <s:element name="getNameNumForAllCustomersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNameNumForAllCustomersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPageCountsForOneCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPageCountsForOneCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPageCountsForOneCustomerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPageCountsForOneUnit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="unit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPageCountsForOneUnitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPageCountsForOneUnitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPageCountsForOneDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="unit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPageCountsForOneDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPageCountsForOneDeviceResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPaperJamsForOneDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fxa" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPaperJamsForOneDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getPaperJamsForOneDeviceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTicketQtyForAllDevices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTicketQtyForAllDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTicketQtyForAllDevicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTicketQtyForOneDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="unit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ticketType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTicketQtyForOneDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getTicketQtyForOneDeviceResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTonerReportingForAllDevices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTonerReportingForAllDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTonerReportingForAllDevicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTypeForAllDevices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTypeForAllDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTypeForAllDevicesResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUtilizationForAllDevices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cutoff" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="highLow" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUtilizationForAllDevicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUtilizationForAllDevicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTonerContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="loc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="asset" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contact" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTonerContactsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTonerContactsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updTonerContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contact" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ext" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs2" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="origContact" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="unit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updTonerContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updTonerContactResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="myText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="testUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="testUpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="helloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:helloWorld" />
+  </wsdl:message>
+  <wsdl:message name="helloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:helloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCloseCategoryForAllRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:getCloseCategoryForAllRequests" />
+  </wsdl:message>
+  <wsdl:message name="getCloseCategoryForAllRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:getCloseCategoryForAllRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCountReportingForAllDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getCountReportingForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="getCountReportingForAllDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getCountReportingForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDetailForAllDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getDetailForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="getDetailForAllDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getDetailForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDetailForOneCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:getDetailForOneCustomer" />
+  </wsdl:message>
+  <wsdl:message name="getDetailForOneCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:getDetailForOneCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLifeCountForOneDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:getLifeCountForOneDevice" />
+  </wsdl:message>
+  <wsdl:message name="getLifeCountForOneDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:getLifeCountForOneDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getManufacturerForAllDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getManufacturerForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="getManufacturerForAllDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getManufacturerForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getModelForAllDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getModelForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="getModelForAllDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getModelForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNameNumAgrForAllCustomersSoapIn">
+    <wsdl:part name="parameters" element="tns:getNameNumAgrForAllCustomers" />
+  </wsdl:message>
+  <wsdl:message name="getNameNumAgrForAllCustomersSoapOut">
+    <wsdl:part name="parameters" element="tns:getNameNumAgrForAllCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNameNumForAllCustomersSoapIn">
+    <wsdl:part name="parameters" element="tns:getNameNumForAllCustomers" />
+  </wsdl:message>
+  <wsdl:message name="getNameNumForAllCustomersSoapOut">
+    <wsdl:part name="parameters" element="tns:getNameNumForAllCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPageCountsForOneCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:getPageCountsForOneCustomer" />
+  </wsdl:message>
+  <wsdl:message name="getPageCountsForOneCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:getPageCountsForOneCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPageCountsForOneUnitSoapIn">
+    <wsdl:part name="parameters" element="tns:getPageCountsForOneUnit" />
+  </wsdl:message>
+  <wsdl:message name="getPageCountsForOneUnitSoapOut">
+    <wsdl:part name="parameters" element="tns:getPageCountsForOneUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPageCountsForOneDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:getPageCountsForOneDevice" />
+  </wsdl:message>
+  <wsdl:message name="getPageCountsForOneDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:getPageCountsForOneDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPaperJamsForOneDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:getPaperJamsForOneDevice" />
+  </wsdl:message>
+  <wsdl:message name="getPaperJamsForOneDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:getPaperJamsForOneDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTicketQtyForAllDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getTicketQtyForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="getTicketQtyForAllDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getTicketQtyForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTicketQtyForOneDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:getTicketQtyForOneDevice" />
+  </wsdl:message>
+  <wsdl:message name="getTicketQtyForOneDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:getTicketQtyForOneDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTonerReportingForAllDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getTonerReportingForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="getTonerReportingForAllDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getTonerReportingForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTypeForAllDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getTypeForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="getTypeForAllDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getTypeForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUtilizationForAllDevicesSoapIn">
+    <wsdl:part name="parameters" element="tns:getUtilizationForAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="getUtilizationForAllDevicesSoapOut">
+    <wsdl:part name="parameters" element="tns:getUtilizationForAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTonerContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:getTonerContacts" />
+  </wsdl:message>
+  <wsdl:message name="getTonerContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:getTonerContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="updTonerContactSoapIn">
+    <wsdl:part name="parameters" element="tns:updTonerContact" />
+  </wsdl:message>
+  <wsdl:message name="updTonerContactSoapOut">
+    <wsdl:part name="parameters" element="tns:updTonerContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="testUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:testUpdate" />
+  </wsdl:message>
+  <wsdl:message name="testUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:testUpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ManagedPrintMenuSoap">
+    <wsdl:operation name="helloWorld">
+      <wsdl:input message="tns:helloWorldSoapIn" />
+      <wsdl:output message="tns:helloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCloseCategoryForAllRequests">
+      <wsdl:input message="tns:getCloseCategoryForAllRequestsSoapIn" />
+      <wsdl:output message="tns:getCloseCategoryForAllRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCountReportingForAllDevices">
+      <wsdl:input message="tns:getCountReportingForAllDevicesSoapIn" />
+      <wsdl:output message="tns:getCountReportingForAllDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetailForAllDevices">
+      <wsdl:input message="tns:getDetailForAllDevicesSoapIn" />
+      <wsdl:output message="tns:getDetailForAllDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetailForOneCustomer">
+      <wsdl:input message="tns:getDetailForOneCustomerSoapIn" />
+      <wsdl:output message="tns:getDetailForOneCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLifeCountForOneDevice">
+      <wsdl:input message="tns:getLifeCountForOneDeviceSoapIn" />
+      <wsdl:output message="tns:getLifeCountForOneDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getManufacturerForAllDevices">
+      <wsdl:input message="tns:getManufacturerForAllDevicesSoapIn" />
+      <wsdl:output message="tns:getManufacturerForAllDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getModelForAllDevices">
+      <wsdl:input message="tns:getModelForAllDevicesSoapIn" />
+      <wsdl:output message="tns:getModelForAllDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNameNumAgrForAllCustomers">
+      <wsdl:input message="tns:getNameNumAgrForAllCustomersSoapIn" />
+      <wsdl:output message="tns:getNameNumAgrForAllCustomersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNameNumForAllCustomers">
+      <wsdl:input message="tns:getNameNumForAllCustomersSoapIn" />
+      <wsdl:output message="tns:getNameNumForAllCustomersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneCustomer">
+      <wsdl:input message="tns:getPageCountsForOneCustomerSoapIn" />
+      <wsdl:output message="tns:getPageCountsForOneCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneUnit">
+      <wsdl:input message="tns:getPageCountsForOneUnitSoapIn" />
+      <wsdl:output message="tns:getPageCountsForOneUnitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneDevice">
+      <wsdl:input message="tns:getPageCountsForOneDeviceSoapIn" />
+      <wsdl:output message="tns:getPageCountsForOneDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPaperJamsForOneDevice">
+      <wsdl:input message="tns:getPaperJamsForOneDeviceSoapIn" />
+      <wsdl:output message="tns:getPaperJamsForOneDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTicketQtyForAllDevices">
+      <wsdl:input message="tns:getTicketQtyForAllDevicesSoapIn" />
+      <wsdl:output message="tns:getTicketQtyForAllDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTicketQtyForOneDevice">
+      <wsdl:input message="tns:getTicketQtyForOneDeviceSoapIn" />
+      <wsdl:output message="tns:getTicketQtyForOneDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTonerReportingForAllDevices">
+      <wsdl:input message="tns:getTonerReportingForAllDevicesSoapIn" />
+      <wsdl:output message="tns:getTonerReportingForAllDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTypeForAllDevices">
+      <wsdl:input message="tns:getTypeForAllDevicesSoapIn" />
+      <wsdl:output message="tns:getTypeForAllDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUtilizationForAllDevices">
+      <wsdl:input message="tns:getUtilizationForAllDevicesSoapIn" />
+      <wsdl:output message="tns:getUtilizationForAllDevicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTonerContacts">
+      <wsdl:input message="tns:getTonerContactsSoapIn" />
+      <wsdl:output message="tns:getTonerContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updTonerContact">
+      <wsdl:input message="tns:updTonerContactSoapIn" />
+      <wsdl:output message="tns:updTonerContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="testUpdate">
+      <wsdl:input message="tns:testUpdateSoapIn" />
+      <wsdl:output message="tns:testUpdateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManagedPrintMenuSoap" type="tns:ManagedPrintMenuSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="helloWorld">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/helloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCloseCategoryForAllRequests">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getCloseCategoryForAllRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountReportingForAllDevices">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getCountReportingForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailForAllDevices">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getDetailForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailForOneCustomer">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getDetailForOneCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLifeCountForOneDevice">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getLifeCountForOneDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getManufacturerForAllDevices">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getManufacturerForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModelForAllDevices">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getModelForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNameNumAgrForAllCustomers">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getNameNumAgrForAllCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNameNumForAllCustomers">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getNameNumForAllCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneCustomer">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getPageCountsForOneCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneUnit">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getPageCountsForOneUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneDevice">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getPageCountsForOneDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaperJamsForOneDevice">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getPaperJamsForOneDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTicketQtyForAllDevices">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getTicketQtyForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTicketQtyForOneDevice">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getTicketQtyForOneDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTonerReportingForAllDevices">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getTonerReportingForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTypeForAllDevices">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getTypeForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUtilizationForAllDevices">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getUtilizationForAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTonerContacts">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/getTonerContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updTonerContact">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/updTonerContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testUpdate">
+      <soap:operation soapAction="http://InternalWebService/ManagedPrint/testUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ManagedPrintMenuSoap12" type="tns:ManagedPrintMenuSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="helloWorld">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/helloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCloseCategoryForAllRequests">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getCloseCategoryForAllRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCountReportingForAllDevices">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getCountReportingForAllDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailForAllDevices">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getDetailForAllDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailForOneCustomer">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getDetailForOneCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLifeCountForOneDevice">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getLifeCountForOneDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getManufacturerForAllDevices">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getManufacturerForAllDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModelForAllDevices">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getModelForAllDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNameNumAgrForAllCustomers">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getNameNumAgrForAllCustomers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNameNumForAllCustomers">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getNameNumForAllCustomers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneCustomer">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getPageCountsForOneCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneUnit">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getPageCountsForOneUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageCountsForOneDevice">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getPageCountsForOneDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaperJamsForOneDevice">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getPaperJamsForOneDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTicketQtyForAllDevices">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getTicketQtyForAllDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTicketQtyForOneDevice">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getTicketQtyForOneDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTonerReportingForAllDevices">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getTonerReportingForAllDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTypeForAllDevices">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getTypeForAllDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUtilizationForAllDevices">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getUtilizationForAllDevices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTonerContacts">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/getTonerContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updTonerContact">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/updTonerContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="testUpdate">
+      <soap12:operation soapAction="http://InternalWebService/ManagedPrint/testUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManagedPrintMenu">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Managed Print Data Access</wsdl:documentation>
+    <wsdl:port name="ManagedPrintMenuSoap" binding="tns:ManagedPrintMenuSoap">
+      <soap:address location="http://www.ourhts.com:70/ManagedPrint.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ManagedPrintMenuSoap12" binding="tns:ManagedPrintMenuSoap12">
+      <soap12:address location="http://www.ourhts.com:70/ManagedPrint.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

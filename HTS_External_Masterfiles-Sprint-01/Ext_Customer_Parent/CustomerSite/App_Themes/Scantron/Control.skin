@@ -1,0 +1,175 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+<asp:GridView runat="server" BackColor="White" BorderStyle="Solid" BorderWidth="1px" >
+   <AlternatingRowStyle BackColor="#EEEEEE" />
+</asp:GridView>
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+
+GIVE NAMES BY FUNCTION: NOT BY COLOR OR SIZE SO WE CAN USE MULTIPLE STYLE SHEETS
+
+--%>
+
+<%-- DEFAULT SKINS (APPLIES TO ALL UNSPECIFIED CONTROLS)  --%>
+
+<asp:Button             runat="server" CssClass="buttonDefault" />
+
+<asp:CheckBox           runat="server" CssClass="checkBoxDefault" />
+
+<asp:CheckBoxList       runat="server" CssClass="checkBoxListDefault" />
+
+<asp:DropDownList       runat="server" CssClass="dropDownListDefault" />
+
+<asp:HyperLink          runat="server" CssClass="linkButtonDefault" />
+
+<asp:LinkButton         runat="server" CssClass="linkButtonDefault" />
+
+<asp:ListBox            runat="server" CssClass="listBoxDefault"  />
+
+<asp:RadioButton        runat="server" CssClass="radioButtonDefault" />
+
+<asp:RadioButtonList    runat="server" CssClass="radioButtonListDefault" />
+
+<asp:TextBox            runat="server" CssClass="textBoxDefault" />
+
+
+
+<%-- NAMED SKINS (APPLIES WHERE NAME IS CALLED)  --%>
+
+<asp:Calendar       SkinId="calendarBlue"      runat="server" 
+                    BackColor="White" 
+                    BorderColor="#999999" 
+                    Font-Names="'sans-serif', Verdana, Arial" 
+                    Font-Size="8pt" 
+                    Height="61px" 
+                    Width="150" 
+                    CellPadding="0" 
+                    DayNameFormat="Shortest" >
+                    <DayHeaderStyle 
+                    Font-Bold="True" 
+                    Font-Size="7pt" 
+                    BackColor="#006FA1" ForeColor="White" />
+                    <NextPrevStyle />
+                    <OtherMonthDayStyle ForeColor="#BBBBBB" />
+                    <SelectedDayStyle BackColor="#007A40" ForeColor="White" Font-Bold="True" />
+                    <SelectorStyle BackColor="#AD0034" />
+                    <TitleStyle BackColor="#CCCCCC" Font-Bold="True" BorderColor="Black" ForeColor="#333333" />
+                    <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                    <WeekendDayStyle BackColor="#EEEEEE" /></asp:Calendar>
+
+<asp:Calendar       SkinId="calendarGreen"      runat="server" 
+                    BackColor="White" 
+                    BorderColor="#999999" 
+                    Font-Names="Verdana, Arial" 
+                    Font-Size="8pt" 
+                    Height="61px" 
+                    Width="150px" 
+                    CellPadding="0" 
+                    DayNameFormat="Shortest" >
+                    <DayHeaderStyle 
+                    Font-Bold="True" 
+                    Font-Size="7pt" 
+                    BackColor="#3A7728" ForeColor="White" />
+                    <NextPrevStyle />
+                    <OtherMonthDayStyle ForeColor="#BBBBBB" />
+                    <SelectedDayStyle BackColor="#406080" ForeColor="White" Font-Bold="True" />
+                    <SelectorStyle BackColor="#AD0034" />
+                    <TitleStyle BackColor="#CCCCCC" Font-Bold="True" BorderColor="Black" ForeColor="#333333" />
+                    <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                    <WeekendDayStyle BackColor="#EEEEEE" /></asp:Calendar>
+
+<asp:Calendar       SkinId="calendarOrange"      runat="server" 
+                    BackColor="White" 
+                    BorderColor="#999999" 
+                    Font-Names="Verdana, Arial" 
+                    Font-Size="8pt" 
+                    Height="61px" 
+                    Width="195px" 
+                    CellPadding="0" 
+                    DayNameFormat="Shortest" >
+                    <DayHeaderStyle 
+                    Font-Bold="True" 
+                    Font-Size="7pt" 
+                    BackColor="#F47B20" 
+                    ForeColor="White" />
+                    <NextPrevStyle />
+                    <OtherMonthDayStyle ForeColor="#BBBBBB" />
+                    <SelectedDayStyle BackColor="#00B1AC" ForeColor="White" Font-Bold="True" />
+                    <SelectorStyle BackColor="#AD0034" />
+                    <TitleStyle BackColor="#FEBC11" Font-Bold="True" BorderColor="Black" ForeColor="#333333" />
+                    <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                    <WeekendDayStyle BackColor="#EEEEEE" /></asp:Calendar>
+
+<asp:Calendar       SkinId="calendarIsa"      runat="server" 
+                    BackColor="White" 
+                    BorderColor="#999999" 
+                    Font-Names="'sans-serif', Verdana, Arial" 
+                    Font-Size="8pt" 
+                    Height="61px" 
+                    Width="250" 
+                    CellPadding="0" 
+                    DayNameFormat="Shortest" >
+                    <DayHeaderStyle 
+                    Font-Bold="True" 
+                    Font-Size="7pt" 
+                    BackColor="#006FA1" ForeColor="White" />
+                    <NextPrevStyle />
+                    <OtherMonthDayStyle ForeColor="#BBBBBB" />
+                    <SelectedDayStyle BackColor="#007A40" ForeColor="White" Font-Bold="True" />
+                    <SelectorStyle BackColor="#AD0034" />
+                    <TitleStyle BackColor="#CCCCCC" Font-Bold="True" BorderColor="Black" ForeColor="#333333" />
+                    <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                    <WeekendDayStyle BackColor="#EEEEEE" /></asp:Calendar>
+
+
+
+<asp:CheckBox       SkinId="checkBoxHidingText" runat="server" CssClass="checkBoxHidingText" />
+
+<asp:GridView       SkinId="gridViewDefault" runat="server" CssClass="tableWithLines" />
+
+<asp:HyperLink      SkinID="hyperLinkHeader"    runat="server" CssClass="linkButtonHeader" />
+
+<asp:Label          SkinId="labelError"         runat="server" CssClass="labelError"  />
+<asp:Label          SkinId="labelInstructions"         runat="server" CssClass="labelInstructions"  />
+<asp:Label          SkinId="labelComment"       runat="server" CssClass="labelComment"  />
+<asp:Label          SkinId="labelSteps"         runat="server" CssClass="labelSteps" />
+<asp:Label          SkinId="labelTitleColor1_Large"       runat="server" CssClass="labelTitleColor1_Large"  />
+<asp:Label          SkinId="labelTitleColor1_Medium"       runat="server" CssClass="labelTitleColor1_Medium"  />
+<asp:Label          SkinId="labelTitleColor1_Small"       runat="server" CssClass="labelTitleColor1_Small"  />
+<asp:Label          SkinId="labelTitleColor2_Large"       runat="server" CssClass="labelTitleColor2_Large"  />
+<asp:Label          SkinId="labelTitleColor2_Medium"       runat="server" CssClass="labelTitleColor2_Medium"  />
+<asp:Label          SkinId="labelTitleColor2_Small"       runat="server" CssClass="labelTitleColor2_Small"  />
+
+<asp:Label          SkinId="labelUserQuote"     runat="server"  CssClass="labelUserQuote" />
+
+<asp:LinkButton     SkinID="linkButtonDark_LightText"        runat="server" CssClass="linkButtonDark_LightText" />
+<asp:LinkButton     SkinID="linkButtonHeader"        runat="server" CssClass="linkButtonHeader" />
+
+<asp:Menu           SkinID="menuDark_LightText"              
+                    runat="server" 
+                    RenderingMode="List"
+                    Orientation="Horizontal"
+                    Font-Size="8"
+                    ForeColor="White" 
+                    StaticHoverStyle-Font-Underline="true"
+                    StaticMenuItemStyle-HorizontalPadding="8"
+                    StaticMenuItemStyle-VerticalPadding="2"
+                    />
+
+<asp:Panel          SkinID="panelStyleTitle"      runat="server" CssClass="styleTitle"/>
+<asp:Panel          SkinID="panelStyleBox"        runat="server" CssClass="styleBox"/>
+
+<asp:Table          SkinId="tableWithLines"   runat="server"  CssClass="tableWithLines" />
+<asp:Table          SkinId="tableWithoutLines"   runat="server"  CssClass="tableWithoutLines" />
+

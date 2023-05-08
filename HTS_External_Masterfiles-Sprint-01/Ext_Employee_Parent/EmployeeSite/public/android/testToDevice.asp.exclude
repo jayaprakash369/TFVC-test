@@ -1,0 +1,20 @@
+﻿<%@LANGUAGE="VBScript"%>
+<%
+'<body onload="return setup();">
+' To CALL THIS PAGE
+' http://localhost:81/public/android/test.asp
+%>
+<html>
+<head>
+</head>
+<body style="margin: 20px;">
+
+<form name="form1" method="post" action="OmahaToDevice.aspx?user=1862&id=1">
+<!-- 
+-->
+
+
+<input type="submit" name="submit1" value="Emulate Omaha To Device Post" />
+</form>
+</body>
+</html>

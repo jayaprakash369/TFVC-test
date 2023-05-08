@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Scantron_HeaderFooter.master" AutoEventWireup="true" CodeFile="Scantron_Body_A_Bar.master.cs" 
+    Inherits="Scantron_Body_A_Bar" %>
+<%--          --%>
+<asp:Content ID="Content1" ContentPlaceHolderID="For_HtmlHead" Runat="Server">
+    <asp:ContentPlaceHolder ID="For_HtmlHead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="For_Title_A" Runat="Server">
+    <asp:Panel ID="pnUtility_ColorBar" runat="server" CssClass="masterColorBar">
+        <div id="masterColorBarContent">
+            <asp:ContentPlaceHolder ID="For_Title_A" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </asp:Panel>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="For_Title_B" Runat="Server">
+    <asp:ContentPlaceHolder ID="For_Title_B" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="For_Body_A" Runat="Server">
+    <div class="masterArea_BodyFill">            
+        <div class="masterArea_Padding">
+            <asp:ContentPlaceHolder ID="For_Body_A" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <div class="masterArea_Padding">
+            <asp:ContentPlaceHolder ID="For_Body_B" runat="server"></asp:ContentPlaceHolder>    
+        </div>
+        <div class="masterArea_Padding">
+            <asp:ContentPlaceHolder ID="For_Body_C" runat="server"></asp:ContentPlaceHolder>
+        </div>        
+    </div>
+</asp:Content>
+
+<%--  
+<asp:Content ID="Content5" ContentPlaceHolderID="For_Body_B" Runat="Server">
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="For_Body_C" Runat="Server" Visible="true">
+</asp:Content>
+    --%>
+
+
+

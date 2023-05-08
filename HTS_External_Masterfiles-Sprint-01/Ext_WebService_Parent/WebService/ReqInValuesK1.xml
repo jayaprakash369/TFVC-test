@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<serviceDocument version="2.1" transactionId="60" timestamp="2016-04-21T18:50:25">
+  <header>
+    <docType>Service Request</docType>
+    <sender type="CUSTSYSID">KEY</sender>
+    <receiver type="CUSTSYSID">HTS</receiver>
+    <requestSyncType>synchronous</requestSyncType>
+  </header>
+  <request deploymentMode="test">
+    <serviceRequest action="new">
+      <ticketInfo>
+        <refTicketNumber>HTS_TEST_01</refTicketNumber>
+        <openedDateStamp>2016-04-21T18:50:25</openedDateStamp>
+        <sentDateStamp>2016-04-21T18:50:25</sentDateStamp>
+        <transDateStamp>2016-04-21T18:50:25</transDateStamp>
+        <problemDescription>DEFAULT PROBLEM</problemDescription>
+        <status code="open"/>
+        <severity code="3"/>
+      </ticketInfo>
+      <contact type="primary">
+        <company>WA071</company>
+        <firstName>ABRAHAM</firstName>
+        <lastName>LINCOLN</lastName>
+        <email>abraham.lincoln@illinois.com</email>
+        <phone countryCode="1">1112223333</phone>
+        <location>
+          <cube>A-1</cube>
+        </location>
+      </contact>
+      <serviceAddress site="WA071">
+        <street>305 E 2ND ST</street>
+        <city>GRANDVIEW</city>
+        <state>WA</state>
+        <zip>98930</zip>
+      </serviceAddress>
+      <equipment>
+        <serial>J4PG307629</serial>
+        <model>EPSON TMT88IV</model>
+      </equipment>
+      <notes/>
+    </serviceRequest>
+  </request>
+</serviceDocument>

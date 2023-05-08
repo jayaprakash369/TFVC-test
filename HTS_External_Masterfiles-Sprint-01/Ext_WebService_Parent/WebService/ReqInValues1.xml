@@ -1,0 +1,42 @@
+﻿<serviceDocument timestamp="2016-09-23T09:47:23" transactionId="0000000006178535" version="2.1">
+  <header>
+    <docType>ESR Client</docType>
+    <sender type="CUSTSYSID">KEY</sender>
+    <receiver type="CUSTSYSID">HTS</receiver>
+    <requestSyncType>asynchronous</requestSyncType>
+  </header>
+  <request deploymentMode="test">
+    <serviceRequest action="new">
+      <ticketInfo>
+        <refTicketNumber>IM1597147</refTicketNumber>
+        <openedDateStamp>2016-09-23T13:47:23</openedDateStamp>
+        <sentDateStamp>2016-09-23T13:47:23</sentDateStamp>
+        <transDateStamp>2016-09-23T13:47:23</transDateStamp>
+        <problemDescription>Checks are jamming due to a piece being broken off of the U Track.</problemDescription>
+        <status code="open"/>
+        <severity code="3"/>
+      </ticketInfo>
+      <contact type="primary">
+        <company>KCOH2052</company>
+        <firstName>ASHLEY</firstName>
+        <lastName>ATWOOD</lastName>
+        <phone countryCode="1">330-389-7360</phone>
+        <location>
+          <cube>Branch</cube>
+        </location>
+      </contact>
+      <serviceAddress site="KCOH2052">
+        <street>145 North Chestnut Street</street>
+        <city>Ravenna</city>
+        <state>OH</state>
+        <zip>44266</zip>
+      </serviceAddress>
+      <equipment>
+        <serial>5439043</serial>
+        <model>MYVISIONX CHECK SCANNER</model>
+        <deviceName>OH052TLA2011366</deviceName>
+        <deviceStatus>Installed</deviceStatus>
+      </equipment>
+    </serviceRequest>
+  </request>
+</serviceDocument>

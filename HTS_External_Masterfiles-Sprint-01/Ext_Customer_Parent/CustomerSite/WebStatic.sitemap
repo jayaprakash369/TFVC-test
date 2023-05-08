@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/" title="Home"  description="">
+
+        <siteMapNode url="https://www.scantron.com" title="Scantron"  description="" />
+      
+        <siteMapNode url="~/public/Solutions.aspx" title="Solutions"  description="">
+            <siteMapNode url="~/public/ManagedServices.aspx" title="Managed IT Services"  description="" >
+                <siteMapNode url="~/public/AffianceSuite.aspx" title="affianceSUITE Support for SMB"  description="" />
+                <siteMapNode url="~/public/Authos.aspx" title="Authos Enterprise Support"  description="" />
+            </siteMapNode>
+            <siteMapNode url="~/public/MpsBenefits.aspx" title="Managed Print Services" description="">
+                <siteMapNode url="~/public/ManagedPrint.aspx" title="MPowerPrint Managed Print Services" description="" />
+                <siteMapNode url="~/public/MpsDeviceMonitoring.aspx" title="Monitoring Your Print Fleet" description="" />
+            </siteMapNode>
+            <siteMapNode url="~/public/HardwareMaintenance.aspx" title="Hardware Services"  description="">
+                <siteMapNode url="~/public/Onsite.aspx" title="Onsite Maintenance"  description="" />
+                <siteMapNode url="~/public/ScantronProducts.aspx" title="Scantron Scanner Services" description="" />
+                <siteMapNode url="~/public/Depot.aspx" title="Depot Repair Services"  description="" />
+                <siteMapNode url="~/public/SelfService.aspx" title="Cooperative Self Service"  description="" />
+            </siteMapNode>
+            <siteMapNode url="~/public/Implementation.aspx" title="Implementation Services" description="" />
+            <siteMapNode url="~/public/Supplies.aspx" title="Order Consumable Products" description="" />
+        </siteMapNode>
+
+        <siteMapNode url="~/public/Company.aspx" title="Company"  description="Company Overview" >
+            <siteMapNode url="~/public/WhySTS.aspx" title="Why Scantron Technology Solutions" description="" />
+            <siteMapNode url="~/public/Mission.aspx" title="Mission" description="" />
+            <siteMapNode url="~/public/Locations.aspx" title="Locations" description="" />
+            <siteMapNode url="~/public/Technologies.aspx" title="Technologies" description="" />
+            <siteMapNode url="~/public/Certifications.aspx" title="Certifications" description="" />
+            <siteMapNode url="~/public/PressReleases.aspx" title="Press Releases" description="" />
+          <siteMapNode url="~/public/Industries.aspx" title="Industries" description="" />  
+          <siteMapNode url="~/public/TechnologyPartnerships.aspx" title="Technology Partnerships" description="" />
+            <siteMapNode url="~/public/Partnerships.aspx" title="Business Partnerships and Alliances" description="" />
+        </siteMapNode>
+
+        <siteMapNode url="~/public/Resources.aspx" title="Resources"  description="Company Resources" >
+          <siteMapNode url="~/public/Library.aspx" title="Library"  description="" />
+          <siteMapNode url="~/public/Security.aspx" title="Security and Compliance"  description="" />
+          <siteMapNode url="~/public/Testimonials.aspx" title="Testimonials" description="" />
+         
+        </siteMapNode>
+
+
+      <siteMapNode url="~/private/shared/Menu.aspx" title="ServiceCOMMAND®" description="" />
+      <siteMapNode url="javascript:window.open('http://www.scantron.com/about-us/company/careers'); javascript:history.go(-0);" title="Careers" description="" />
+      <siteMapNode url="~/public/Contact.aspx" title="Contact Us"  description="" />
+
+    </siteMapNode>
+  </siteMap>

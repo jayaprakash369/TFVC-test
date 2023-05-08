@@ -1,0 +1,60 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+<asp:GridView runat="server" BackColor="White" BorderStyle="Solid" BorderWidth="1px" >
+   <AlternatingRowStyle BackColor="#EEEEEE" />
+</asp:GridView>
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+green: 3a7728
+--%>
+<asp:Label          SkinId="TableTitle0"      runat="server" ForeColor="#333333" Font-Size="14" Font-Bold="true" />
+<asp:Label          SkinId="TableTitle1"      runat="server" ForeColor="#3a7728" Font-Size="12" />
+<asp:Label          SkinId="TableTitle2"      runat="server" ForeColor="#94002c" Font-Size="10" />
+<asp:Label          SkinId="LabelError1"      runat="server" ForeColor="#94002C" />
+<asp:CheckBoxList   SkinId="checkBoxList1"    runat="server" CssClass="checkBoxList1" />
+<asp:CheckBoxList   SkinId="checkBoxList2"    runat="server" CssClass="checkBoxList2" />
+<asp:RadioButtonList SkinId="radioButtonList0"  runat="server" CssClass="radioButtonList0" />
+<asp:RadioButtonList SkinId="radioButtonList1"  runat="server" CssClass="radioButtonList1" />
+
+<asp:Calendar       SkinId="calendar1"      runat="server" 
+                    BackColor="White" 
+                    BorderColor="#999999" 
+                    Font-Names="Verdana, Arial" 
+                    Font-Size="10px" 
+                    Height="60px" 
+                    Width="160px" 
+                    CellPadding="0" 
+                    DayNameFormat="Shortest"
+                    CssClass="tableCalendar" >
+                    <DayHeaderStyle 
+                    Font-Bold="True" 
+                    Font-Size="11px" 
+                    BackColor="#777777" 
+                    ForeColor="White" />
+                    <NextPrevStyle VerticalAlign="Bottom" />
+                    <OtherMonthDayStyle ForeColor="#808080" />
+                    <SelectedDayStyle BackColor="#94002c" ForeColor="White" Font-Bold="True" />
+                    <SelectorStyle BackColor="#AD0034" />
+                    <TitleStyle BackColor="#CCCCCC" Font-Bold="True" BorderColor="Black" ForeColor="White" />
+                    <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                    <WeekendDayStyle BackColor="#EEEEEE" /></asp:Calendar>
+
+<%--
+Default skins. The SkinId is not defined. Only one default control skin per control type is allowed in the same theme.
+--%>
+<asp:ValidationSummary runat="server" Font-Size="9" Font-Names="Verdana" ForeColor="#94002c" />
+<asp:CompareValidator runat="server" Display="Dynamic" ForeColor="#94002c" />
+<asp:RequiredFieldValidator runat="server" Display="Dynamic" ForeColor="#94002c" />
+<asp:RangeValidator runat="server" Display="Dynamic" ForeColor="#94002c" />
+<asp:RegularExpressionValidator runat="server" Display="Dynamic" ForeColor="#94002c" />

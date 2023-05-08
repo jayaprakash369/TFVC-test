@@ -1,0 +1,252 @@
+﻿Here is a change to the help text on Aug 10th, 2019 8:55 pm
+========================================================    
+_Click Related Table Row Field Values "NamingContainer" 
+========================================================    
+       Button btControl = (Button)sender;
+
+       HyperLink hlUnit = btControl.NamingContainer.FindControl("hlUnit") as HyperLink;
+       TextBox txEndMeter = btControl.NamingContainer.FindControl("txEndMeter") as TextBox;
+       TextBox txPages = btControl.NamingContainer.FindControl("txPages") as TextBox;
+_________________________________________
+Convert Date8 to DateTime (and reverse)
+_________________________________________
+datTemp = Convert.ToDateTime("2010-01-06 01:01:01.000"); 
+datTemp = Convert.ToDateTime(sDat.Substring(0, 4) + "-" + sDat.Substring(4, 2) + "-" + sDat.Substring(6, 2) + " 01:01:01.000");
+datTemp = datTemp.AddDays(-(datTemp.Day - 1));  // get first of this month...
+
+int iDate = Int32.Parse(datTemp.ToString("yyyyMMdd"));
+double dTime = Convert.ToDouble(datTemp.ToString("HH.mm"));
+========================================================    
+Rounded Corners Requirements (FOR IE)
+========================================================    
+1) Empty Panel with BackColor="#eeeeee"
+
+2) Use a "style" element to a) force minimum height and b) use overflow: hidden to prevent scroll bars
+	.pnLoginBox {
+		min-height: 480px;
+		overflow: hidden;  
+	}
+
+3) Even with masterpage, each page using ajax must have
+	<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+4) If not on Masterpage then individual page must have... in a runat="server" element like "form"
+	<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" />
+
+5) On bottom add a..
+	<asp:RoundedCornersExtender ID="RoundedCornersExtender1" runat="server"
+		TargetControlID="pnLoginBox"
+		Radius="7"
+		Corners="All" >
+	</asp:RoundedCornersExtender>
+
+6) To control spacing for inner content use an inner div as a wrapper
+
+7) Have an inner table for your content
+
+
+========================================================    
+Masterpages: Dynamically Applied
+========================================================    
+void Page_PreInit(Object sender, EventArgs e)
+{
+    this.MasterPageFile = "~/Scantron_Body_A_Bar.master";
+}
+========================================================    
+Post back repositions to top of page?
+<%@ Page MaintainScrollPositionOnPostback="true" %>
+
+========================================================    
+Server side addition of Css (put on HTML side)
+========================================================    
+<script runat="server">
+
+  protected void Page_Init(object sender, EventArgs e)
+  {
+    // Add a CSS style page to specific pages (rather than globally) 
+    HtmlLink myHtmlLink = new HtmlLink();
+    myHtmlLink.Href = "~/public/css/MasterParent.css";
+    myHtmlLink.Attributes.Add("rel", "stylesheet");
+    myHtmlLink.Attributes.Add("type", "text/css");
+    // Add the HtmlLink to the Head section of the page.
+    Page.Header.Controls.Add(myHtmlLink);
+  }
+</script>
+
+
+========================================================    
+Server side addition of Javascript
+========================================================    
+private void Page_Load(object sender, System.EventArgs e)        
+{            
+	Page.ClientScript.RegisterClientScriptInclude("jsGetXY", "/public/js/GetXY.js");
+
+	this.Button1.Attributes.Add("onclick", "this.value='Please wait...';this.disabled = true;this.GetPostBackEventReference(this.Button1));        
+}
+
+<div id="dvProcessing" style="position: absolute; top: -1000x; left: -1000px;">
+    <table cellspacing="0" cellpadding="0" style='width: 500px; height: 100px; border: 2px solid #333333; background-color: #406080; color: #FFFFCC;'>
+        <tr><td style='text-align: center; font-size: 30px; color: #ffffcc; padding-top: 15px; padding-bottom: 1px;'>Please wait while processing...</td></tr>
+        <tr><td style='text-align: center; font-size: 14px; padding-top: 0px; color: #ffffff; vertical-align: top;'>Expect 10 to 15 seconds per request</td></tr>
+    </table>
+</div>
+
+        function StopDoubleClick(b) {
+            //var doc = document.forms[0];
+            var posTop = (findPosY(b) - 50) + "px";
+            var posLeft = (findPosX(b) - 180) + "px";
+            b.style.visibility = "hidden";
+            var dvObj = document.getElementById("dvProcessing");
+
+            dvObj.style.top = posTop;
+            dvObj.style.left = posLeft;
+//            dvObj.visibility = "visible";
+            alert(dvObj.style.left);
+            return false;
+        }
+
+========================================================    
+	<div style="float: right; padding-right: 20px; position: relative; top:-15px; left:-10px;"><div class="btn btn_green"><asp:HyperLink ID="hlButtonStatic" runat="server" Text="Contact Us" NavigateUrl="~/public/contact.aspx" /><span></span></div></div>
+
+SQL Injection: See Turtle 528
+========================================================
+HOW TO ALLOW DATABASE DESIGN CHANGES IN SQL SERVER 2008
+========================================================
+Tools > Options > Designers
+Look for checkbox "Prevent Saving changes that require table drop and recreation"
+Uncheck the box.
+
+========================================================
+HOW TO SET UP MULTIPLE SSL SITES ON THE SAME PORTS 80 and 443 
+========================================================
+http://www.digicert.com/ssl-support/configure-iis-host-headers.htm
+
+DOS Command (DO NOT USE QUOTES, PUT A SPACE BETWEEN MULTIPLE ENTRIES for other names for the same site)
+cd C:\Inetpub\AdminScripts
+(cscript.exe adsutil.vbs set /w3svc/site identifier/SecureBindings ":443:host header")
+cscript.exe adsutil.vbs set /w3svc/117850084/SecureBindings :443:www.Scantronts.com :443:Scantronts.com :443:www.ScantronTechnologySolutions.com :443:Scantrontechnologysolutions.com 
+cscript.exe adsutil.vbs set /w3svc/425730359/SecureBindings :443:www.htsweb1.com :443:htsweb1.com
+cscript.exe adsutil.vbs set /w3svc/1954736597/SecureBindings :443:ws.harlandts.com
+
+cscript.exe adsutil.vbs get /w3svc/117850084/SecureBindings
+	to see the bindings currently assigned to that web site.
+
+Look in IIS to see the site identifier and host header for the web sites on the server
+
+
+========================================================
+OFFLINE
+========================================================
+app_offline.htm (auto generated file that will override site)
+
+========================================================
+Database Location
+========================================================
+Back when I was using a local copy of the database (in the DMZ) the connection string was...
+Clear Machine.Config <remove name="LocalSqlServer"/>
+Set Local DMZ connection <add name="LocalSqlServer" connectionString="Server=localhost\SqlExpress; Database=Customer;Integrated Security=True" providerName="System.Data.SqlClient"/>
+2nd customer db connection<add name="Customer" connectionString="Data Source=2003Main\SqlExpress;Initial Catalog=Customer;Integrated Security=True" providerName="System.Data.SqlClient"/>
+Local DB in the web site folder		<add name="localCustConn" connectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\LocalCust.mdf;Integrated Security=True;User Instance=True" providerName="System.Data.SqlClient"/>
+		<add name="IBD_TestConnectionString" connectionString="Data Source=HTS-NET\SqlExpress;Initial Catalog=IBD_Test;Integrated Security=True" providerName="System.Data.SqlClient"/>
+Access DB test
+		<remove name="InternationalOnAccessConnectionString"/>
+		<add name="InternationalOnAccessConnectionString" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\OurSites\InternationalOnAccess.mdb" providerName="System.Data.OleDb"/>
+
+
+========================================================
+Loading Data Tables (Columns and Rows) 
+========================================================
+DataRow dr = dataTable.NewRow(); 
+dr["firstName"] = "John"; 
+dr["lastName"] = "Smith"; 
+// add new data row to the data table. 
+dataTable.Rows.Add(dr); 
+
+========================================================
+Controls
+========================================================
+How to user user controls
+<%@ Register TagPrefix="UserControl" TagName="NavDynamic" Src="Nav1.ascx" %> 
+
+========================================================
+Password Validation Expression
+========================================================
+^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).[^\s]{7,15}$
+Password Requirements:<br />7 to 15 non-blank characters<br />including an uppercase,<br /> a lowercase character<br /> and a number
+
+Custom Validator to add server validation to error message block
+<asp:CustomValidator id="vCusRegId" runat="server" 
+    Display="None" 
+    EnableClientScript="False"
+    ValidationGroup="RegId" />
+
+
+^((?=.*\d)|(?=.*\W+))(?=.*[a-z])(?=.*[A-Z]).[^\s]{7,15}$
+Number OR special character...
+
+^				anchor at start
+(?=.*\d)		digit required
+(?=.*[a-z])		lowercase required
+(?=.*[A-Z])		uppercase required
+.[^\s]{7,15}	no space, 7 to 15 digits
+\s				space allowed
+$				end anchor
+
+See Turtle book page 238
+^(?=.*\d).{6,12}$
+
+Password matching expression. Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.
+^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$
+
+6-12 nonblank characters are required.
+[^\s]{6,12}
+
+Special characters
+.*[@#$%^&*/.].*
+
+This Regular Expression meets these requirements:
+
+◦Must be at least 10 characters 
+◦Must contain at least one one lower case letter, one upper case letter, one digit and one special character 
+◦Valid special characters are -   @#$%^&+=
+
+^.*(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$
+
+  
+  US Phone number
+  ((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}
+
+
+  ^.*(?=.{5,20})(?=.*\w).*$   5 to 20, at least one alphanumeric (special characters allowed) 
+ 
+  .*(?=.{5,20})(?=.*\w)(?=.*[@#.$%^&+=]).* works at least one alphanumeric and one of these chars
+ ^[\w(@.#$%^&+=]{5,20}$
+ \w means any alphanumeric character permitted (no special characters) 
+ ^[\w]{5,20}$ alphanumeric
+ ^.[^\s]{5,20}$ no space
+ [A-Za-z\d]{5,20}
+ ^.*(?=.{10,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$
+ [^\s]{6,12}
+
+========================================================    
+Sarah Billing Error: ThrowifmaxhttpkeycollectionKeysexceeded
+========================================================    
+Feb 1st, 2012
+Hi i found the solution, it is due to the recent Microsoft security update we are getting this error. Seems they have added a new method called 'ThrowifmaxhttpkeycollectionKeysexceeded' with default value 1000, which means postback can contain only 1000 items.
+
+Just add the following to your web.config(2.0 and above)
+
+<appSettings>
+<add key="aspnet:MaxHttpCollectionKeys" value="5000" />
+</appSettings>
+
+========================================================    
+Copied Code for Storage
+========================================================    
+
+ <!--
+              <siteMapNode url="~/public/TechnologyAssessmentRoadmap.aspx" title="Technology Assessment and Roadmap"  description="" />
+                <siteMapNode url="~/public/Implementation.aspx" title="Implementations"  description="" />
+                <siteMapNode url="~/public/AdditionalServices.aspx" title="Additional Services"  description="" />
+                -->
+

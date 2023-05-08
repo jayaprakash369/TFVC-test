@@ -1,0 +1,49 @@
+
+<script language="javascript">
+function addLinks(jNum) {
+var divObj=document.getElementById("seaSubmenu")
+if (jNum == 5) {
+divObj.innerHTML="LINK FOR FIVE";
+}
+if (jNum == 6) {
+divObj.innerHTML="LINK FOR SIX";
+}
+if (jNum == 7) {
+divObj.innerHTML="LINK FOR SEVEN";
+}
+if (jNum == 8) {
+divObj.innerHTML="LINK FOR EIGHT";
+}
+if (jNum == 9) {
+divObj.innerHTML="<ul><li><a href='#'>LINK ONE FOR NINE</a></li><li><a href='#'>LINK TWO FOR NINE</a></li><li><a href='#'>LINK THREE FOR NINE</a></li></ul>";
+}
+}
+function delLinks() {
+var divObj=document.getElementById("seaSubmenu")
+divObj.innerHTML="";
+}
+</script>
+
+
+
+<div id="seaNav">
+
+    <div id="seaMenu">
+        <ul>
+        <li id="menu_zero" style="width: 50px;"></li>
+        <li id="menu_one"><a href="#" onmouseover="delLinks()">One</a></li>
+        <li id="menu_two"><a href="#">Two</a></li>
+        <li id="menu_three"><a href="#">Three</a></li>
+        <li id="menu_four"><a href="#">Four</a></li>
+        <li id="menu_five"><a href="#" onmouseover="addLinks(5);">Five is Longer</a></li>
+        <li id="menu_six"><a href="#" onmouseover="addLinks(6);">Six</a></li>
+        <li id="menu_seven"><a href="#" onmouseover="addLinks(7);">Seven</a></li>
+        <li id="menu_eight"><a href="#" onmouseover="addLinks(8);">Eight is Longer</a></li>
+        <li id="menu_nine"><a href="#" onmouseover="addLinks(9);">Nine</a></li>
+        </ul>
+    </div>
+
+    <div id="seaSubmenu">
+    </div><!-- END submenu -->
+
+</div><!-- END hiNav -->

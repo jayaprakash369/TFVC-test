@@ -1,0 +1,59 @@
+﻿===================================
+Help
+===================================
+To Do List
+-----------
+On the home menu add a customer based dashboard
+open tickets, closed tickets within date range, equipment on contract
+
+===================================
+ENVIRONMENT: DEV TEST OR LIVE? 
+===================================
+A) MyPage class has a Set_Environment class 
+B) Global.asax has a SetCurrentDatabase() method that is ALSO needed to set the "Membership" to point to the correct SQL database
+
+===================================
+Moving Site to TFS
+===================================
+I was not able to create a new unmapped folder through Visual Studio
+Instead I had to go to a browser editor (Jagadish sent this to me)
+https://dev.azure.com/Scantron-PC01/
+It auto logged in for me (from memory) and I was able to add the folder as needed
+
+========================================================    
+PARMS PASSED IN
+========================================================    
+if (Request.QueryString["courseName"] != null && Request.QueryString["courseName"].ToString() != "")
+    hfCourseName.Value = Request.QueryString["courseName"].ToString().Trim();
+
+if (Session["ReviewSearchCs1"] != null)
+    txSearchCs1.Text = Session["ReviewSearchCs1"].ToString().Trim();
+
+========================================================    
+Convert Date8 to DateTime (and reverse)
+_________________________________________
+DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK")
+if (DateTime.TryParse(sDat.Substring(0, 4) + "-" + sDat.Substring(4, 2) + "-" + sDat.Substring(6, 2) + " 00:00:00.000", out datTemp) == true)
+	  sDat = datTemp.ToString("yyyyMMdd");
+if (DateTime.TryParse(sDat.Substring(0, 4) + "-" + sDat.Substring(4, 2) + "-" + sDat.Substring(6, 2) + " " + sTim.Substring(0, 2) + ":" + sTim.Substring(2, 2) + ":00.000", out datTemp) == true)
+      sDat = datTemp.ToString("yyyyMMdd");
+
+datTemp = Convert.ToDateTime("2010-01-06 01:01:01.000"); 
+datTemp = Convert.ToDateTime(sDat.Substring(0, 4) + "-" + sDat.Substring(4, 2) + "-" + sDat.Substring(6, 2) + " 01:01:01.000");
+datTemp = datTemp.AddDays(-(datTemp.Day - 1));  // get first of this month...
+lbDetDate.Text = datTemp.ToString("MMM d, yyyy  (h:mm tt)");
+
+int iDate = Int32.Parse(datTemp.ToString("yyyyMMdd"));
+double dTime = Convert.ToDouble(datTemp.ToString("HH.mm"));
+
+========================================================    
+USING statment to release locks when done (sqlReader)
+========================================================    
+https://docs.microsoft.com/en-us/archive/blogs/spike/there-is-already-an-open-datareader-associated-with-this-command-which-must-be-closed-first-explained
+See public/robot/ConnectwiseTicketInterface.aspx
+    using (sqlReader = sqlCmd.ExecuteReader(CommandBehavior.Default))
+    {
+        dt.Load(sqlReader);
+    }
+
+========================================================    

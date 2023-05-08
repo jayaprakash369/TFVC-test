@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<serviceDocument version="2.1" transactionId="61" timestamp="2016-04-21T19:05:43">
+  <header>
+    <docType>Service Request</docType>
+    <sender type="CUSTSYSID">KEY</sender>
+    <receiver type="CUSTSYSID">HTS</receiver>
+    <requestSyncType>synchronous</requestSyncType>
+  </header>
+  <request deploymentMode="test">
+    <serviceRequest action="new">
+      <ticketInfo>
+        <refTicketNumber>HTS_TEST_02</refTicketNumber>
+        <openedDateStamp>2016-04-21T19:05:43</openedDateStamp>
+        <sentDateStamp>2016-04-21T19:05:43</sentDateStamp>
+        <transDateStamp>2016-04-21T19:05:43</transDateStamp>
+        <problemDescription>DEFAULT PROBLEM</problemDescription>
+        <status code="open"/>
+        <severity code="3"/>
+      </ticketInfo>
+      <contact type="primary">
+        <company>WA122</company>
+        <firstName>ABRAHAM</firstName>
+        <lastName>LINCOLN</lastName>
+        <email>ABRAHAM.LINCOLN@ILLINOIS.COM</email>
+        <phone countryCode="1">1112223333</phone>
+        <location>
+          <cube>A-1</cube>
+        </location>
+      </contact>
+      <serviceAddress site="WA122">
+        <street>17601 PACIFIC AVE</street>
+        <city>SPANAWAY</city>
+        <state>WA</state>
+        <zip>98387</zip>
+      </serviceAddress>
+      <equipment>
+        <serial>2UA2480ZLQ</serial>
+        <model>HP Z220</model>
+      </equipment>
+      <notes/>
+    </serviceRequest>
+  </request>
+</serviceDocument>

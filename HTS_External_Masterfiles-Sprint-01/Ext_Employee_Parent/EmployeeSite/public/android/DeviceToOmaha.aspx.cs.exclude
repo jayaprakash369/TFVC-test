@@ -1,0 +1,699 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Collections.Specialized;
+
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.Odbc;
+using System.Configuration;
+using System.Web.Security;
+
+public partial class public_android_DeviceToOmaha : MyPage
+{
+    // ---------------------------------------
+    // GLOBAL VARIABLES 
+    // ---------------------------------------
+    //    SqlConnection sqlConn;
+    //    SqlCommand sqlCmd;
+    //    SqlDataReader sqlReader;
+
+    //OdbcConnection odbcConn;
+    //OdbcCommand odbcCmd;
+    //OdbcDataReader odbcReader;
+
+    ErrorHandler eh;
+    char[] cSplitter = { '|' };
+    string sConnectionString = "";
+    string sSql = "";
+//    string sLibrary = "OMDTALIB";
+    string sResponseToDevice = "SERVER DEFAULT|";
+    // ========================================================================
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        /*
+         * Job Names: Have an underscore between each word
+         * sResponseToDevice: a flexible sized string delimited by the pipe character |
+         * 1) Job Status
+         *      a) FINISHED (delete job from device outbox, outcome will never change...)
+         *      b) TRY_AGAIN (keep job for another try when there might be a better outcome) 
+         * 2) Output Type
+         *      a) MESSAGE (store in message database and display in list activity)
+         *      b) ALERT (don't store the data, but pop up a screen with your response)
+         *      c) TOAST  (don't store the data, just display in a 'TOAST' popup for 3 seconds (use 3-10 words) 
+         *      d) DATA_FOUND (process data sent, no need for user output here) 
+         *      e) DEBUG (error information) 
+         * 3) TITLE (toast only loads this line...) 
+         * 4) CONTENT 
+         * 5) MESSAGE IMPORTANCE (0=Low, 1=Standard, 2=High 3=Critical)
+        */
+
+        // -------------------------------------------------------------------------
+        //sConnectionString = ConfigurationManager.ConnectionStrings["As400Conn"].ConnectionString;
+        //odbcConn = new OdbcConnection(sConnectionString);
+
+        try
+        {
+            // odbcConn.Open();
+
+            NameValueCollection nvc = Request.Form;
+            
+            // --------------------------------
+            string sUser = "";
+            int iUser = -1;
+            if (!string.IsNullOrEmpty(nvc["user"])) {
+                sUser = nvc["user"];
+                if (int.TryParse(sUser, out iUser) == false)
+                    iUser = -1;
+            }
+
+            string sJob = "";
+            if (!string.IsNullOrEmpty(nvc["job"]))
+                sJob = nvc["job"];
+            // --------------------------------
+            
+            if (!String.IsNullOrEmpty(sJob) && iUser > -1)
+            {
+                // --------------------------------
+                string sActivationCode = "";
+                if (!string.IsNullOrEmpty(nvc["axs"]))
+                    sActivationCode = nvc["axs"];
+
+                string sAdr = "";
+                if (!string.IsNullOrEmpty(nvc["adr"]))
+                    sAdr = nvc["adr"];
+
+                string sAgr = "";
+                if (!string.IsNullOrEmpty(nvc["agr"]))
+                    sAgr = nvc["agr"];
+
+                string sBeg = "";
+                int iBeg = 0;
+                if (!string.IsNullOrEmpty(nvc["beg"]))
+                {
+                    if (int.TryParse(nvc["beg"], out iBeg) == false)
+                        iBeg = -1;
+                    if (iBeg > 0)
+                        sBeg = iBeg.ToString();
+                }
+
+                string sBlackOrColor = "";
+                if (!string.IsNullOrEmpty(nvc["boc"]))
+                    sBlackOrColor = nvc["boc"];
+
+                string sCit = "";
+                if (!string.IsNullOrEmpty(nvc["cit"]))
+                    sCit = nvc["cit"];
+
+                string sCod = "";
+                if (!string.IsNullOrEmpty(nvc["cod"]))
+                    sCod = nvc["cod"];
+
+                string sCon = "";
+                if (!string.IsNullOrEmpty(nvc["con"]))
+                    sCon = nvc["con"];
+
+                string sCs1 = "";
+                int iCs1 = 0;
+                if (!string.IsNullOrEmpty(nvc["cs1"]))
+                {
+                    sCs1 = nvc["cs1"];
+                    int.TryParse(sCs1, out iCs1);
+                }
+
+                string sCs2 = "";
+                int iCs2 = 0;
+                if (!string.IsNullOrEmpty(nvc["cs2"]))
+                {
+                    sCs2 = nvc["cs2"];
+                    int.TryParse(sCs2, out iCs2);
+                }
+
+                string sCtr = "";
+                int iCtr = 0;
+                if (!string.IsNullOrEmpty(nvc["ctr"])) {
+                    sCtr = nvc["ctr"];
+                    int.TryParse(sCtr, out iCtr);
+                }
+
+                string sDat = "";
+                DateTime datTemp = new DateTime();
+                if (!string.IsNullOrEmpty(nvc["dat"])) {
+                    sDat = nvc["dat"];
+                    DateTime.TryParse(sDat, out datTemp);
+                }
+
+                string sDatabase = "";
+                if (!string.IsNullOrEmpty(nvc["db"]))
+                    sDatabase = nvc["db"];
+
+                string sDet = "";
+                if (!string.IsNullOrEmpty(nvc["det"]))
+                    sDet = nvc["det"];
+
+                string sDetail = "";
+                if (!string.IsNullOrEmpty(nvc["detail"]))
+                    sDetail = nvc["detail"];
+
+                string sDeviceCalls = "";
+                if (!string.IsNullOrEmpty(nvc["deviceCalls"]))
+                    sDeviceCalls = nvc["deviceCalls"];
+
+                string sDlr = "";
+                int iDlr = 0;
+                if (!string.IsNullOrEmpty(nvc["dlr"])) {
+                    sDlr = nvc["dlr"];
+                    if (int.TryParse(sDlr, out iDlr) == false)
+                        iDlr = -1;
+                }
+
+                string sDsc = "";
+                if (!string.IsNullOrEmpty(nvc["dsc"]))
+                    sDsc = nvc["dsc"];
+
+                string sDst = "";
+                int iDst = 0;
+                if (!string.IsNullOrEmpty(nvc["dst"])) {
+                    sDst = nvc["dst"];
+                    int.TryParse(sDst, out iDst);
+                }
+
+                string sEml = "";
+                if (!string.IsNullOrEmpty(nvc["eml"]))
+                    sEml = nvc["eml"];
+
+                string sEmp = "";
+                int iEmp = 0;
+                if (!string.IsNullOrEmpty(nvc["emp"])) {
+                    sEmp = nvc["emp"];
+                    int.TryParse(sEmp, out iEmp);
+                }
+
+                string sEnd = "";
+                int iEnd = 0;
+                if (!string.IsNullOrEmpty(nvc["end"]))
+                {
+                    if (int.TryParse(nvc["end"], out iEnd) == false)
+                        iEnd = -1;
+                    if (iEnd > -1)
+                        sEnd = iEnd.ToString();
+                }
+
+                string sJobToDeviceID = "";
+                int iJobToDeviceID = 0;
+                if (!string.IsNullOrEmpty(nvc["jobToDeviceID"])) {
+                    sJobToDeviceID = nvc["jobToDeviceID"];
+                    if (int.TryParse(sJobToDeviceID, out iJobToDeviceID) == false)
+                        iJobToDeviceID = -1;
+                }
+
+                string sMdl = "";
+                if (!string.IsNullOrEmpty(nvc["mdl"]))
+                    sMdl = nvc["mdl"];
+
+                string sMsg = "";
+                if (!string.IsNullOrEmpty(nvc["msg"]))
+                    sMsg = nvc["msg"];
+
+                string sNam = "";
+                if (!string.IsNullOrEmpty(nvc["nam"]))
+                    sNam = nvc["nam"];
+
+                string sName = "";
+                if (!string.IsNullOrEmpty(nvc["name"]))
+                    sName = nvc["name"];
+
+                string sNum = "";
+                int iNum = 0;
+                if (!string.IsNullOrEmpty(nvc["num"])) {
+                    sNum = nvc["num"];
+                    int.TryParse(sNum, out iNum);
+                }
+
+                string sOmr = "";
+                if (!string.IsNullOrEmpty(nvc["omr"]))
+                    sOmr = nvc["omr"];
+
+                string sPgs = "";
+                int iPgs = 0;
+                if (!string.IsNullOrEmpty(nvc["pgs"])) {
+                    sPgs = nvc["pgs"];
+                    int.TryParse(sPgs, out iPgs);
+                }
+
+                string sPhn = "";
+                if (!string.IsNullOrEmpty(nvc["phn"]))
+                    sPhn = nvc["phn"];
+
+                string sPrb = "";
+                if (!string.IsNullOrEmpty(nvc["prb"]))
+                    sPrb = nvc["prb"];
+
+                string sPrt = "";
+                if (!string.IsNullOrEmpty(nvc["prt"]))
+                    sPrt = nvc["prt"];
+
+                string sQty = "";
+                int iQty = 0;
+                if (!string.IsNullOrEmpty(nvc["qty"])) {
+                    sQty = nvc["qty"];
+                    int.TryParse(sQty, out iQty);
+                }
+
+                string sRegID = "";
+                if (!string.IsNullOrEmpty(nvc["regid"]))
+                    sRegID = nvc["regid"];
+                
+                string sResult = "";
+                if (!string.IsNullOrEmpty(nvc["result"]))
+                    sResult = nvc["result"];
+
+                string sRsn = "";
+                if (!string.IsNullOrEmpty(nvc["rsn"]))
+                    sRsn = nvc["rsn"];
+
+                string sSbj = "";
+                if (!string.IsNullOrEmpty(nvc["sbj"]))
+                    sSbj = nvc["sbj"];
+
+                string sSer = "";
+                if (!string.IsNullOrEmpty(nvc["ser"]))
+                    sSer = nvc["ser"];
+
+                string sSrc = "";
+                int iSrc = 0;
+                if (!string.IsNullOrEmpty(nvc["src"])) {
+                    sSrc = nvc["src"];
+                    int.TryParse(sSrc, out iSrc);
+                }
+
+                string sSta = "";
+                if (!string.IsNullOrEmpty(nvc["sta"]))
+                    sSta = nvc["sta"];
+
+                string sSts = "";
+                if (!string.IsNullOrEmpty(nvc["sts"]))
+                    sSts = nvc["sts"];
+
+                string sSum = "";
+                if (!string.IsNullOrEmpty(nvc["sum"]))
+                    sSum = nvc["sum"];
+
+                string sSvc = "";
+                if (!string.IsNullOrEmpty(nvc["svc"]))
+                    sSvc = nvc["svc"];
+
+                string sTck = "";
+                int iTck = 0;
+                if (!string.IsNullOrEmpty(nvc["tck"])) {
+                    sTck = nvc["tck"];
+                    int.TryParse(sTck, out iTck);
+                }
+
+                string sTech = "";
+                int iTech = 0;
+                if (!string.IsNullOrEmpty(nvc["tech"]))
+                {
+                    if (int.TryParse(nvc["tech"], out iTech) == false)
+                        iTech = -1;
+                    else
+                        sTech = iTech.ToString();
+                }
+
+                string sTxt = "";
+                if (!string.IsNullOrEmpty(nvc["txt"]))
+                    sTxt = nvc["txt"];
+
+                string sTyp = "";
+                if (!string.IsNullOrEmpty(nvc["typ"]))
+                    sTyp = nvc["typ"];
+
+                string sUnt = "";
+                int iUnt = 0;
+                if (!string.IsNullOrEmpty(nvc["unt"]))
+                {
+                    sUnt = nvc["unt"];
+                    int.TryParse(sUnt, out iUnt);
+                }
+
+                string sZip = "";
+                if (!string.IsNullOrEmpty(nvc["zip"]))
+                    sZip = nvc["zip"];
+                // --------------------------------------
+
+                switch (sJob)
+                {
+                    // -------------------------------------------------------------------
+                    // CREATING 
+                    // -------------------------------------------------------------------
+                    case "Create_Courtesy_Call": // user|job|cs1|cs2|typ|
+                        {
+                            ToOma_CreateCall cc = new ToOma_CreateCall();
+                            sResponseToDevice = cc.CreateCourtesyCall(iUser, iCs1, iCs2, sTyp);
+                            cc = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Create_Pm_Call": // user|job|cs1|cs2|unt|
+                        {
+                            ToOma_CreateCall cc = new ToOma_CreateCall();
+                            sResponseToDevice = cc.CreatePmCall(iUser, iCs1, iCs2, iUnt);
+                            cc = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Create_Quick_Call": // user|job|cs1|cs2|unt|prb|
+                        {
+                            ToOma_CreateCall cc = new ToOma_CreateCall();
+                            sResponseToDevice = cc.CreateQuickCall(iUser, iCs1, iCs2, iUnt, sPrb);
+                            cc = null;
+                            break;
+                        }
+
+                    // -------------------------------------------------------------------
+                    // RETRIEVING
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Call": // Direct Retrieval of specific call (Not going through Google) 
+                        {
+                            ToOma_RetrieveCall rc = new ToOma_RetrieveCall();
+                            sResponseToDevice = rc.SendCall(iCtr, iTck);
+                            rc = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Call_Note_Data": // user|job|num|
+                        {
+                            ToOma_RetrieveCallNotes rcn = new ToOma_RetrieveCallNotes();
+                            sResponseToDevice = rcn.GetCallNote(iNum);
+                            rcn = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Call_Note_Numbers": // user|job|ctr|tck|cs1|cs2|agr|dlr|
+                        {
+                            ToOma_RetrieveCallNotes rcn = new ToOma_RetrieveCallNotes();
+                            sResponseToDevice = rcn.GetCallNoteNums(iCtr, iTck, iCs1, iCs2, sAgr, iDlr);
+                            rcn = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Call_Sync_All": // user|job|callList|
+                        {
+                            //EmailHandler emh = new EmailHandler();
+                            //emh.EmailIndividual(sJob + " user: " + iUser, sDeviceCalls, "htslog@yahoo.com", "adv320@harlandts.com", "HTML");
+                            //emh = null;
+
+                            ToOma_RetrieveCallSync rcs = new ToOma_RetrieveCallSync();
+                            sResponseToDevice = rcs.SynchronizeCalls(iUser, sDeviceCalls);
+                            rcs = null;
+
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Call_Sync_One": // user|job|ctr|tck|rsn|
+                        {
+                            ToOma_RetrieveCallSync rcs = new ToOma_RetrieveCallSync();
+                            sResponseToDevice = rcs.SynchronizeCall(iUser, iCtr, iTck, sRsn);
+                            rcs = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Call_Sync_Direct": // user|job|deviceCalls  (Gets orphan list)
+                        {
+                            ToOma_RetrieveCallSync rcs = new ToOma_RetrieveCallSync();
+                            sResponseToDevice = rcs.DeleteOrphanedCalls(iUser, sDeviceCalls);
+                            rcs = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Call_Sync_List": // user|job|  (Gets current call list) 
+                        {
+                            ToOma_RetrieveCallSync rcs = new ToOma_RetrieveCallSync();
+                            sResponseToDevice = rcs.RetrieveCurrentCallList(iUser);
+                            rcs = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Customers": // user|job|cs1|cs2|
+                        {
+                            ToOma_RetrieveCustomers rc = new ToOma_RetrieveCustomers();
+                            sResponseToDevice = rc.GetCustomers(iUser, sCs1, sCs2);
+                            rc = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Inventory":
+                        {
+                            ToOma_RetrieveInventory ri = new ToOma_RetrieveInventory();
+                            sResponseToDevice = ri.GetInventory(iTech);
+                            ri = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Machines": // user|job|cs1|cs2|
+                        {
+                            ToOma_RetrieveMachines rm = new ToOma_RetrieveMachines();
+                            sResponseToDevice = rm.GetMachines(iUser, sCs1, sCs2);
+                            rm = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Other_Tech_Calls":
+                        {
+                            ToOma_RetrieveOtherTechCalls rotc = new ToOma_RetrieveOtherTechCalls();
+                            sResponseToDevice = rotc.GetOtherTechCalls(iUser, iTech, sName);
+                            rotc = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_PMs": // user|job|cs1|cs2|
+                        {
+                            ToOma_RetrievePMs rpm = new ToOma_RetrievePMs();
+                            sResponseToDevice = rpm.GetPMs(iUser, sCs1, sCs2);
+                            rpm = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Pm_Sync": // user|job|cs1|cs2|
+                        {
+                            ToOma_RetrieveCustomers rc = new ToOma_RetrieveCustomers();
+                            sResponseToDevice = rc.GetCustomerNumbers(iUser, sCs1, sCs2);
+                            rc = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Service_History": // user|job|cs1|cs2|unt|beg|end|
+                        {
+                            ToOma_RetrieveServiceHistory rsh = new ToOma_RetrieveServiceHistory();
+                            sResponseToDevice = rsh.GetServiceHistory(iUser, sCs1, sCs2, sUnt, sBeg, sEnd);
+                            rsh = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Techs":
+                        {
+                            ToOma_RetrieveTechs rt = new ToOma_RetrieveTechs();
+                            sResponseToDevice = rt.GetTechs();
+                            rt = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_Tracking": // user|job|ctr|tck|
+                        {
+                            ToOma_RetrieveTracking rt = new ToOma_RetrieveTracking();
+                            sResponseToDevice = rt.GetTracking(iUser, sCtr, sTck);
+                            rt = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_User_Data": // user|job|axs|
+                        {
+                            ToOma_RetrieveUserData rud = new ToOma_RetrieveUserData();
+                            sResponseToDevice = rud.GetUserData(iUser, sActivationCode);
+                            rud = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Retrieve_User_Startup_Data": // user|job|axs|
+                        {
+                            ToOma_RetrieveUserData rud = new ToOma_RetrieveUserData();
+                            sResponseToDevice = rud.GetUserData(iUser, sActivationCode);
+                            rud = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    // SENDING TO OMAHA (Receiving) 
+                    // -------------------------------------------------------------------
+                    case "Send_Admin_Email": // user|job|eml|db|txt|
+                        {
+                            ToOma_ReceiveAdminEmail rae = new ToOma_ReceiveAdminEmail();
+                            sResponseToDevice = rae.ProcessAdminEmail(iUser, sEml, sDatabase, sTxt);
+                            rae = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Job_To_Device_Result": // user|job|jobToDeviceID|result|detail|
+                        {
+                            ToOma_ReceiveToDevResult tdr = new ToOma_ReceiveToDevResult();
+                            sResponseToDevice = tdr.ProcessToDevResult(iUser, iJobToDeviceID, sResult, sDetail);
+                            tdr = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Move_Stamp": // user, job, ctr, tck, emp, dat (DateStamped)
+                        {
+                            ToOma_ReceiveMovestamp rm = new ToOma_ReceiveMovestamp();
+                            sResponseToDevice = rm.ProcessMovestamp(iUser, iCtr, iTck, iEmp, datTemp);
+                            rm = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Non_Productive": // user, job, dsc, num, dat (DateStamped)
+                        {
+                            ToOma_ReceiveNonProductive np = new ToOma_ReceiveNonProductive();
+                            sResponseToDevice = np.ProcessNonProductive(iUser, iNum, datTemp);
+                            np = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Note_Entry": // user, job, ctr, tck, typ, sbj, msg, dat (dateCreated)
+                        {
+                            ToOma_ReceiveNote rne = new ToOma_ReceiveNote();
+                            sResponseToDevice = rne.ProcessNote(iUser, iCtr, iTck, sTyp, sSbj, sMsg, datTemp);
+                            rne = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Opportunity": // user, job, cs1, cs2, sum, det, omr, svc, nam, con, phn, adr, cit, sta, zip
+                        {
+/*
+                                string sDebug = "cs1: " + iCs1 + 
+                                " cs2: " + iCs2 + 
+                                " sum: " + sSum + 
+                                " det: " + sDet + 
+                                " omr: " + sOmr + 
+                                " svc: " + sSvc + 
+                                " zip " + sZip;
+                            EmailHandler emh = new EmailHandler();
+                            emh.EmailIndividual("Opp Parms", sDebug, "htslog@yahoo.com", "adv320@harlandts.com", "HTML");
+                            emh = null;
+*/
+                            ToOma_ReceiveOpportunity ro = new ToOma_ReceiveOpportunity();
+                            sResponseToDevice = ro.SaveOpportunity(iUser, iCs1, iCs2, sSum, sDet, sOmr, sSvc, sNam, sCon, sPhn, sAdr, sCit, sSta, sZip);
+                            ro = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Page_Count": // user|job|ctr|tck|cs1|cs2|unt|pgs|mdl|boc|
+                        {
+                            ToOma_ReceivePageCount rpc = new ToOma_ReceivePageCount();
+                            sResponseToDevice = rpc.ProcessPageCount(iUser, iCtr, iTck, iCs1, iCs2, iUnt, iPgs, sMdl, sBlackOrColor);
+                            rpc = null;
+                            break;
+                        }
+
+                    // -------------------------------------------------------------------
+                    case "Send_Reg_ID": // user|job|regid|cod|
+                        {
+                            ToOma_ReceiveRegId ri = new ToOma_ReceiveRegId();
+                            sResponseToDevice = ri.SaveRegId(iUser, sRegID, sCod);
+                            ri = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Serial_Update": // user, job, ctr, tck, unt, mdl, ser
+                        {
+                            ToOma_ReceiveSerialUpdate rsu = new ToOma_ReceiveSerialUpdate();
+                            sResponseToDevice = rsu.ProcessSerialUpdate(iUser, iCtr, iTck, iUnt, sMdl, sSer);
+                            rsu = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Time_Stamp": // user, job, ctr, tck, sts, rsn, dat (DateStamped)
+                        {
+                            ToOma_ReceiveTimestamp rt = new ToOma_ReceiveTimestamp();
+                            sResponseToDevice = rt.ProcessTimestamp(iUser, iCtr, iTck, sSts, sRsn, datTemp);
+                            rt = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Transfer": // user, job, src, prt, dst, qty
+                        {
+                            ToOma_ReceiveTransfer rt = new ToOma_ReceiveTransfer();
+                            sResponseToDevice = rt.ProcessTransfer(iUser, iSrc, sPrt, iDst, iQty);
+                            rt = null;
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Unit_Swap": // user, job, ctr, tck, cs1, cs2, unt
+                        {
+                            ToOma_ReceiveUnitSwap rus = new ToOma_ReceiveUnitSwap();
+                            sResponseToDevice = rus.ProcessUnitSwap(iCtr, iTck, iCs1, iCs2, iUnt);
+                            rus = null;
+
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Work_Order_Email_Master": // user|job|cs1|cs2|eml|
+                        {
+                            ToOma_ReceiveWorkOrderEmailUpdate woe = new ToOma_ReceiveWorkOrderEmailUpdate();
+                            sResponseToDevice = woe.ProcessWorkOrderEmailMaster(iCs1, iCs2, sEml);
+                            woe = null;
+
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+                    case "Send_Work_Order_Email_Call": // user|job|cs1|cs2|eml|
+                        {
+                            ToOma_ReceiveWorkOrderEmailUpdate woe = new ToOma_ReceiveWorkOrderEmailUpdate();
+                            sResponseToDevice = woe.ProcessWorkOrderEmailCall(iCtr, iTck, sEml);
+                            woe = null;
+
+                            //EmailHandler emh = new EmailHandler();
+                            //emh.EmailIndividual(sJob, "Email Update: " + sResponseToDevice, "htslog@yahoo.com", "adv320@harlandts.com", "HTML");
+                            //emh = null;
+
+                            break;
+                        }
+                    // -------------------------------------------------------------------
+
+                    default: { break; };
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler eh = new ErrorHandler();
+            eh.SaveErrorText(ex.Message.ToString(), ex.ToString(), "Omaha Web Receiver");
+            eh = null;
+        }
+        finally
+        {
+            // odbcConn.Close();
+
+            // sResponseToDevice += ": Response From Omaha: " + DateTime.Now.ToString("t");
+
+            //EmailHandler eh = new EmailHandler();
+            //eh.EmailIndividual(sJob, sResponseToDevice, "htslog@yahoo.com", "adv320@harlandts.com", "HTML");
+            //eh = null;
+
+            Response.Write(sResponseToDevice);
+        }
+        Response.End();
+    }
+    // ========================================================================
+    // ========================================================================
+    #region mySqls
+    // ========================================================================
+    // ========================================================================
+    #endregion // end mySqls
+    // ========================================================================
+
+
+
+    // ========================================================================
+    // ========================================================================
+}

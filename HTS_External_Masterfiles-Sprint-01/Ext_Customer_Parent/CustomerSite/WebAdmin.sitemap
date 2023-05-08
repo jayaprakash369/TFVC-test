@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/" title="Home"  description="Home Page">
+      <siteMapNode url="~/private/_admin/Menu.aspx" title="Web Administration" description=""></siteMapNode>
+      <siteMapNode url="~/private/_editor/Menu.aspx" title="STS Administration" description=""></siteMapNode>
+      <siteMapNode url="~/private/custAdmin/Menu.aspx" title="Customer Administration" description=""></siteMapNode>
+      <siteMapNode url="~/private/shared/Menu.aspx" title="ServiceCOMMAND®" description=""></siteMapNode>
+      <siteMapNode url="~/Logout.aspx" title="Logout" description=""></siteMapNode>
+      <siteMapNode url="https://www.scantron.com" title="Scantron Site" description=""></siteMapNode>
+    </siteMapNode>
+</siteMap>

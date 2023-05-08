@@ -1,0 +1,89 @@
+﻿_________________________________________
+Convert Date8 to DateTime (and reverse)
+_________________________________________
+DateTime.TryParse(sDat.Substring(0, 4) + "-" + sDat.Substring(4, 2) + "-" + sDat.Substring(6, 2) + " 00:00:00.000", out datTemp);
+datTemp = Convert.ToDateTime("2010-01-06 01:01:01.000"); 
+datTemp = Convert.ToDateTime(sDat.Substring(0, 4) + "-" + sDat.Substring(4, 2) + "-" + sDat.Substring(6, 2) + " 01:01:01.000");
+datTemp = datTemp.AddDays(-(datTemp.Day - 1));  // get first of this month...
+lbDetDate.Text = datTemp.ToString("MMMM dd, yyyy  (h:mm tt)");
+
+int iDate = Int32.Parse(datTemp.ToString("yyyyMMdd"));
+double dTime = Convert.ToDouble(datTemp.ToString("HH.mm"));
+
+_________________________________________
+HOW TO POST TO A WEB PAGE
+_________________________________________
+
+public/tools/ZipRoadUpdater.aspx
+
+public static string ScreenScrape(string url)
+{
+    using (System.Net.WebClient client = new System.Net.WebClient())
+    {
+        // set properties of the client
+        return client.DownloadString(url);
+    }
+}
+
+
+How to add charts...
+--------------------------------------------------------------------------------
+Each site needs this: in that "solution", right click, pick AddReference, select tab .NET, pick System.Web.DataVisualization
+
+Try to do encrypted on everything to see if that improves page routing to errors
+--------------------------------------------------------------------------------
+
+
+Folder Logic
+-------------------------------------
+Public will be for applications that cannot (or should not) log in (blackberry, Zip...) 
+Private will be for most pages
+
+Sticky Footer Basics
+-------------------------------------
+must declare 0 margins on everything, also for main layout components use padding, 
+not vertical margins (top and bottom) to add spacing, 
+else those margins get added to total height and your footer gets pushed down a bit more, 
+creating vertical scroll bars in the browser 
+
+/* IMPORTANT
+You also need to include this conditional style in the <head> of your HTML file to feed this style to IE 6 and lower and 8 and higher.
+<!--[if !IE 7]>
+	<style type="text/css">
+		#wrap {display:table;height:100%}
+	</style>
+<![endif]-->
+*/
+
+=============================================================
+Internal IP Addresses
+=============================================================
+10.0.0.0 through 10.255.255.255
+172.16.0.0 through 172.31.255.255
+192.168.0.0 through 192.168.255.255 (most commonly used)
+
+127.0.0.0/8 (loopback addresses)
+169.254.0.0 through 169.254.255.255 (APIPA only)
+
+=============================================================
+HOW TO SET UP MULTIPLE SSL SITES ON THE SAME PORTS 80 and 443 
+=============================================================
+http://www.digicert.com/ssl-support/configure-iis-host-headers.htm
+
+DOS Command 
+cd C:\Inetpub\AdminScripts
+cscript.exe adsutil.vbs set /w3svc/site identifier/SecureBindings ":443:host header"
+cscript.exe adsutil.vbs set /w3svc/112233445566/SecureBindings ":443:www.harlandts.com"
+cscript.exe adsutil.vbs set /w3svc/112233445566/SecureBindings ":443:harlandts.com"
+
+cscript.exe adsutil.vbs get /w3svc/112233445566/SecureBindings
+	to see the bindings currently assigned to that web site.
+
+Look in IIS to see the site identifier and host header for the web sites on the server
+
+========================================================
+HOW TO ALLOW DATABASE DESIGN CHANGES IN SQL SERVER 2008
+========================================================
+Tools > Options > Designers
+Look for checkbox "Prevent Saving changes that require table drop and recreation"
+Uncheck the box.

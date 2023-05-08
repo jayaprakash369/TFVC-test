@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Scantron_BannerNav.master" AutoEventWireup="true" CodeFile="Scantron_Body_A_Nav.master.cs" 
+    Inherits="Scantron_Body_A_Nav" %>
+<%--  --%>
+<asp:Content ID="Content1" ContentPlaceHolderID="For_HtmlHead" Runat="Server">
+    <asp:ContentPlaceHolder id="For_HtmlHead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="For_Title_A" Runat="Server">
+    <asp:ContentPlaceHolder id="For_Title_A" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="For_Title_B" Runat="Server">
+    <asp:ContentPlaceHolder id="For_Title_B" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="For_Body_A" Runat="Server">
+
+            <div class="masterArea_BodyFill">            
+                <div class="masterArea_Padding">
+                    <asp:ContentPlaceHolder id="For_Body_A" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <div class="masterArea_Padding">
+                    <asp:ContentPlaceHolder id="For_Body_B" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <div class="masterArea_Padding">
+                    <asp:ContentPlaceHolder id="For_Body_C" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+</asp:Content>
+
+<%-- 
+<asp:Content ID="Content5" ContentPlaceHolderID="For_Body_B" Runat="Server">
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="For_Body_C" Runat="Server" Visible="false">
+</asp:Content>
+     --%>
+

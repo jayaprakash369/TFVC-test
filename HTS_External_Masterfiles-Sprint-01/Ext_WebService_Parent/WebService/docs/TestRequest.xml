@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ServiceRequest xmlns="https://ws.harlandts.com" xsi:schemaLocation="https://ws.harlandts.com https://ws.harlandts.com/Request.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AccessCode>WalkToThePark</AccessCode>
+  <Agreement>92856</Agreement>
+  <UnitId>ABCDEF1090881</UnitId>
+  <TicketCrossRef>ABC-123</TicketCrossRef>
+  <Problem>Brief customer problem description</Problem>
+  <Comment>Extended customer comment concerning issue which becomes a note attached to the ticket</Comment>
+  <Contact>Contact Name</Contact>
+  <Phone>1112223333</Phone>
+  <Extension>444444</Extension>
+  <FlexField>Field use specified by client</FlexField>
+</ServiceRequest>

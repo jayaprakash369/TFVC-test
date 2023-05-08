@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://InternalWebService/Customer2021" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://InternalWebService/Customer2021" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Customer2021DataAccess</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://InternalWebService/Customer2021">
+      <s:element name="ProcessJob_Return_String">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fieldList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="valueList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessJob_Return_StringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessJob_Return_StringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessJob_Return_DataTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fieldList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="valueList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessJob_Return_DataTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessJob_Return_DataTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessJob_Return_StringSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessJob_Return_String" />
+  </wsdl:message>
+  <wsdl:message name="ProcessJob_Return_StringSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessJob_Return_StringResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessJob_Return_DataTableSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessJob_Return_DataTable" />
+  </wsdl:message>
+  <wsdl:message name="ProcessJob_Return_DataTableSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessJob_Return_DataTableResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Customer2021MenuSoap">
+    <wsdl:operation name="ProcessJob_Return_String">
+      <wsdl:input message="tns:ProcessJob_Return_StringSoapIn" />
+      <wsdl:output message="tns:ProcessJob_Return_StringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJob_Return_DataTable">
+      <wsdl:input message="tns:ProcessJob_Return_DataTableSoapIn" />
+      <wsdl:output message="tns:ProcessJob_Return_DataTableSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Customer2021MenuSoap" type="tns:Customer2021MenuSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessJob_Return_String">
+      <soap:operation soapAction="http://InternalWebService/Customer2021/ProcessJob_Return_String" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJob_Return_DataTable">
+      <soap:operation soapAction="http://InternalWebService/Customer2021/ProcessJob_Return_DataTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Customer2021MenuSoap12" type="tns:Customer2021MenuSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessJob_Return_String">
+      <soap12:operation soapAction="http://InternalWebService/Customer2021/ProcessJob_Return_String" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessJob_Return_DataTable">
+      <soap12:operation soapAction="http://InternalWebService/Customer2021/ProcessJob_Return_DataTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Customer2021Menu">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Customer2021DataAccess</wsdl:documentation>
+    <wsdl:port name="Customer2021MenuSoap" binding="tns:Customer2021MenuSoap">
+      <soap:address location="http://oma-empp-w01:70/Customer2021.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Customer2021MenuSoap12" binding="tns:Customer2021MenuSoap12">
+      <soap12:address location="http://oma-empp-w01:70/Customer2021.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

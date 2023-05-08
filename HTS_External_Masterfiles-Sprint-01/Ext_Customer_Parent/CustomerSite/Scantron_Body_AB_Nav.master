@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Scantron_BannerNav.master" AutoEventWireup="true" CodeFile="Scantron_Body_AB_Nav.master.cs" 
+    Inherits="Scantron_Body_AB_Nav" %>
+<%--  --%>
+<asp:Content ID="Content1" ContentPlaceHolderID="For_HtmlHead" Runat="Server">
+    <asp:ContentPlaceHolder id="For_HtmlHead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="For_Title_A" Runat="Server">
+    <asp:ContentPlaceHolder id="For_Title_A" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="For_Title_B" Runat="Server">
+    <asp:ContentPlaceHolder id="For_Title_B" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="For_Body_A" Runat="Server">
+
+    <div style="display: table;">
+    <div class="masterArea_BodyPrimary">
+        <div class="masterArea_Padding">
+            <asp:ContentPlaceHolder id="For_Body_A" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="masterArea_BodySecondary">
+        <div class="masterArea_Padding">
+            <asp:ContentPlaceHolder id="For_Body_B" runat="server"></asp:ContentPlaceHolder>
+
+            <asp:TreeView ID="tvStaticSiblings" runat="server" 
+                DataSourceID="SiteMapDataSourceStatic2"
+                Font-Size="9" 
+                SelectedNodeStyle-BackColor="#999999" 
+                SelectedNodeStyle-ForeColor="White"                        
+                HoverNodeStyle-BackColor="#DDDDDD"
+                HoverNodeStyle-ForeColor="Black"
+                ForeColor="Black"
+                RootNodeStyle-HorizontalPadding="0" 
+                ExpandDepth="1"
+                ShowExpandCollapse="false"
+                CssClass="staticTree" >
+                </asp:TreeView>
+                <asp:SiteMapDataSource ID="SiteMapDataSourceStatic2" runat="server" 
+                    SiteMapProvider="SitemapStatic" 
+                    ShowStartingNode="false" 
+                    StartFromCurrentNode="true" 
+                    StartingNodeOffset="-1"
+                    />
+        </div>
+        <div class="masterArea_Padding">
+            <asp:ContentPlaceHolder id="For_Body_C" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </div>
+
+</asp:Content>
+
+<%-- 
+    <asp:Content ID="Content5" ContentPlaceHolderID="For_Body_C" Runat="Server" Visible="false">
+    </asp:Content>
+
+     --%>
+
+
+

@@ -1,0 +1,98 @@
+﻿<%@LANGUAGE="VBScript"%>
+<%
+'<body onload="return setup();">
+' To CALL THIS PAGE
+' http://localhost:81/public/android/test.asp
+%>
+<html>
+<head><title>Emulate Web Call</title>
+<script type="text/javascript"><!--
+    // -------------------------------------
+    function setup() {  
+    }
+//--></script>
+<script language="jscript" runat="server">
+    function GetTime() {
+        var d = new Date();
+        return d.getTime();
+    } 
+</script> 
+</head>
+<body style="margin: 20px;">
+
+<form name="form1" method="post" action="DeviceToOmaha.aspx">
+<input type="hidden" name="user" value="1798" />
+<input type="hidden" name="job" value="Retrieve_Inventory" />
+<input type="hidden" name="tech" value="1798" />
+
+<!-- 
+<input type="hidden" name="user" value="1862" />
+<input type="hidden" name="job" value="Send_Opportunity" />
+<input type="hidden" name="cs1" value="0" />
+<input type="hidden" name="cs1" value="0" />
+<input type="hidden" name="zip" value="68130" />
+<input type="hidden" name="omr" value="SYS: SMB" />
+<input type="hidden" name="svc" value="Hardware Maintenance" />
+<input type="hidden" name="sum" value="Test Subject" />
+<input type="hidden" name="det" value="Test Message" />
+
+
+user, job, cs1, cs2, zip, type, service, summary, detail
+
+<input type="hidden" name="user" value="1862" />
+<input type="hidden" name="job" value="Retrieve_Call_Sync_All" />
+<input type="hidden" name="callList" value="101-30090-WP-*101-30307-N-*101-30127-WP-*101-30311-N-*101-30310-N-*101-30309-C-*400-3762-N-*101-30308-N-*" />
+
+<form name="form1" method="post" action="OmahaToDevice.aspx?id=298&user=1862">
+
+<form name="form1" method="post" action="OmahaToDevice.aspx?id=1&user=1862">
+
+<input type="hidden" name="cs1" value="99999" />
+<input type="hidden" name="cs2" value="0" />
+
+
+<form name="form1" method="post" action="web/PartsInRegion.aspx?usr=1862&rgn=1">
+<input type="hidden" name="user" value="1862" />
+<input type="hidden" name="job" value="Send_Movestamp" />
+<input type="hidden" name="ctr" value="400" />
+<input type="hidden" name="tck" value="3731" />
+<input type="hidden" name="emp" value="2070" />
+<input type="hidden" name="dat" value="2014-11-03 15:29:01.000" />
+Ticket 900-32060 WORKED for Bed Bath and Beyond
+
+<input type="hidden" name="job" value="Send_Transfer" />
+<input type="hidden" name="prt" value="HEW-3005X-079" />
+<input type="hidden" name="qty" value="1" />
+<input type="hidden" name="src" value="1153" />
+<input type="hidden" name="dst" value="2105" />
+<input type="hidden" name="user" value="1862" />
+
+<input type="hidden" name="job" value="Send_Serial_Update" />
+<input type="hidden" name="ctr" value="400" />
+<input type="hidden" name="tck" value="3741" />
+<input type="hidden" name="unt" value="1063114" />
+<input type="hidden" name="mdl" value="486/33" />
+<input type="hidden" name="ser" value="TESTSER4321" />
+<input type="hidden" name="user" value="1862" />
+
+<input type="hidden" name="user" value="1862" />
+<input type="hidden" name="job" value="Retrieve_Machines" />
+<input type="hidden" name="cs1" value="99999" />
+<input type="hidden" name="cs2" value="5" />
+<input type="hidden" name="id" value="1" />
+<input type="hidden" name="user" value="1862" />
+
+<input type="hidden" name="user" value="1862" />
+<input type="hidden" name="job" value="Create_Quick_Call" />
+<input type="hidden" name="cs1" value="99999" />
+<input type="hidden" name="cs2" value="5" />
+<input type="hidden" name="unt" value="988744" />
+<input type="hidden" name="prb" value="Test to see if it assigns to myself" />
+
+-->
+
+
+<input type="submit" name="submit1" value="Emulate Omaha / Device Processing" />
+</form>
+</body>
+</html>

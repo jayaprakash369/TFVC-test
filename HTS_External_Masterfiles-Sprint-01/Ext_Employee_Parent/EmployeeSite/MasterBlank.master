@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterBlank.master.cs" Inherits="MasterParent" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Parent Master Page Title </title>
+
+    <style type="text/css">
+        /* This Master Page: Unique Styles */
+        .boxBlank {
+	        width: auto;
+	        margin-left: 10px;
+	        margin-right: 10px;
+        }
+        .headerBlank {
+            height: 20px;
+        }
+    </style>
+    <!--[if !IE 7]><style type="text/css">.wrap {display:table;height:100%}</style><![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrap">
+            <div class="boxBlank">
+
+                <div class="headerBlank">
+                </div>
+
+                <div class="title">
+                    <asp:ContentPlaceHolder id="BodyTitle" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div class="content">
+                    <asp:ContentPlaceHolder id="BodyContent" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="footerPush"></div>
+            </div>
+        </div>
+
+    <div class="footer"> 
+        STS Employee Site &nbsp; &#8226; &nbsp; For Internal Use Only
+    </div>
+
+    </form>
+</body>
+</html>

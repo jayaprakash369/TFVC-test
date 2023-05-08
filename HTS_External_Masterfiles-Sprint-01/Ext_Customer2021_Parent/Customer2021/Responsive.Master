@@ -1,0 +1,472 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" 
+	CodeFile="Responsive.Master.cs" 
+    Inherits="Responsive" %>
+<%--   --%>    
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Title From Responsive Master</title> 
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/w3-theme-black.css" />
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/w3.css" />    
+
+    <link rel="stylesheet" href="/css/font-roboto.css" />
+    <!-- 
+        <link rel="stylesheet" href="/css/my-theme-green.css" />
+        <link rel="stylesheet" href="/css/my-theme-blue.css" />
+        <link rel="stylesheet" href="/css/my-theme-black.css" />
+        <link rel="stylesheet" href="/css/my-theme-yellow.css" />
+        <link rel="stylesheet" href="/css/my-theme-brown.css" />
+        <link rel="stylesheet" href="/css/my-theme-white.css" />
+
+    
+    <link rel="stylesheet" href="/js/modules/bootstrap.js" />    
+       
+        -->
+    <link rel="stylesheet" href="/css/my-theme-blue.css" />
+    
+    <link rel="stylesheet" href="/js/modules/app.js" />    
+    <link rel="stylesheet" href="/js/modules/chartjs.js" />    
+    
+
+    <!-- using the direct link brought the images back (problem with the current file I'm using)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+<!-- 
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    -->
+<style>
+
+/* Sticky Footer Essentials */
+* {
+    margin: 0;
+    padding: 0; /* footer to bottom*/
+}
+
+html, body, .wrap, form, bodyfence {
+    height: 100%; /* form allows centering */
+}
+/* YOU WILL KNOW THE footer push number is correct when the white line below the footer disappars and the slide bar on right is gone */
+.wrap {
+    min-height: 100%;
+    height: auto !important;
+    margin: 0 auto -41px; /* was -40, 57 for ie  ***** IMPORTANT TO CONTROL STICKY FOOTER POSITION ****** -40 Negative bottom margin = negative value of footer height */
+    width: 100%;
+    /* background-color: red; */
+}
+/* had a footerPush...*/
+.footer {
+    height: 41px; /* was 40, 57 for ie - this HAS TO MATCH margin value in .wrap above  */
+}
+
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 55px; /* 55px is the height of the header bar, if it becomes larger this gap from the top down must also increase to match */
+  bottom: 0;
+  height: inherit;
+}
+    body {
+
+    }
+</style>
+
+    <asp:ContentPlaceHolder ID="CodeForHtmlHeadSection" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body> 
+    <form id="form1" runat="server">
+        <div class="wrap">
+
+<!-- Navbar -->
+
+<div class="w3-top">
+  <div class="w3-bar my-theme-for-topbar w3-top w3-left-align w3-large" style="width: calc(100% - 15px);">
+      <div class="w3-bar-item w3-left">
+          <div style="font-size: 24px; padding-top: 2px;">
+            <asp:ContentPlaceHolder ID="BodyTitle" runat="server">
+
+
+            </asp:ContentPlaceHolder>
+            </div>
+      </div>
+    <a class="w3-button w3-right w3-hide-large w3-xlarge my-topbar-item my-topbar-item-hover" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <!-- <a href="#" class="w3-bar-item w3-button w3-theme-l1">Logo</a>  was 400 on an original-->
+    <!-- <a href="https://www.scantron.com/technology-solutions/" target="_scantron" class="w3-bar-item w3-right w3-hide-small w3-hide-medium"> -->
+    <!-- <a href="/private/menu.aspx" class="w3-bar-item w3-right w3-hide-small w3-hide-medium">-->
+        <div class="w3-bar-item w3-right w3-hide-small w3-hide-medium">
+        <!-- <img src="/media/images/StsNameTransparentWhite.png" width="450" style="padding-top:5px;" /> -->
+            <div style="padding-top:2px;">
+                <asp:Image ID="imBannerName" runat="server" ImageUrl="~/media/images/StsNameTransparentWhite.png" />
+            </div>
+            
+        </div>
+    <!--</a>-->
+      <!--
+          /media/images/StsNameTransparentDarkBlue.png
+          /media/images/StsNameTransparentWhite.png
+
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Clients</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
+      -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<!-- 
+    *** w3-animate-left ***  was what allowed the side bar to slide into position when checked
+    but it made the screen flash on every refresh which was annoying 
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+    w3-hover-blue2
+    -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large my-theme-for-sidebar" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-large w3-padding-small w3-hide-large my-sidebar-hovertext-primary" title="Close Menu">
+    <!--
+        <i class="align-middle" data-feather="shield"></i>
+        -->
+      <i class="fa fa-remove"></i>
+  </a>
+
+		<%--   
+        --%> 
+
+
+
+    <div> <!--  style="background-color: oldlace;" -->
+    <asp:MultiView ID="MultiViewLeftNav" runat="server">
+
+        <asp:View ID="View0Anonymous" runat="server">
+   			<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/Login.aspx">
+                <i class="align-middle" data-feather="shield"></i>
+                Login</a>
+			<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/Registration.aspx">
+                <i class="align-middle" data-feather="user"></i>
+                Registration</a>
+			<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/public/ConfirmationEmailResend.aspx">
+                <i class="align-middle" data-feather="arrow-right-circle"></i>
+                <span style="font-size: 13px; font-style: italic;">Resend Confirmation Email</span></a>
+        </asp:View>
+
+        <asp:View ID="View1LoggedInNoRole" runat="server">
+
+  					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/menu.aspx">
+                        <i class="align-middle" data-feather="home"></i>
+                        <span style="font-style: italic; font-size: 13px; position: relative; top: 1px;">Home</span></a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Agreements.aspx">
+                        <i class="align-middle" data-feather="umbrella"></i>
+                        Agreements</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/AgreementLocations.aspx">
+                        <i class="align-middle" data-feather="layers"></i>
+                        Agreement Detail</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/ChangeYourPassword.aspx">
+                        <i class="align-middle" data-feather="mic"></i>
+                        Change Your Password</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Comments.aspx">
+                        <i class="align-middle" data-feather="mic"></i>
+                        Comments</a>
+
+					<a id="aEmailManagement_Logged" class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/EmailManagement.aspx">
+                        <i class="align-middle" data-feather="mail"></i>
+                        Email Management</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Escalation.aspx">
+                        <i class="align-middle" data-feather="flag"></i>
+                        Escalation</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/public/sc/MaintenanceCoverage.aspx">
+                        <i class="align-middle" data-feather="sun"></i>
+                        Onsite Service Coverage</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/OpenTickets.aspx">
+                        <i class="align-middle" data-feather="book-open"></i>
+                        Open Service Tickets</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/ServiceHistory.aspx">
+                        <i class="align-middle" data-feather="film"></i>
+                        Service History</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/ServiceRequest.aspx">
+                        <i class="align-middle" data-feather="truck"></i>
+                        Service Request</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/TicketStatus.aspx">
+                        <i class="align-middle" data-feather="clipboard"></i>
+                        Service Ticket Status</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/Logout.aspx">
+                        <i class="align-middle" data-feather="shield-off"></i>
+                        <span style="font-style: italic; font-size: 13px; position: relative; top: 1px;">Logout</span></a>
+        </asp:View>
+
+
+        <asp:View ID="View2SiteAdministrator" runat="server">
+   					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/menu.aspx">
+                        <i class="align-middle" data-feather="home"></i>
+                        <span style="font-style: italic; font-size: 13px; position: relative; top: 1px;">Home</span></a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Agreements.aspx">
+                        <i class="align-middle" data-feather="umbrella"></i>
+                        Agreements</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/AgreementLocations.aspx">
+                        <i class="align-middle" data-feather="layers"></i>
+                        Agreement Detail</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/ChangeYourPassword.aspx">
+                        <i class="align-middle" data-feather="mic"></i>
+                        Change Your Password</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Comments.aspx">
+                        <i class="align-middle" data-feather="mic"></i>
+                        Comments</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/customerAdministration/CustomerAdministrationMenu.aspx">
+                        <i class="align-middle" data-feather="edit"></i>
+                        Cust Admin Menu</a>
+
+					<a id="aEmailManagement_SiteAdministrator" class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/EmailManagement.aspx">
+                        <i class="align-middle" data-feather="mail"></i>
+                        Email Management</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Escalation.aspx">
+                        <i class="align-middle" data-feather="flag"></i>
+                        Escalation</a>
+					<a id="aInvoices_SiteAdministrator" class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Invoices.aspx">
+                        <i class="align-middle" data-feather="command"></i>
+                        Invoices</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/public/sc/MaintenanceCoverage.aspx">
+                        <i class="align-middle" data-feather="sun"></i>
+                        Onsite Service Coverage</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/OpenTickets.aspx">
+                        <i class="align-middle" data-feather="book-open"></i>
+                        Open Service Tickets</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/ServiceHistory.aspx">
+                        <i class="align-middle" data-feather="film"></i>
+                        Service History</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/ServiceRequest.aspx">
+                        <i class="align-middle" data-feather="truck"></i>
+                        Service Request</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/TicketStatus.aspx">
+                        <i class="align-middle" data-feather="clipboard"></i>
+                        Service Ticket Status</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/siteAdministration/siteAdministrationMenu.aspx">
+                        <i class="align-middle" data-feather="sliders"></i>
+                        Site Admin Menu</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/Logout.aspx">
+                        <i class="align-middle" data-feather="shield-off"></i>
+                        <span style="font-style: italic; font-size: 13px; position: relative; top: 1px;">Logout</span></a>
+        </asp:View>
+
+        <asp:View ID="View3CustomerAdministrator" runat="server">
+
+  					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/menu.aspx">
+                        <i class="align-middle" data-feather="home"></i>
+                        <span style="font-style: italic; font-size: 13px; position: relative; top: 1px;">Home</span></a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Agreements.aspx">
+                        <i class="align-middle" data-feather="umbrella"></i>
+                        Agreements</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/AgreementLocations.aspx">
+                        <i class="align-middle" data-feather="layers"></i>
+                        Agreement Detail</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/ChangeYourPassword.aspx">
+                        <i class="align-middle" data-feather="mic"></i>
+                        Change Your Password</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Comments.aspx">
+                        <i class="align-middle" data-feather="mic"></i>
+                        Comments</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/customerAdministration/CustomerAdministrationMenu.aspx">
+                        <i class="align-middle" data-feather="edit"></i>
+                        Cust Admin Menu</a>
+
+					<a id="aEmailManagement_CustomerAdministrator" class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/EmailManagement.aspx">
+                        <i class="align-middle" data-feather="mail"></i>
+                        Email Management</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Escalation.aspx">
+                        <i class="align-middle" data-feather="flag"></i>
+                        Escalation</a>
+					<a id="aInvoices_CustomerAdministrator" class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/Invoices.aspx">
+                        <i class="align-middle" data-feather="command"></i>
+                        Invoices</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/public/sc/MaintenanceCoverage.aspx">
+                        <i class="align-middle" data-feather="sun"></i>
+                        Onsite Service Coverage</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/OpenTickets.aspx">
+                        <i class="align-middle" data-feather="book-open"></i>
+                        Open Service Tickets</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/ServiceHistory.aspx">
+                        <i class="align-middle" data-feather="film"></i>
+                        Service History</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/ServiceRequest.aspx">
+                        <i class="align-middle" data-feather="truck"></i>
+                        Service Request</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/sc/TicketStatus.aspx">
+                        <i class="align-middle" data-feather="clipboard"></i>
+                        Service Ticket Status</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/Logout.aspx">
+                        <i class="align-middle" data-feather="shield-off"></i>
+                        <span style="font-style: italic; font-size: 13px; position: relative; top: 1px;">Logout</span></a>
+        </asp:View>
+
+        <asp:View ID="View4Servright" runat="server">
+   					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/menu.aspx">
+                        <i class="align-middle" data-feather="home"></i>
+                        <span style="font-style: italic; font-size: 13px; position: relative; top: 1px;">Home</span></a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/ChangeYourPassword.aspx">
+                        <i class="align-middle" data-feather="mic"></i>
+                        Change Your Password</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/pre/OpenTickets.aspx">
+                        <i class="align-middle" data-feather="book-open"></i>
+                        Open Service Tickets</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/private/pre/ServiceHistory.aspx">
+                        <i class="align-middle" data-feather="film"></i>
+                        Service History</a>
+					<a class="my-sidebar-item w3-button my-sidebar-hovertext-primary my-sidebar-text-size" href="/Logout.aspx">
+                        <i class="align-middle" data-feather="shield-off"></i>
+                        <span style="font-style: italic; font-size: 13px; position: relative; top: 1px;">Logout</span></a>
+        </asp:View>
+
+    </asp:MultiView>
+    </div>
+
+       <div style="padding-left: 17px; padding-top: 20px; padding-bottom: 15px;">
+          <asp:Image ID="imMenuLeft" runat="server" ImageUrl="~/media/images/NewStsLogoTransparentBlue280.png" Height="60"  />
+      </div>
+      <div style="padding-left: 50px; padding-top: 1px; padding-bottom: 15px;">
+          <%--  <a style="font-size: 11px; font-style: italic; color: #406080" href='mailto:servicecommandsupport@scantron.com'>Questions? Issues? Help?</a> --%>    
+          <asp:HyperLink ID="hlHelp" runat="server" Font-Size="10" Font-Italic="true" ForeColor="SteelBlue" NavigateUrl="mailto:servicecommandsupport@scantron.com" Text="Questions? Issues? Help?" />
+      </div>
+
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+    <!-- I'm trying to push the content down below the top black bar 32 pixels -->
+
+    <!-- class="w3-text-steel-blue" -->
+    <%--  
+    Trying to move the page title up to the top bar
+    <div class="w3-padding-24"></div>
+    
+    <div class="w3-container">
+
+        <h4 class="w3-text-red" >
+            <asp:ContentPlaceHolder ID="BodyTitle" runat="server">
+
+
+            </asp:ContentPlaceHolder>
+        </h4>
+    </div>
+        <div style="position: relative; top: 35px; padding: 15px;">
+        <div style="position: relative; top: 35px; padding: 15px;">
+                    <div>
+        <div style="padding-top: 45px; padding-left: 15px; padding-right: 15px; padding-bottom:0px;">
+            &nbsp;
+        </div>
+         --%>    
+ 
+                <asp:ContentPlaceHolder ID="BodyContent" runat="server">
+
+
+                </asp:ContentPlaceHolder>
+            </div> <!-- end of the main section with 250 push right -->
+        <!-- end bodyfence  </div> -->
+    </div><!-- end wrap (to determine where footer starts) 
+        <a href="https://www.scantron.com/legal/" target="_scantron" class="my-footer-hovertext" style="font-size:12px;">Legal</a>&nbsp; • &nbsp;<a href="https://www.scantron.com/legal/privacy/" target="_scantron" class="my-footer-hovertext" style="font-size:12px;">Privacy</a>
+        -->
+        
+    <div class="footer my-theme-for-footer" style="margin-left:250px;">
+        <footer id="myFooter">
+            <div class="w3-container" style="padding-top: 7px;">
+                <a href="/private/menu.aspx" target="_scantron" class="my-footer-hovertext" style="font-size:12px;">&copy;<asp:Label ID="lbScantronYear" runat="server" />&nbsp;<asp:Label ID="lbCompanyName" runat="server" /></a>
+                <span class="w3-hide-small w3-hide-medium" style="font-size:12px; padding-left: 30px;">
+                    2020 South 156th Circle &nbsp; • &nbsp; Omaha, NE 68130 &nbsp; • &nbsp; US & Canada: 1.800.228.3628
+                </span>
+                <span class="w3-right">
+                    <a href="/public/Privacy.aspx" class="my-footer-hovertext" style="font-size:12px;">Privacy</a>&nbsp; • &nbsp;<a href="/public/Terms.aspx" class="my-footer-hovertext" style="font-size:12px;">Terms</a>
+                </span>
+            </div>
+        </footer>
+    </div>
+
+        <asp:HiddenField ID="hfMenuOptionEmail" runat="server" Value="N"  />
+        <asp:HiddenField ID="hfMenuOptionInvoices" runat="server" Value="N"  />
+
+        <script>
+            // Get the Sidebar
+            var mySidebar = document.getElementById("mySidebar");
+
+            // Get the DIV with overlay effect
+            var overlayBg = document.getElementById("myOverlay");
+
+            // Toggle between showing and hiding the sidebar, and add overlay effect
+            function w3_open() {
+                if (mySidebar.style.display === 'block') {
+                    mySidebar.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidebar.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+            }
+
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+                overlayBg.style.display = "none";
+            }
+        </script>
+<script>
+    //alert("checking flags");
+    var menuOptionEmail = "";
+    if (document.getElementById("ctl00_hfMenuOptionEmail") != null)
+    {
+        //alert("Email Found");
+        menuOptionEmail = document.getElementById("ctl00_hfMenuOptionEmail").value;
+        if (menuOptionEmail == "N")
+        {
+            if (document.getElementById("aEmailManagement_Logged") != null)
+                document.getElementById("aEmailManagement_Logged").hidden = true;
+            else if (document.getElementById("aEmailManagement_SiteAdministrator") != null)
+                document.getElementById("aEmailManagement_SiteAdministrator").hidden = true;
+            else if (document.getElementById("aEmailManagement_CustomerAdministrator") != null)
+                document.getElementById("aEmailManagement_CustomerAdministrator").hidden = true;
+
+        }
+    }
+
+    var menuOptionInvoices = "";
+    if (document.getElementById("ctl00_hfMenuOptionInvoices") != null)
+    {
+        //alert("Invoice Found");
+        menuOptionInvoices = document.getElementById("ctl00_hfMenuOptionInvoices").value;
+        if (menuOptionInvoices == "N")
+        {
+            if (document.getElementById("aInvoices_SiteAdministrator") != null)
+                document.getElementById("aInvoices_SiteAdministrator").hidden = true;
+            else if (document.getElementById("aInvoices_CustomerAdministrator") != null)
+                document.getElementById("aInvoices_CustomerAdministrator").hidden = true;
+        }
+    }
+</script>
+
+   	<!--<script src="/js/vendor.js"></script>-->
+	<script src="/js/app.js"></script>
+        <script src="/js/modules/feather.js"></script>
+
+    </form>
+</body>
+</html>
+
+
+<%-- 
+ --%>

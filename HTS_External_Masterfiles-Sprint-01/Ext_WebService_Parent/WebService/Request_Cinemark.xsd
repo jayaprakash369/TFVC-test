@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="ServiceRequest">
+        <xsd:complexType>
+            <xsd:sequence minOccurs="1" maxOccurs="1">
+                <xsd:element name="AccessCode" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                <xsd:element name="Agreement" type="xsd:int" minOccurs="1" maxOccurs="1"  />
+                <xsd:element name="UnitId" type="xsd:int" minOccurs="1" maxOccurs="1"  />
+                <xsd:element name="TicketCrossRef" type="xsd:string" minOccurs="0" maxOccurs="1"  />
+                <xsd:element name="Problem" type="xsd:string" minOccurs="1" maxOccurs="1"  />
+                <xsd:element name="Comment" type="xsd:string" minOccurs="0" maxOccurs="1"  />
+                <xsd:element name="Contact" type="xsd:string" minOccurs="0" maxOccurs="1"  />
+                <xsd:element name="Phone" type="xsd:int" minOccurs="0" maxOccurs="1"  />
+                <xsd:element name="Extension" type="xsd:int" minOccurs="0" maxOccurs="1"  />
+                <xsd:element name="FlexField" type="xsd:string" minOccurs="0" maxOccurs="1"  />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

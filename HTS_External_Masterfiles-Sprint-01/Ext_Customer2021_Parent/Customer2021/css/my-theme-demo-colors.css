@@ -1,0 +1,320 @@
+﻿/* Green Original: #75a069 */
+.my-theme {
+    color: #fff !important;
+    background-color: red !important /* changed to my favorite blue 406080 and for green from base 3a7728-> 2e5f20-75a069-89ad7e from #000000 */
+}
+.my-theme-for-topbar {
+    color: #fff !important;
+    background-color: deeppink !important /* changed to my favorite blue 406080 and for green from base 3a7728-> 2e5f20-75a069-89ad7e from #000000 */
+}
+
+/* Green Original: #75a069 */
+.my-topbar-item {
+    color: #fff !important;
+    background-color: darkturquoise !important; /* Green 3a7728's darker 29531c-234718-1d3c14-2e5f20 or lighter 75a069-619253, blue 406080 #333333 */
+    padding: 9px 19px; /* was 8, 12 first number is top and bottom  - second number is left and right */
+}
+/* was  000 text on FFF background */
+.my-topbar-item-hover:hover {
+    color: indigo !important;
+    background-color: aqua !important
+}
+/* Green Original: #d8e4d4 with border line on right of #406080 */
+.my-theme-for-sidebar {
+    color: #000 !important;
+    background-color: oldlace !important; /*  sidebar pick: blue #d8e2ef, green c4d6bf-d8e4d4, lightsteelblue B0C4DE was #f0f0f0 */
+    border-right: 1px solid pink; /* my blues- grey 7990a6, 406080 and 777777 */
+}
+/* Why is this repeated twice? Don't you only need one?  Merge the unique items?*/
+.my-sidebar-item {
+    padding: 6px 16px; /* was 8, 12 first number is top and bottom  - second number is left and right */
+    float: left;
+    width: auto;
+    border: none;
+    outline: none;
+    display: block;
+}
+/* Original text color #444444  */
+.my-sidebar-item {
+    width: 100%;
+    display: block;
+    padding: 6px 16px; /* was 8, 12 */
+    text-align: left;
+    border: none;
+    outline: none;
+    white-space: normal;
+    float: none;
+    color: purple; /* THIS IS WHERE TO CONTROL THE BAR (MENU?) ITEM TEXT COLOR (Last best light blue=315b7e)  DarkBlue=00008B MidnightBlue=191970 SteelBlue=4682B4 Blue 000066 SteelBlue (darker) 315b7e */
+}
+/* Original background color #9dbb94  */
+.my-sidebar-text-primary, .my-sidebar-hovertext-primary:hover {
+    color: #FFFFCC !important;
+    text-decoration: none;
+    background-color: purple !important /* hover Original steelblue background 7990a6, green background options (light ebf1ea, darker 4e853e) b0c9a9-3a7728-4e853e */
+}
+/* Original background color #9dbb94  */
+.my-sidebar-text-secondary, .my-sidebar-hovertext-secondary:hover {
+    color: orange !important;
+    text-decoration: none;
+    background-color: wheat !important /* hover table header blue background 6297e4, green? 619253 or ligher ebf1ea */
+}
+.my-sidebar-text-size {
+    font-size: 16px;
+}
+
+
+/* Green Original: #75a069 */
+.my-theme-for-footer {
+    color: #fff !important;
+    background-color: blue !important /* Green 3a7728's darker 29531c-234718-1d3c14-2e5f20 or lighter 75a069-619253, blue 406080 #333333 */
+}
+
+/* Original background color: #406080  */
+.my-footer-hovertext:hover {
+    color: #FFFFDD !important;
+    text-decoration: underline;
+    background-color: #75a069 !important /*  */
+}
+
+
+/* ========================================================================= */
+/* BODY CONTENT STYLES */
+/* ========================================================================= */
+
+
+.hyperLinkDefault {
+    color: #009688; /* was #009688  */
+    text-decoration: none;
+}
+
+    .hyperLinkDefault:hover {
+        color: #1565b3; /* was #1565b3 -- 315b7e 3333d7 4682B4 6666ff 009688 3333ff DodgerBlue darker 1565b3 */
+        text-decoration: underline;
+    }
+
+.linkButtonDefault {
+    color: red; /* was #009688  */
+    text-decoration: none;
+}
+
+    .linkButtonDefault:hover {
+        color: green; /* was #1565b3 ---- 3333d7 4682B4 6666ff 009688 3333ff DodgerBlue darker 1565b3 */
+        text-decoration: underline;
+    }
+
+.titlePrimary {
+    color: #3b7ddd !important;
+    font-size: 20px;
+}
+
+.titleSecondary {
+    color: #009688 !important /* middle green 009900  teal 009688 3a7728 was base green */
+}
+
+.titleAlert {
+    color: #FF69B4 !important /* deeppink FF1493 magenta FF00FF crimson DC143C, hotpink FF69B4 */
+}
+
+.titleAccent {
+    color: #9400D3 !important /* darkorange FF8C00 crimson DC143C darkviolet 9400D3*/
+}
+
+.titleTeal {
+    color: #009688 !important
+}
+
+
+.tableBorder {
+    border: 1px solid #cccccc;
+    padding: 5px;
+    /* was background: #eceff2 */
+}
+
+.tableBorderBackgroundLight {
+    border: 1px solid #cccccc;
+    padding: 5px;
+    background: #ffffff;
+}
+
+.tableBorderBackgroundMedium {
+    border: 1px solid #aaaaaa;
+    padding: 5px;
+    background: #ebebeb; /* was lighter gray eceff2  */
+}
+
+.tableBorderBackgroundDark {
+    border: 1px solid #888888;
+    padding: 5px;
+    background: #d0e0f7; /* blue c0d5f4 */
+}
+
+.trColorReg {
+    background-color: #FFFFFF;
+}
+
+.trColorAlt {
+    background-color: #eceff2; /* greyish eceff2 blueish d9dfe6, or lighter ebf2fc   fefefe #e9e9e9 was F3F3F3 versions of 406080 c6cfd9 d9dfe6 */
+    color: #333333;
+}
+
+/* TABLES */
+/* TABLE: WITH LINES */
+.tableWithLines {
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+    .tableWithLines tr {
+        vertical-align: top;
+    }
+
+    .tableWithLines th {
+        background-color: #89ad7e; /* Bright blue was 3b7ddd, happy muted blue was (6297e4)  was #bbbbbb #aaaaaa  lightsteelblue  */
+        color: #eeeeee; /* was ffffff #aaaaaa  #406080*/
+        font-weight: normal;
+        text-align: center;
+        padding: 5px;
+        border: 1px solid #555555;
+        font-size: 100%;
+    }
+    /* DO NOT PUT PADDING IN TD -- PUT IN A or background will not fill! */
+    .tableWithLines td {
+        border: 1px solid #999999; /* #666666 */
+        padding: 4px;
+        font-size: 90%;
+    }
+
+        .tableWithLines td:hover {
+        }
+    /* But if you put padding in A, the rest of the fields have no padding!... */
+    .tableWithLines a {
+        text-decoration: none;
+        display: block;
+        /* color: #ad0034; */
+    }
+
+        .tableWithLines a:hover {
+            text-decoration: underline;
+            /* color: green; */
+        }
+
+    .tableWithLines th > a {
+        color: #ffffff;
+        font-weight: normal;
+    }
+
+
+/* BUTTONS */
+
+.myBtn {
+    display: inline-block;
+    font-weight: 400;
+    color: #495057;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .25rem .7rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .myBtn {
+        transition: none
+    }
+}
+
+.myBtn:hover {
+    color: #495057;
+    text-decoration: none
+}
+
+.myBtn.focus, .myBtn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(59,125,221,.25)
+}
+
+.myBtn.disabled, .myBtn:disabled {
+    opacity: .65
+}
+
+a.myBtn.disabled, fieldset:disabled a.myBtn {
+    pointer-events: none
+}
+
+.myBtn-primary {
+    color: #fff;
+    background-color: red; /* was #3b7ddd */
+    border-color: red; /* was #3b7ddd */
+}
+
+    .myBtn-primary.focus, .myBtn-primary:focus, .myBtn-primary:hover {
+        color: #fff;
+        background-color: orange; /* was #2469ce */
+        border-color: darkorange /* was #2264c3 */
+    }
+
+    .myBtn-primary.focus, .myBtn-primary:focus {
+        box-shadow: 0 0 0 .2rem rgba(88,145,226,.5)
+    }
+
+    .myBtn-primary.disabled, .myBtn-primary:disabled {
+        color: #fff;
+        background-color: #3b7ddd;
+        border-color: #3b7ddd
+    }
+
+    .myBtn-primary:not(:disabled):not(.disabled).active, .myBtn-primary:not(:disabled):not(.disabled):active, .show > .myBtn-primary.dropdown-toggle {
+        color: #fff;
+        background-color: #2264c3;
+        border-color: #205eb8
+    }
+
+        .myBtn-primary:not(:disabled):not(.disabled).active:focus, .myBtn-primary:not(:disabled):not(.disabled):active:focus, .show > .myBtn-primary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .2rem rgba(88,145,226,.5)
+        }
+
+.myBtn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d
+}
+
+    .myBtn-secondary.focus, .myBtn-secondary:focus, .myBtn-secondary:hover {
+        color: #fff;
+        background-color: #5a6268;
+        border-color: #545b62
+    }
+
+    .myBtn-secondary.focus, .myBtn-secondary:focus {
+        box-shadow: 0 0 0 .2rem rgba(130,138,145,.5)
+    }
+
+    .myBtn-secondary.disabled, .myBtn-secondary:disabled {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d
+    }
+
+    .myBtn-secondary:not(:disabled):not(.disabled).active, .myBtn-secondary:not(:disabled):not(.disabled):active, .show > .myBtn-secondary.dropdown-toggle {
+        color: #fff;
+        background-color: #545b62;
+        border-color: #4e555b
+    }
+
+        .myBtn-secondary:not(:disabled):not(.disabled).active:focus, .myBtn-secondary:not(:disabled):not(.disabled):active:focus, .show > .myBtn-secondary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .2rem rgba(130,138,145,.5)
+        }
+
+.myMaintenanceMessageTheme {
+    background-color: #406080; /* #406080 */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

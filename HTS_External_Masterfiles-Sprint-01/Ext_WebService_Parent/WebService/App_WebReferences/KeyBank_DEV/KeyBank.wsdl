@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://InternalWebService/KeyBank" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://InternalWebService/KeyBank" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Internal Resources For KeyBank</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://InternalWebService/KeyBank">
+      <s:element name="A_Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="A_TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="A_TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveErrorText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errSummary" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errValues" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errSource" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveErrorTextResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EmailIndividual">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="textOrHtml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailIndividualResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailIndividualResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveInboundRequestValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tryCallCreation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cube" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="openedDateStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="problemDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiver" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="refTicketNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request_DeploymentMode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestSyncType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sentDateStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceAddress_Site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceDocument_Timestamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceDocument_TransactionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceDocument_Version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceRequest_Action" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="severity_Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status_Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ticketInfo_TicketNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transDateStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsCs1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsCs2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsNam" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsUnt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsMod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsAgr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsXmlSqlId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsFullGreenwichStamp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveInboundRequestValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveInboundRequestValuesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyBankSerial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyBankXref" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrfResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyBankSerial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCs1Cs2NamAdrCitStaZip_ByXrf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyBankXref" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCs1Cs2NamAdrCitStaZip_ByXrfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCs1Cs2NamAdrCitStaZip_ByXrfResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUntModAgrCs1Cs2AdrCitStaZip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyBankSerial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUntModAgrCs1Cs2AdrCitStaZipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUntModAgrCs1Cs2AdrCitStaZipResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFstLastFirstNames">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ctr" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tck" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFstLastFirstNamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFstLastFirstNamesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestXmlSqlId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsFullGreenwichStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pgmEnvironment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestXmlSqlIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetRequestXmlSqlIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertInboundRequestXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htsReceivedStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyTransactionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="environment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertInboundRequestXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertInboundRequestXmlResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCloseRequestXmls">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fullGreenwichStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyTransactionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml_1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml_2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlResults" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pgmEnvironment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCloseRequestXmlsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertCloseRequestXmlsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundRequestValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="environment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundRequestValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboundRequestValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundRequestValuesByCtrTck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ctr" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tck" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="environment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundRequestValuesByCtrTckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboundRequestValuesByCtrTckResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInboundRequestXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="xmlSqlId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="results" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml_2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="environment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInboundRequestXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateInboundRequestXmlResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInboundRequestValuesFromCall">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ctr" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tck" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="srq" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyTck" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyEnvironment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInboundRequestValuesFromCallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateInboundRequestValuesFromCallResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInboundRequestValuesFromClose">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="completionStamp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlSqlIds" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="acknowledged" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyTck" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyEnvironment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateInboundRequestValuesFromCloseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateInboundRequestValuesFromCloseResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNextKeyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="A_TestSoapIn">
+    <wsdl:part name="parameters" element="tns:A_Test" />
+  </wsdl:message>
+  <wsdl:message name="A_TestSoapOut">
+    <wsdl:part name="parameters" element="tns:A_TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveErrorTextSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveErrorText" />
+  </wsdl:message>
+  <wsdl:message name="SaveErrorTextSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveErrorTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmailIndividualSoapIn">
+    <wsdl:part name="parameters" element="tns:EmailIndividual" />
+  </wsdl:message>
+  <wsdl:message name="EmailIndividualSoapOut">
+    <wsdl:part name="parameters" element="tns:EmailIndividualResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveInboundRequestValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveInboundRequestValues" />
+  </wsdl:message>
+  <wsdl:message name="SaveInboundRequestValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveInboundRequestValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrfSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrf" />
+  </wsdl:message>
+  <wsdl:message name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrfSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrfResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCs1Cs2NamXrfAdrCitStaZipCnt_BySer" />
+  </wsdl:message>
+  <wsdl:message name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCs1Cs2NamAdrCitStaZip_ByXrfSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCs1Cs2NamAdrCitStaZip_ByXrf" />
+  </wsdl:message>
+  <wsdl:message name="GetCs1Cs2NamAdrCitStaZip_ByXrfSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCs1Cs2NamAdrCitStaZip_ByXrfResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUntModAgrCs1Cs2AdrCitStaZipSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUntModAgrCs1Cs2AdrCitStaZip" />
+  </wsdl:message>
+  <wsdl:message name="GetUntModAgrCs1Cs2AdrCitStaZipSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUntModAgrCs1Cs2AdrCitStaZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFstLastFirstNamesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFstLastFirstNames" />
+  </wsdl:message>
+  <wsdl:message name="GetFstLastFirstNamesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFstLastFirstNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestXmlSqlIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestXmlSqlId" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestXmlSqlIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestXmlSqlIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertInboundRequestXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertInboundRequestXml" />
+  </wsdl:message>
+  <wsdl:message name="InsertInboundRequestXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertInboundRequestXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCloseRequestXmlsSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCloseRequestXmls" />
+  </wsdl:message>
+  <wsdl:message name="InsertCloseRequestXmlsSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCloseRequestXmlsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundRequestValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInboundRequestValues" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundRequestValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboundRequestValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundRequestValuesByCtrTckSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInboundRequestValuesByCtrTck" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundRequestValuesByCtrTckSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboundRequestValuesByCtrTckResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInboundRequestXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInboundRequestXml" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInboundRequestXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInboundRequestXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInboundRequestValuesFromCallSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInboundRequestValuesFromCall" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInboundRequestValuesFromCallSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInboundRequestValuesFromCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInboundRequestValuesFromCloseSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateInboundRequestValuesFromClose" />
+  </wsdl:message>
+  <wsdl:message name="UpdateInboundRequestValuesFromCloseSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateInboundRequestValuesFromCloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNextKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextKey" />
+  </wsdl:message>
+  <wsdl:message name="GetNextKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextKeyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="KeyBankMenuSoap">
+    <wsdl:operation name="A_Test">
+      <wsdl:input message="tns:A_TestSoapIn" />
+      <wsdl:output message="tns:A_TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <wsdl:input message="tns:SaveErrorTextSoapIn" />
+      <wsdl:output message="tns:SaveErrorTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailIndividual">
+      <wsdl:input message="tns:EmailIndividualSoapIn" />
+      <wsdl:output message="tns:EmailIndividualSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInboundRequestValues">
+      <wsdl:input message="tns:SaveInboundRequestValuesSoapIn" />
+      <wsdl:output message="tns:SaveInboundRequestValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrf">
+      <wsdl:input message="tns:GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrfSoapIn" />
+      <wsdl:output message="tns:GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySer">
+      <wsdl:input message="tns:GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerSoapIn" />
+      <wsdl:output message="tns:GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamAdrCitStaZip_ByXrf">
+      <wsdl:input message="tns:GetCs1Cs2NamAdrCitStaZip_ByXrfSoapIn" />
+      <wsdl:output message="tns:GetCs1Cs2NamAdrCitStaZip_ByXrfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUntModAgrCs1Cs2AdrCitStaZip">
+      <wsdl:input message="tns:GetUntModAgrCs1Cs2AdrCitStaZipSoapIn" />
+      <wsdl:output message="tns:GetUntModAgrCs1Cs2AdrCitStaZipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFstLastFirstNames">
+      <wsdl:input message="tns:GetFstLastFirstNamesSoapIn" />
+      <wsdl:output message="tns:GetFstLastFirstNamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestXmlSqlId">
+      <wsdl:input message="tns:GetRequestXmlSqlIdSoapIn" />
+      <wsdl:output message="tns:GetRequestXmlSqlIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertInboundRequestXml">
+      <wsdl:input message="tns:InsertInboundRequestXmlSoapIn" />
+      <wsdl:output message="tns:InsertInboundRequestXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCloseRequestXmls">
+      <wsdl:input message="tns:InsertCloseRequestXmlsSoapIn" />
+      <wsdl:output message="tns:InsertCloseRequestXmlsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundRequestValues">
+      <wsdl:input message="tns:GetInboundRequestValuesSoapIn" />
+      <wsdl:output message="tns:GetInboundRequestValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundRequestValuesByCtrTck">
+      <wsdl:input message="tns:GetInboundRequestValuesByCtrTckSoapIn" />
+      <wsdl:output message="tns:GetInboundRequestValuesByCtrTckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestXml">
+      <wsdl:input message="tns:UpdateInboundRequestXmlSoapIn" />
+      <wsdl:output message="tns:UpdateInboundRequestXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestValuesFromCall">
+      <wsdl:input message="tns:UpdateInboundRequestValuesFromCallSoapIn" />
+      <wsdl:output message="tns:UpdateInboundRequestValuesFromCallSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestValuesFromClose">
+      <wsdl:input message="tns:UpdateInboundRequestValuesFromCloseSoapIn" />
+      <wsdl:output message="tns:UpdateInboundRequestValuesFromCloseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextKey">
+      <wsdl:input message="tns:GetNextKeySoapIn" />
+      <wsdl:output message="tns:GetNextKeySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KeyBankMenuSoap" type="tns:KeyBankMenuSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="A_Test">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/A_Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/SaveErrorText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailIndividual">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/EmailIndividual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInboundRequestValues">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/SaveInboundRequestValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrf">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySer">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetCs1Cs2NamXrfAdrCitStaZipCnt_BySer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamAdrCitStaZip_ByXrf">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetCs1Cs2NamAdrCitStaZip_ByXrf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUntModAgrCs1Cs2AdrCitStaZip">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetUntModAgrCs1Cs2AdrCitStaZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFstLastFirstNames">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetFstLastFirstNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestXmlSqlId">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetRequestXmlSqlId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertInboundRequestXml">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/InsertInboundRequestXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCloseRequestXmls">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/InsertCloseRequestXmls" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundRequestValues">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetInboundRequestValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundRequestValuesByCtrTck">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetInboundRequestValuesByCtrTck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestXml">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/UpdateInboundRequestXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestValuesFromCall">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/UpdateInboundRequestValuesFromCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestValuesFromClose">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/UpdateInboundRequestValuesFromClose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextKey">
+      <soap:operation soapAction="http://InternalWebService/KeyBank/GetNextKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="KeyBankMenuSoap12" type="tns:KeyBankMenuSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="A_Test">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/A_Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/SaveErrorText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailIndividual">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/EmailIndividual" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInboundRequestValues">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/SaveInboundRequestValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrf">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetCs1Cs2NamXrfAdrCitStaZipCnt_BySerXrf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamXrfAdrCitStaZipCnt_BySer">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetCs1Cs2NamXrfAdrCitStaZipCnt_BySer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCs1Cs2NamAdrCitStaZip_ByXrf">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetCs1Cs2NamAdrCitStaZip_ByXrf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUntModAgrCs1Cs2AdrCitStaZip">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetUntModAgrCs1Cs2AdrCitStaZip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFstLastFirstNames">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetFstLastFirstNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestXmlSqlId">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetRequestXmlSqlId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertInboundRequestXml">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/InsertInboundRequestXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCloseRequestXmls">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/InsertCloseRequestXmls" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundRequestValues">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetInboundRequestValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundRequestValuesByCtrTck">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetInboundRequestValuesByCtrTck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestXml">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/UpdateInboundRequestXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestValuesFromCall">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/UpdateInboundRequestValuesFromCall" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInboundRequestValuesFromClose">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/UpdateInboundRequestValuesFromClose" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextKey">
+      <soap12:operation soapAction="http://InternalWebService/KeyBank/GetNextKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KeyBankMenu">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Internal Resources For KeyBank</wsdl:documentation>
+    <wsdl:port name="KeyBankMenuSoap" binding="tns:KeyBankMenuSoap">
+      <soap:address location="http://oma-dev-int:270/KeyBank.asmx" />
+    </wsdl:port>
+    <wsdl:port name="KeyBankMenuSoap12" binding="tns:KeyBankMenuSoap12">
+      <soap12:address location="http://oma-dev-int:270/KeyBank.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

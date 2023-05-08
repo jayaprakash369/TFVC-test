@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterParent.master.cs" Inherits="MasterParent" %>
+<%-- 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+--%>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Parent Master Page Title </title>
+    <!--[if !IE 7]><style type="text/css">.wrap {display:table;height:100%}</style><![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrap">
+            <div class="box">
+                <%-- Site Identifier --%>
+                <div class="dvSiteID">
+                    <asp:Label ID="lbSiteID" runat="server" Text="" CssClass="siteID" />
+                </div>
+
+                <div class="header">
+                    <table style="width: 100%;"> 
+                        <tr style="vertical-align: top;">
+                            <td>HTS</td>
+                            <td align="right">
+                                <asp:LoginView ID="LoginView1" runat="server">
+                                    <AnonymousTemplate>
+                                        <asp:Menu ID="mnAnon" runat="server" DataSourceID="SiteMapDataSourceAnon" >
+                                        </asp:Menu>
+                                        <asp:SiteMapDataSource ID="SiteMapDataSourceAnon" runat="server" ShowStartingNode="false" SiteMapProvider="SitemapAnon" />
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                                        <asp:Menu ID="mnLogged" runat="server" DataSourceID="SiteMapDataSourceLogged" >
+                                        </asp:Menu>
+                                        <asp:SiteMapDataSource ID="SiteMapDataSourceLogged" runat="server" ShowStartingNode="false" SiteMapProvider="SitemapLogged" />
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="title">
+                    <asp:ContentPlaceHolder id="BodyTitle" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div class="content">
+                    <asp:ContentPlaceHolder id="BodyContent" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="footerPush"></div>
+            </div>
+        </div>
+
+    <div class="footer"> 
+        HTS Employee Public Site &nbsp; &#8226; &nbsp; For Internal Use Only
+    </div>
+
+    </form>
+</body>
+</html>

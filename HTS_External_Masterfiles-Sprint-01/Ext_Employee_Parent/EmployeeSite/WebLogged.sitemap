@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/Default" title="Home"  description="Home on starting node -- not used">
+      <siteMapNode url="~/" title="Home"  description="Home Page" />
+      <siteMapNode url="~/Logout.aspx" title="Logout"  description="Log out of employee sites" />
+      <siteMapNode url="~/public/Default.aspx" title="Public Page"  description="Public Folder Home Page" />
+      <siteMapNode url="~/private/Default.aspx" title="Private Page"  description="Private Folder Home Page" />
+      <siteMapNode url="~/private/tools/Geocode.aspx" title="Geocode"  description="Yahoo Geocode Api" />
+      <siteMapNode url="~/private/tools/ZipRoadUpdater2.aspx" title="Road Miles Updater"  description="Google Zip File Updater: Road Miles and Time" />
+    </siteMapNode>
+</siteMap>

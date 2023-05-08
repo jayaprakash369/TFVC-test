@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://InternalWebService/SelfService" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://InternalWebService/SelfService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Self Service Data Access</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://InternalWebService/SelfService">
+      <s:element name="GetSsTechs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsTechsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsTechsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartReturnStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="part" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartReturnStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartReturnStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidatePartUsed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="part" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidatePartUsedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidatePartUsedResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPartsUsedToday">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ctr" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tck" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartsUsedTodayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartsUsedTodayResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TriggerPartUse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ctr" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tck" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="emp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="unt" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="qty" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loc" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pgm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rtn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="snd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rsn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="testFlag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TriggerPartUseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TriggerPartUseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsStockLocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsStockLocsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsStockLocsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsCurrentInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stockLoc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsCurrentInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsCurrentInventoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsAutoReplenish">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stockLoc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsAutoReplenishResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsAutoReplenishResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsShipments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stockLoc" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateStart" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateEnd" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsShipmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsShipmentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateStockLoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stockLoc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateStockLocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateStockLocResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsStockLocParts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stockLoc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsStockLocPartsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsStockLocPartsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsProdmstParts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="part" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsProdmstPartsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsProdmstPartsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsParts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="part" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="styleName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mfrName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="driveType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pcType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsPartsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsPartsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsTransferParts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="transfer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsTransferPartsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsTransferPartsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsTransferShipTo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="transfer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsTransferShipToResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsTransferShipToResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsSurplusInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stockLoc" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsSurplusInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsSurplusInventoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsContractUnits">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsContractUnitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsContractUnitsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsTicketResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmpName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empNum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmpNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmpNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmpStockLoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empNum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmpStockLocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetEmpStockLocResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextKeymastKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileNeedingKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextKeymastKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetNextKeymastKeyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartsUsed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ctr" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tck" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartsUsedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartsUsedResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsPcSubtypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSsPcSubtypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSsPcSubtypesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveErrorText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errSummary" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errValues" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="webSource" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveErrorTextResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSsTechsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsTechs" />
+  </wsdl:message>
+  <wsdl:message name="GetSsTechsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsTechsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartReturnStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartReturnStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetPartReturnStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartReturnStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePartUsedSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidatePartUsed" />
+  </wsdl:message>
+  <wsdl:message name="ValidatePartUsedSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidatePartUsedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartsUsedTodaySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartsUsedToday" />
+  </wsdl:message>
+  <wsdl:message name="GetPartsUsedTodaySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartsUsedTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="TriggerPartUseSoapIn">
+    <wsdl:part name="parameters" element="tns:TriggerPartUse" />
+  </wsdl:message>
+  <wsdl:message name="TriggerPartUseSoapOut">
+    <wsdl:part name="parameters" element="tns:TriggerPartUseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsStockLocsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsStockLocs" />
+  </wsdl:message>
+  <wsdl:message name="GetSsStockLocsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsStockLocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsCurrentInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsCurrentInventory" />
+  </wsdl:message>
+  <wsdl:message name="GetSsCurrentInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsCurrentInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsAutoReplenishSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsAutoReplenish" />
+  </wsdl:message>
+  <wsdl:message name="GetSsAutoReplenishSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsAutoReplenishResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsShipmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsShipments" />
+  </wsdl:message>
+  <wsdl:message name="GetSsShipmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsShipmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateStockLocSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateStockLoc" />
+  </wsdl:message>
+  <wsdl:message name="ValidateStockLocSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateStockLocResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsStockLocPartsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsStockLocParts" />
+  </wsdl:message>
+  <wsdl:message name="GetSsStockLocPartsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsStockLocPartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsProdmstPartsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsProdmstParts" />
+  </wsdl:message>
+  <wsdl:message name="GetSsProdmstPartsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsProdmstPartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsPartsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsParts" />
+  </wsdl:message>
+  <wsdl:message name="GetSsPartsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsPartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsTransferPartsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsTransferParts" />
+  </wsdl:message>
+  <wsdl:message name="GetSsTransferPartsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsTransferPartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsTransferShipToSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsTransferShipTo" />
+  </wsdl:message>
+  <wsdl:message name="GetSsTransferShipToSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsTransferShipToResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsSurplusInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsSurplusInventory" />
+  </wsdl:message>
+  <wsdl:message name="GetSsSurplusInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsSurplusInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsContractUnitsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsContractUnits" />
+  </wsdl:message>
+  <wsdl:message name="GetSsContractUnitsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsContractUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsTicket" />
+  </wsdl:message>
+  <wsdl:message name="GetSsTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmpName" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmpNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpStockLocSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmpStockLoc" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpStockLocSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmpStockLocResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustName" />
+  </wsdl:message>
+  <wsdl:message name="GetCustNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNextKeymastKeySoapIn">
+    <wsdl:part name="parameters" element="tns:SetNextKeymastKey" />
+  </wsdl:message>
+  <wsdl:message name="SetNextKeymastKeySoapOut">
+    <wsdl:part name="parameters" element="tns:SetNextKeymastKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartsUsedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartsUsed" />
+  </wsdl:message>
+  <wsdl:message name="GetPartsUsedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartsUsedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSsPcSubtypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSsPcSubtypes" />
+  </wsdl:message>
+  <wsdl:message name="GetSsPcSubtypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSsPcSubtypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveErrorTextSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveErrorText" />
+  </wsdl:message>
+  <wsdl:message name="SaveErrorTextSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveErrorTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SelfServiceMenuSoap">
+    <wsdl:operation name="GetSsTechs">
+      <wsdl:input message="tns:GetSsTechsSoapIn" />
+      <wsdl:output message="tns:GetSsTechsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartReturnStatus">
+      <wsdl:input message="tns:GetPartReturnStatusSoapIn" />
+      <wsdl:output message="tns:GetPartReturnStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePartUsed">
+      <wsdl:input message="tns:ValidatePartUsedSoapIn" />
+      <wsdl:output message="tns:ValidatePartUsedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsUsedToday">
+      <wsdl:input message="tns:GetPartsUsedTodaySoapIn" />
+      <wsdl:output message="tns:GetPartsUsedTodaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TriggerPartUse">
+      <wsdl:input message="tns:TriggerPartUseSoapIn" />
+      <wsdl:output message="tns:TriggerPartUseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsStockLocs">
+      <wsdl:input message="tns:GetSsStockLocsSoapIn" />
+      <wsdl:output message="tns:GetSsStockLocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsCurrentInventory">
+      <wsdl:input message="tns:GetSsCurrentInventorySoapIn" />
+      <wsdl:output message="tns:GetSsCurrentInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsAutoReplenish">
+      <wsdl:input message="tns:GetSsAutoReplenishSoapIn" />
+      <wsdl:output message="tns:GetSsAutoReplenishSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsShipments">
+      <wsdl:input message="tns:GetSsShipmentsSoapIn" />
+      <wsdl:output message="tns:GetSsShipmentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateStockLoc">
+      <wsdl:input message="tns:ValidateStockLocSoapIn" />
+      <wsdl:output message="tns:ValidateStockLocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsStockLocParts">
+      <wsdl:input message="tns:GetSsStockLocPartsSoapIn" />
+      <wsdl:output message="tns:GetSsStockLocPartsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsProdmstParts">
+      <wsdl:input message="tns:GetSsProdmstPartsSoapIn" />
+      <wsdl:output message="tns:GetSsProdmstPartsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsParts">
+      <wsdl:input message="tns:GetSsPartsSoapIn" />
+      <wsdl:output message="tns:GetSsPartsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTransferParts">
+      <wsdl:input message="tns:GetSsTransferPartsSoapIn" />
+      <wsdl:output message="tns:GetSsTransferPartsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTransferShipTo">
+      <wsdl:input message="tns:GetSsTransferShipToSoapIn" />
+      <wsdl:output message="tns:GetSsTransferShipToSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsSurplusInventory">
+      <wsdl:input message="tns:GetSsSurplusInventorySoapIn" />
+      <wsdl:output message="tns:GetSsSurplusInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsContractUnits">
+      <wsdl:input message="tns:GetSsContractUnitsSoapIn" />
+      <wsdl:output message="tns:GetSsContractUnitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTicket">
+      <wsdl:input message="tns:GetSsTicketSoapIn" />
+      <wsdl:output message="tns:GetSsTicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpName">
+      <wsdl:input message="tns:GetEmpNameSoapIn" />
+      <wsdl:output message="tns:GetEmpNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpStockLoc">
+      <wsdl:input message="tns:GetEmpStockLocSoapIn" />
+      <wsdl:output message="tns:GetEmpStockLocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustName">
+      <wsdl:input message="tns:GetCustNameSoapIn" />
+      <wsdl:output message="tns:GetCustNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNextKeymastKey">
+      <wsdl:input message="tns:SetNextKeymastKeySoapIn" />
+      <wsdl:output message="tns:SetNextKeymastKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsUsed">
+      <wsdl:input message="tns:GetPartsUsedSoapIn" />
+      <wsdl:output message="tns:GetPartsUsedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSsPcSubtypes">
+      <wsdl:input message="tns:GetSsPcSubtypesSoapIn" />
+      <wsdl:output message="tns:GetSsPcSubtypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <wsdl:input message="tns:SaveErrorTextSoapIn" />
+      <wsdl:output message="tns:SaveErrorTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SelfServiceMenuSoap" type="tns:SelfServiceMenuSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSsTechs">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsTechs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartReturnStatus">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetPartReturnStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePartUsed">
+      <soap:operation soapAction="http://InternalWebService/SelfService/ValidatePartUsed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsUsedToday">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetPartsUsedToday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TriggerPartUse">
+      <soap:operation soapAction="http://InternalWebService/SelfService/TriggerPartUse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsStockLocs">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsStockLocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsCurrentInventory">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsCurrentInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsAutoReplenish">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsAutoReplenish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsShipments">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsShipments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateStockLoc">
+      <soap:operation soapAction="http://InternalWebService/SelfService/ValidateStockLoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsStockLocParts">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsStockLocParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsProdmstParts">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsProdmstParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsParts">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTransferParts">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsTransferParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTransferShipTo">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsTransferShipTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsSurplusInventory">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsSurplusInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsContractUnits">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsContractUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTicket">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpName">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetEmpName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpStockLoc">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetEmpStockLoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustName">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetCustName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextKeymastKey">
+      <soap:operation soapAction="http://InternalWebService/SelfService/SetNextKeymastKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsUsed">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetPartsUsed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsPcSubtypes">
+      <soap:operation soapAction="http://InternalWebService/SelfService/GetSsPcSubtypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <soap:operation soapAction="http://InternalWebService/SelfService/SaveErrorText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://InternalWebService/SelfService/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SelfServiceMenuSoap12" type="tns:SelfServiceMenuSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSsTechs">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsTechs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartReturnStatus">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetPartReturnStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePartUsed">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/ValidatePartUsed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsUsedToday">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetPartsUsedToday" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TriggerPartUse">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/TriggerPartUse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsStockLocs">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsStockLocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsCurrentInventory">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsCurrentInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsAutoReplenish">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsAutoReplenish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsShipments">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsShipments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateStockLoc">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/ValidateStockLoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsStockLocParts">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsStockLocParts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsProdmstParts">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsProdmstParts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsParts">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsParts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTransferParts">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsTransferParts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTransferShipTo">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsTransferShipTo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsSurplusInventory">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsSurplusInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsContractUnits">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsContractUnits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsTicket">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpName">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetEmpName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpStockLoc">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetEmpStockLoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustName">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetCustName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextKeymastKey">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/SetNextKeymastKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartsUsed">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetPartsUsed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSsPcSubtypes">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/GetSsPcSubtypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/SaveErrorText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://InternalWebService/SelfService/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SelfServiceMenu">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Self Service Data Access</wsdl:documentation>
+    <wsdl:port name="SelfServiceMenuSoap" binding="tns:SelfServiceMenuSoap">
+      <soap:address location="http://oma-dev-int:270/SelfService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SelfServiceMenuSoap12" binding="tns:SelfServiceMenuSoap12">
+      <soap12:address location="http://oma-dev-int:270/SelfService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,37 @@
+﻿<serviceDocument timestamp="2016-05-13T12:44:59" transactionId="0000000000000123" version="2.1">
+  <header>
+    <docType>ESR Client</docType>
+    <sender type="CUSTSYSID">KEY</sender>
+    <receiver type="CUSTSYSID">HTS</receiver>
+    <requestSyncType>asynchronous</requestSyncType>
+  </header>
+  <request deploymentMode="test">
+    <serviceRequest action="new">
+      <ticketInfo>
+        <refTicketNumber>HDMZ_6</refTicketNumber>
+        <openedDateStamp>2016-05-13T16:44:59</openedDateStamp>
+        <sentDateStamp>2016-05-13T16:44:59</sentDateStamp>
+        <transDateStamp>2016-05-13T16:44:59</transDateStamp>
+        <problemDescription>2UA2181HYZ WA113TLA2181HYZ</problemDescription>
+        <status code="open"/>
+        <severity code="3"/>
+      </ticketInfo>
+      <contact type="primary">
+        <company>KCWA0113</company>
+        <firstName>LAURETTA</firstName>
+        <lastName>GREENE</lastName>
+        <phone countryCode="1">253-428-5072</phone>
+      </contact>
+      <serviceAddress site="KCWA0113">
+        <street>8017 Steilacoom Blvd S.W.</street>
+        <city>Tacoma</city>
+        <state>WA</state>
+        <zip>98405</zip>
+      </serviceAddress>
+      <equipment>
+        <serial>2UA2181HYZ</serial>
+        <model>HP 6200</model>
+      </equipment>
+    </serviceRequest>
+  </request>
+</serviceDocument>

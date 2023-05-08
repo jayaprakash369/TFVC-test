@@ -1,0 +1,470 @@
+﻿
+/* --------------------------------------------------- */
+/*  SKIN SUPPORT CSS */
+/* --------------------------------------------------- */
+/*  SKIN CONTROLS: DEFAULTS */
+/* --------------------------------------------------- */
+
+.buttonDefault {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+    .buttonDefault:hover {
+        /*background-color: #999999;
+        color: #FFFFFF;
+        */
+    }
+
+
+.checkBoxDefault {
+}
+
+    .checkBoxDefault input {
+        font-size: 8px;
+        margin-right: 7px;
+        position: relative;
+        top: 1px;
+    }
+
+    .checkBoxDefault label {
+    }
+
+.checkBoxListDefault {
+}
+
+    .checkBoxListDefault input {
+        font-size: 9px;
+        position: relative;
+        top: 1px;
+    }
+
+    .checkBoxListDefault label {
+        padding-left: 5px;
+        /*font-size: 12px;*/
+    }
+
+.dropDownListDefault {
+    border: 1px solid #bbbbbb;
+}
+
+
+.listBoxDefault {
+    border: 1px solid #555555;
+    padding-right: 15px;
+}
+
+.radioButtonListDefault input {
+    font-size: 11pt;
+    vertical-align: top;
+    padding-right: 10px;
+    position: relative;
+    top: 4px;
+}
+
+.radioButtonListDefault label {
+    font-size: 11pt;
+    vertical-align: middle;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.radioButtonDefault input {
+    font-size: 9pt;
+    vertical-align: middle;
+}
+
+.radioButtonDefault label {
+    font-size: 9pt;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.textBoxDefault {
+    border-top: 1px solid #888888;
+    border-left: 1px solid #888888;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    padding: 2px;
+}
+
+.hyperLinkDefault_Orig {
+    color: #009688; /*  */
+    text-decoration: none;
+}
+    .hyperLinkDefault_Orig:hover {
+        color: #1565b3; /* 315b7e 3333d7 4682B4 6666ff 009688 3333ff DodgerBlue darker 1565b3 */
+        text-decoration: underline;
+    }
+
+.linkButtonDefault_Orig {
+    color: #009688; /*  */
+    text-decoration: none;
+}
+
+    .linkButtonDefault_Orig:hover {
+        color: #1565b3; /* 3333d7 4682B4 6666ff 009688 3333ff DodgerBlue darker 1565b3 */
+        text-decoration: underline;
+    }
+/*
+.linkButtonDefault {
+    color: red;
+}
+
+    .linkButtonDefault a {
+        color: #6666ff;
+        text-decoration: none;
+    }
+
+        .linkButtonDefault a:hover {
+            color: #3333ff; 
+            text-decoration: underline;
+        }
+*/
+/* --------------------------------------------------- */
+/*  SKIN CONTROLS: WHEN CALLED BY NAME */
+/* --------------------------------------------------- */
+
+.checkBox1 {
+}
+
+    .checkBox1 input {
+        font-size: 0.9em;
+        margin-right: 7px;
+        vertical-align: bottom;
+        margin-bottom: 3px;
+        position: relative;
+        top: 1px;
+    }
+
+    .checkBox1 label {
+        font-size: 0.9em;
+        position: relative;
+        top: 10px;
+    }
+
+.checkBox2 input {
+    font-size: 0.9em;
+    position: relative;
+    top: 1px;
+}
+
+.checkBox2 label {
+    display: none;
+}
+
+.checkBox3 {
+    margin-left: 20px;
+}
+
+    .checkBox3 input {
+        font-size: 0.9em;
+        margin-right: 7px;
+        vertical-align: bottom;
+        margin-bottom: 3px;
+        position: relative;
+        top: 1px;
+    }
+
+    .checkBox3 label {
+        font-size: 0.9em;
+        vertical-align: bottom;
+        font-style: italic;
+    }
+
+.radioButton1 input {
+    /*font-size: 13px;*/
+}
+
+.radioButton1 label {
+    /* font-size: 13px;*/
+    padding-left: 10px;
+    vertical-align: bottom;
+    position: relative;
+    top: 7px;
+}
+
+.checkBoxHidingText {
+}
+
+    .checkBoxHidingText input {
+        font-size: 9pt; /* was 9pt*/
+    }
+
+    .checkBoxHidingText label {
+        display: none;
+    }
+
+
+.button1 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+/* was eeeeee */
+
+
+
+
+/* TABLE: WITHOUT LINES */
+.tableWithoutLines {
+}
+
+    .tableWithoutLines tr {
+    }
+
+    .tableWithoutLines th {
+        color: #444444;
+        font-weight: bold;
+        padding: 4px;
+    }
+
+    .tableWithoutLines td {
+        color: #333333;
+        padding: 4px;
+    }
+
+    .tableWithoutLines a {
+        display: block;
+        height: 100%;
+        text-decoration: none;
+    }
+
+        .tableWithoutLines a:hover {
+            text-decoration: underline;
+        }
+
+.bodyPadding {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.spacer0 {
+    clear: both;
+    height: 0px;
+}
+
+.spacer1 {
+    clear: both;
+    height: 1px;
+}
+
+.spacer2 {
+    clear: both;
+    height: 2px;
+}
+
+.spacer3 {
+    clear: both;
+    height: 3px;
+}
+
+.spacer5 {
+    clear: both;
+    height: 5px;
+}
+
+.spacer10 {
+    clear: both;
+    height: 10px;
+}
+
+.spacer15 {
+    clear: both;
+    height: 15px;
+}
+
+.spacer20 {
+    clear: both;
+    height: 20px;
+}
+
+.spacer30 {
+    clear: both;
+    height: 30px;
+}
+
+.spacer40 {
+    clear: both;
+    height: 40px;
+}
+
+.spacer50 {
+    clear: both;
+    height: 50px;
+}
+
+.spacer75 {
+    clear: both;
+    height: 75px;
+}
+
+.spacer100 {
+    clear: both;
+    height: 100px;
+}
+
+/* Skin support classes */
+.labelTableTitle {
+    display: block;
+    clear: both;
+    font-size: 1.3em;
+    color: #3a7728;
+}
+
+.checkBox1 {
+}
+
+    .checkBox1 input {
+        font-size: 0.9em;
+        margin-right: 7px;
+        vertical-align: bottom;
+        margin-bottom: 3px;
+        position: relative;
+        top: 1px;
+    }
+
+    .checkBox1 label {
+        font-size: 0.9em;
+        vertical-align: bottom;
+    }
+
+.checkBox2 input {
+    font-size: 0.9em;
+    position: relative;
+    top: 1px;
+}
+
+.checkBox2 label {
+    display: none;
+}
+
+.checkBox3 {
+    margin-left: 20px;
+}
+
+    .checkBox3 input {
+        font-size: 0.9em;
+        margin-right: 7px;
+        vertical-align: bottom;
+        margin-bottom: 3px;
+        position: relative;
+        top: 1px;
+    }
+
+    .checkBox3 label {
+        font-size: 0.9em;
+        vertical-align: bottom;
+        font-style: italic;
+    }
+
+.checkBoxListDefault input {
+    font-size: 9px;
+    position: relative;
+    top: 1px;
+}
+
+.checkBoxListDefault label {
+    padding-left: 5px;
+    /*font-size: 12px;*/
+}
+
+.w3-text-my-blue {
+    color: #406080 !important
+}
+
+.w3-text-steel-blue {
+    color: #4682B4 !important
+}
+
+.w3-text-light-steel-blue {
+    color: #B0C4DE !important
+}
+/*
+.tableBorderBackgroundLight {
+    border: 1px solid #bbbbbb;
+    padding: 5px;
+    background: #f7f7f7;
+}
+
+.tableBorderBackgroundMedium {
+    border: 1px solid #888888;
+    padding: 5px;
+    background: #e4ece1;
+}
+
+.tableBorderBackgroundDark {
+    border: 1px solid #666666;
+    padding: 5px;
+    background: #ecf0fc;
+}
+*/
+
+/* START: FEATHER */
+/*
+.btn .feather {
+    width: 14px; 
+    height: 14px;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+.feather {
+    width: 18px; 
+    height: 18px;
+    position: relative;
+    top: 2px; 
+    margin-right: 7px;
+}
+
+*/
+
+.feather {
+    width: 16px; 
+    height: 16px;
+    position: relative;
+    top: -1px; 
+    margin-right: 7px;
+}
+
+/*
+.feather-sm {
+    width: 14px;
+    height: 14px
+}
+
+.feather-lg {
+    width: 36px;
+    height: 36px
+}
+
+.input-group-navbar .btn .feather {
+    width: 20px;
+    height: 20px
+}
+
+.navbar-brand .feather, .navbar-brand svg {
+    color: #3b7ddd;
+    height: 24px;
+    width: 24px;
+    margin-left: -.15rem;
+    margin-right: .375rem;
+    margin-top: -.375rem
+}
+
+.nav-flag .feather, .nav-flag svg, .nav-icon .feather, .nav-icon svg {
+    width: 20px;
+    height: 20px
+}
+
+.table-action .feather {
+    width: 18px;
+    height: 18px
+}
+    */
+
+
+
+/* STOP: FEATHER */

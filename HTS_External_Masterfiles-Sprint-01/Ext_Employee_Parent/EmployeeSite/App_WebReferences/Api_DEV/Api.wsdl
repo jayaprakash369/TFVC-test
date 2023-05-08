@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://InternalWebService/Api" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://InternalWebService/Api" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Api Data Access</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://InternalWebService/Api">
+      <s:element name="A_Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="A_TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="A_TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cinemark_UpdRmaTracking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_incident" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_tracking" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_custName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_dateExpected" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_part" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cinemark_UpdRmaTrackingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cinemark_UpdRmaTrackingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cinemark_UpdWorkNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tckKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tckStatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cinemark_UpdWorkNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cinemark_UpdWorkNotesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistanceGetNextRec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistanceGetNextRecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DistanceGetNextRecResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DistanceGetCountRecsToUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="flag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistanceGetCountRecsToUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DistanceGetCountRecsToUpdateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistanceSetMilesTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code2" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="miles" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="hoursMinutes" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistanceSetMilesTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DistanceSetMilesTimeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistanceSetZeroResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DistanceSetZeroResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DistanceSetZeroResultsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZipGetNext">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZipGetNextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZipGetNextResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZipCaGetSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nextChar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZipCaGetSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCaGetSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZipCaUpdGood">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="provinceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="provinceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="county" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="latitude" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="longitude" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZipCaUpdGoodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ZipCaUpdGoodResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZipCaUpdBad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="statusCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ZipCaUpdBadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ZipCaUpdBadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="A_TestSoapIn">
+    <wsdl:part name="parameters" element="tns:A_Test" />
+  </wsdl:message>
+  <wsdl:message name="A_TestSoapOut">
+    <wsdl:part name="parameters" element="tns:A_TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="Cinemark_UpdRmaTrackingSoapIn">
+    <wsdl:part name="parameters" element="tns:Cinemark_UpdRmaTracking" />
+  </wsdl:message>
+  <wsdl:message name="Cinemark_UpdRmaTrackingSoapOut">
+    <wsdl:part name="parameters" element="tns:Cinemark_UpdRmaTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="Cinemark_UpdWorkNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:Cinemark_UpdWorkNotes" />
+  </wsdl:message>
+  <wsdl:message name="Cinemark_UpdWorkNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:Cinemark_UpdWorkNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistanceGetNextRecSoapIn">
+    <wsdl:part name="parameters" element="tns:DistanceGetNextRec" />
+  </wsdl:message>
+  <wsdl:message name="DistanceGetNextRecSoapOut">
+    <wsdl:part name="parameters" element="tns:DistanceGetNextRecResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistanceGetCountRecsToUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:DistanceGetCountRecsToUpdate" />
+  </wsdl:message>
+  <wsdl:message name="DistanceGetCountRecsToUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:DistanceGetCountRecsToUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistanceSetMilesTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:DistanceSetMilesTime" />
+  </wsdl:message>
+  <wsdl:message name="DistanceSetMilesTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:DistanceSetMilesTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DistanceSetZeroResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:DistanceSetZeroResults" />
+  </wsdl:message>
+  <wsdl:message name="DistanceSetZeroResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:DistanceSetZeroResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZipGetNextSoapIn">
+    <wsdl:part name="parameters" element="tns:ZipGetNext" />
+  </wsdl:message>
+  <wsdl:message name="ZipGetNextSoapOut">
+    <wsdl:part name="parameters" element="tns:ZipGetNextResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZipCaGetSetSoapIn">
+    <wsdl:part name="parameters" element="tns:ZipCaGetSet" />
+  </wsdl:message>
+  <wsdl:message name="ZipCaGetSetSoapOut">
+    <wsdl:part name="parameters" element="tns:ZipCaGetSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZipCaUpdGoodSoapIn">
+    <wsdl:part name="parameters" element="tns:ZipCaUpdGood" />
+  </wsdl:message>
+  <wsdl:message name="ZipCaUpdGoodSoapOut">
+    <wsdl:part name="parameters" element="tns:ZipCaUpdGoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZipCaUpdBadSoapIn">
+    <wsdl:part name="parameters" element="tns:ZipCaUpdBad" />
+  </wsdl:message>
+  <wsdl:message name="ZipCaUpdBadSoapOut">
+    <wsdl:part name="parameters" element="tns:ZipCaUpdBadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ApiMenuSoap">
+    <wsdl:operation name="A_Test">
+      <wsdl:input message="tns:A_TestSoapIn" />
+      <wsdl:output message="tns:A_TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cinemark_UpdRmaTracking">
+      <wsdl:input message="tns:Cinemark_UpdRmaTrackingSoapIn" />
+      <wsdl:output message="tns:Cinemark_UpdRmaTrackingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cinemark_UpdWorkNotes">
+      <wsdl:input message="tns:Cinemark_UpdWorkNotesSoapIn" />
+      <wsdl:output message="tns:Cinemark_UpdWorkNotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DistanceGetNextRec">
+      <wsdl:input message="tns:DistanceGetNextRecSoapIn" />
+      <wsdl:output message="tns:DistanceGetNextRecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DistanceGetCountRecsToUpdate">
+      <wsdl:input message="tns:DistanceGetCountRecsToUpdateSoapIn" />
+      <wsdl:output message="tns:DistanceGetCountRecsToUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DistanceSetMilesTime">
+      <wsdl:input message="tns:DistanceSetMilesTimeSoapIn" />
+      <wsdl:output message="tns:DistanceSetMilesTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DistanceSetZeroResults">
+      <wsdl:input message="tns:DistanceSetZeroResultsSoapIn" />
+      <wsdl:output message="tns:DistanceSetZeroResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZipGetNext">
+      <wsdl:input message="tns:ZipGetNextSoapIn" />
+      <wsdl:output message="tns:ZipGetNextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaGetSet">
+      <wsdl:input message="tns:ZipCaGetSetSoapIn" />
+      <wsdl:output message="tns:ZipCaGetSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaUpdGood">
+      <wsdl:input message="tns:ZipCaUpdGoodSoapIn" />
+      <wsdl:output message="tns:ZipCaUpdGoodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaUpdBad">
+      <wsdl:input message="tns:ZipCaUpdBadSoapIn" />
+      <wsdl:output message="tns:ZipCaUpdBadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ApiMenuSoap" type="tns:ApiMenuSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="A_Test">
+      <soap:operation soapAction="http://InternalWebService/Api/A_Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cinemark_UpdRmaTracking">
+      <soap:operation soapAction="http://InternalWebService/Api/Cinemark_UpdRmaTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cinemark_UpdWorkNotes">
+      <soap:operation soapAction="http://InternalWebService/Api/Cinemark_UpdWorkNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceGetNextRec">
+      <soap:operation soapAction="http://InternalWebService/Api/DistanceGetNextRec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceGetCountRecsToUpdate">
+      <soap:operation soapAction="http://InternalWebService/Api/DistanceGetCountRecsToUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceSetMilesTime">
+      <soap:operation soapAction="http://InternalWebService/Api/DistanceSetMilesTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceSetZeroResults">
+      <soap:operation soapAction="http://InternalWebService/Api/DistanceSetZeroResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipGetNext">
+      <soap:operation soapAction="http://InternalWebService/Api/ZipGetNext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaGetSet">
+      <soap:operation soapAction="http://InternalWebService/Api/ZipCaGetSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaUpdGood">
+      <soap:operation soapAction="http://InternalWebService/Api/ZipCaUpdGood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaUpdBad">
+      <soap:operation soapAction="http://InternalWebService/Api/ZipCaUpdBad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ApiMenuSoap12" type="tns:ApiMenuSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="A_Test">
+      <soap12:operation soapAction="http://InternalWebService/Api/A_Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cinemark_UpdRmaTracking">
+      <soap12:operation soapAction="http://InternalWebService/Api/Cinemark_UpdRmaTracking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cinemark_UpdWorkNotes">
+      <soap12:operation soapAction="http://InternalWebService/Api/Cinemark_UpdWorkNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceGetNextRec">
+      <soap12:operation soapAction="http://InternalWebService/Api/DistanceGetNextRec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceGetCountRecsToUpdate">
+      <soap12:operation soapAction="http://InternalWebService/Api/DistanceGetCountRecsToUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceSetMilesTime">
+      <soap12:operation soapAction="http://InternalWebService/Api/DistanceSetMilesTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DistanceSetZeroResults">
+      <soap12:operation soapAction="http://InternalWebService/Api/DistanceSetZeroResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipGetNext">
+      <soap12:operation soapAction="http://InternalWebService/Api/ZipGetNext" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaGetSet">
+      <soap12:operation soapAction="http://InternalWebService/Api/ZipCaGetSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaUpdGood">
+      <soap12:operation soapAction="http://InternalWebService/Api/ZipCaUpdGood" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZipCaUpdBad">
+      <soap12:operation soapAction="http://InternalWebService/Api/ZipCaUpdBad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApiMenu">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Api Data Access</wsdl:documentation>
+    <wsdl:port name="ApiMenuSoap" binding="tns:ApiMenuSoap">
+      <soap:address location="http://oma-dev-int:270/Api.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ApiMenuSoap12" binding="tns:ApiMenuSoap12">
+      <soap12:address location="http://oma-dev-int:270/Api.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

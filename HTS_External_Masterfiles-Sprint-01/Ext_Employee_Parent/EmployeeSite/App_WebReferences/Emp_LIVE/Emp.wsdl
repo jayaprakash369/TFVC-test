@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://InternalWebService/Emp" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://InternalWebService/Emp" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Employee Data Access</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://InternalWebService/Emp">
+      <s:element name="A_Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="A_TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="A_TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustByLoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustByLocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustByLocResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustByLoc2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cs2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustByLoc2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustByLoc2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrintFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrintFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrintFilesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextKeymastKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileNeedingKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetNextKeymastKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetNextKeymastKeyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailBasic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="htmlOrText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailBasicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailBasicResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailTool">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wsKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sendTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sendFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmailToolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailToolResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveErrorText">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errSummary" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errValues" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="webSource" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveErrorTextResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNextKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNextKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNextKeyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="A_TestSoapIn">
+    <wsdl:part name="parameters" element="tns:A_Test" />
+  </wsdl:message>
+  <wsdl:message name="A_TestSoapOut">
+    <wsdl:part name="parameters" element="tns:A_TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStates" />
+  </wsdl:message>
+  <wsdl:message name="GetStatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustByLocSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustByLoc" />
+  </wsdl:message>
+  <wsdl:message name="GetCustByLocSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustByLocResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustByLoc2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustByLoc2" />
+  </wsdl:message>
+  <wsdl:message name="GetCustByLoc2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustByLoc2Response" />
+  </wsdl:message>
+  <wsdl:message name="PrintFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:PrintFiles" />
+  </wsdl:message>
+  <wsdl:message name="PrintFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:PrintFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetNextKeymastKeySoapIn">
+    <wsdl:part name="parameters" element="tns:SetNextKeymastKey" />
+  </wsdl:message>
+  <wsdl:message name="SetNextKeymastKeySoapOut">
+    <wsdl:part name="parameters" element="tns:SetNextKeymastKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmailBasicSoapIn">
+    <wsdl:part name="parameters" element="tns:EmailBasic" />
+  </wsdl:message>
+  <wsdl:message name="EmailBasicSoapOut">
+    <wsdl:part name="parameters" element="tns:EmailBasicResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmailToolSoapIn">
+    <wsdl:part name="parameters" element="tns:EmailTool" />
+  </wsdl:message>
+  <wsdl:message name="EmailToolSoapOut">
+    <wsdl:part name="parameters" element="tns:EmailToolResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveErrorTextSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveErrorText" />
+  </wsdl:message>
+  <wsdl:message name="SaveErrorTextSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveErrorTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNextKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetNextKey" />
+  </wsdl:message>
+  <wsdl:message name="GetNextKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetNextKeyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EmployeeMenuSoap">
+    <wsdl:operation name="A_Test">
+      <wsdl:input message="tns:A_TestSoapIn" />
+      <wsdl:output message="tns:A_TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <wsdl:input message="tns:GetStatesSoapIn" />
+      <wsdl:output message="tns:GetStatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustByLoc">
+      <wsdl:input message="tns:GetCustByLocSoapIn" />
+      <wsdl:output message="tns:GetCustByLocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustByLoc2">
+      <wsdl:input message="tns:GetCustByLoc2SoapIn" />
+      <wsdl:output message="tns:GetCustByLoc2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintFiles">
+      <wsdl:input message="tns:PrintFilesSoapIn" />
+      <wsdl:output message="tns:PrintFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNextKeymastKey">
+      <wsdl:input message="tns:SetNextKeymastKeySoapIn" />
+      <wsdl:output message="tns:SetNextKeymastKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailBasic">
+      <wsdl:input message="tns:EmailBasicSoapIn" />
+      <wsdl:output message="tns:EmailBasicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailTool">
+      <wsdl:input message="tns:EmailToolSoapIn" />
+      <wsdl:output message="tns:EmailToolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <wsdl:input message="tns:SaveErrorTextSoapIn" />
+      <wsdl:output message="tns:SaveErrorTextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextKey">
+      <wsdl:input message="tns:GetNextKeySoapIn" />
+      <wsdl:output message="tns:GetNextKeySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeeMenuSoap" type="tns:EmployeeMenuSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="A_Test">
+      <soap:operation soapAction="http://InternalWebService/Emp/A_Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap:operation soapAction="http://InternalWebService/Emp/GetStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustByLoc">
+      <soap:operation soapAction="http://InternalWebService/Emp/GetCustByLoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustByLoc2">
+      <soap:operation soapAction="http://InternalWebService/Emp/GetCustByLoc2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintFiles">
+      <soap:operation soapAction="http://InternalWebService/Emp/PrintFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextKeymastKey">
+      <soap:operation soapAction="http://InternalWebService/Emp/SetNextKeymastKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailBasic">
+      <soap:operation soapAction="http://InternalWebService/Emp/EmailBasic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailTool">
+      <soap:operation soapAction="http://InternalWebService/Emp/EmailTool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <soap:operation soapAction="http://InternalWebService/Emp/SaveErrorText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextKey">
+      <soap:operation soapAction="http://InternalWebService/Emp/GetNextKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EmployeeMenuSoap12" type="tns:EmployeeMenuSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="A_Test">
+      <soap12:operation soapAction="http://InternalWebService/Emp/A_Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap12:operation soapAction="http://InternalWebService/Emp/GetStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustByLoc">
+      <soap12:operation soapAction="http://InternalWebService/Emp/GetCustByLoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustByLoc2">
+      <soap12:operation soapAction="http://InternalWebService/Emp/GetCustByLoc2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintFiles">
+      <soap12:operation soapAction="http://InternalWebService/Emp/PrintFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetNextKeymastKey">
+      <soap12:operation soapAction="http://InternalWebService/Emp/SetNextKeymastKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailBasic">
+      <soap12:operation soapAction="http://InternalWebService/Emp/EmailBasic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailTool">
+      <soap12:operation soapAction="http://InternalWebService/Emp/EmailTool" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveErrorText">
+      <soap12:operation soapAction="http://InternalWebService/Emp/SaveErrorText" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextKey">
+      <soap12:operation soapAction="http://InternalWebService/Emp/GetNextKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeeMenu">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Employee Data Access</wsdl:documentation>
+    <wsdl:port name="EmployeeMenuSoap" binding="tns:EmployeeMenuSoap">
+      <soap:address location="http://oma-empp-w01:70/Emp.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EmployeeMenuSoap12" binding="tns:EmployeeMenuSoap12">
+      <soap12:address location="http://oma-empp-w01:70/Emp.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
